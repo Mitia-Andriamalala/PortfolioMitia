@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitia Andrimalala Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            color: #333;
+            line-height: 1.7;
+            background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            transition: background 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #007bff;
+        }
+
+        .nav-links a {
+            position: relative;
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #007bff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+            transform: scale(1.05);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1516321318427-4b57e7a935a7') center/cover no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .hero-content h1 span {
+            display: inline-block;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .typed-text {
+            font-weight: 700;
+            color: #f39c12;
+            min-width: 200px;
+            text-align: left;
+            position: relative;
+        }
+
+        .typed-text::after {
+            content: '|';
+            position: absolute;
+            right: -10px;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .social-links-hero {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .social-links-hero a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links-hero a:hover {
+            color: #f39c12;
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background: linear-gradient(180deg, #f9f9f9, #f0f0f0);
+        }
+
+        .about .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .about h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            padding: 2rem;
+            background: #f5f5f5;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-item p {
+            color: #666;
+        }
+
+        /* Tools Section */
+        .tools {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, #f0f0f0, #f9f9f9);
+        }
+
+        .tools h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool-item:hover {
+            transform: scale(1.1);
+        }
+
+        .tool-item img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+            object-fit: contain;
+        }
+
+        .tool-item h3 {
+            font-size: 1.2rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .skills h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .skill-item img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .skill-bar {
+            background: #e0e0e0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            flex-grow: 1;
+        }
+
+        .skill-bar-fill {
+            background: #007bff;
+            height: 100%;
+            width: 0;
+        }
+
+        /* Education & Experience Section */
+        .timeline {
+            padding: 6rem 2rem;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        .timeline h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            text-align: left;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: #007bff;
+            border-radius: 50%;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: #666;
+        }
+
+        /* Certifications Section */
+        .certifications {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: linear-gradient(180deg, #f9f9f9, #f0f0f0);
+        }
+
+        .certifications h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certification-item {
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .certification-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-item p {
+            color: #666;
+        }
+
+        /* Case Studies Section */
+        .case-studies {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .case-studies h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .case-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            perspective: 1000px;
+        }
+
+        .case-card-inner {
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+
+        .case-card:hover .case-card-inner {
+            transform: rotateY(15deg);
+        }
+
+        .case-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .case-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .case-card-content {
+            padding: 2rem;
+        }
+
+        .case-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .case-card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            display: none;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial.active {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .testimonial p {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .testimonial h4 {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .carousel-dots {
+            margin-top: 1rem;
+        }
+
+        .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #007bff;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            background: linear-gradient(180deg, #f0f0f0, #f9f9f9);
+        }
+
+        .blog h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-post img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-post-content {
+            padding: 1.5rem;
+        }
+
+        .blog-post h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-post p {
+            color: #666;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact input,
+        .contact textarea {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact input:focus,
+        .contact textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+            transform: scale(1.02);
+            outline: none;
+        }
+
+        .contact textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .contact button {
+            padding: 1rem 2rem;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact button:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact .hire-me {
+            background: #f39c12;
+        }
+
+        .contact .hire-me:hover {
+            background: #e67e22;
+        }
+
+        .resume-download {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .resume-download:hover {
+            background: #0056b3;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #f39c12;
+            transform: translateY(-3px);
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #f39c12;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: #fff;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 0.5rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .case-grid, .services-grid, .skills-grid, .tools-grid, .blog-grid, .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                padding-left: 1.5rem;
+            }
+
+            .about .profile-img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="logo">Mitia Andrimalala</div>
+            <div class="hamburger">☰</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#tools">Tools</a>
+                <a href="#skills">Skills</a>
+                <a href="#timeline">Experience</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#work">Work</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#blog">Insights</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1><span>H</span><span>i</span><span>,</span> <span>I</span><span>'</span><span>m</span> <span>Mitia</span></h1>
+            <p>I'm a <span class="typed-text"></span></p>
+            <div class="social-links-hero">
+                <a href="https://www.linkedin.com/in/mitia-andrimalala" target="_blank">LinkedIn</a>
+                <a href="https://github.com/mitiahub" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <img src="https://via.placeholder.com/180" alt="Mitia Andrimalala" class="profile-img">
+        <h2>About Me</h2>
+        <p>Hi, I’m Mitia Andrimalala RAZANADRAKOTO, a passionate Fullstack Developer and Graphic Designer based in Antananarivo, Madagascar. I combine creativity with technical expertise to build innovative, user-centered solutions. My journey in IT and design has equipped me with skills in PHP (Laravel, CodeIgniter, Symfony), Java, C#, and databases like PostgreSQL, MySQL, MongoDB, and Oracle, alongside graphic design tools like Adobe Creative Suite.</p>
+        <p>I’m currently pursuing a Bachelor’s Degree in IT & Design at IT University Antananarivo, seeking an internship to contribute to dynamic teams. I believe technology should serve people by creating accessible, meaningful experiences. With a strong foundation in teamwork, adaptability, and creative problem-solving, I’m eager to learn, grow, and make a real impact.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>My Services</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Fullstack Development</h3>
+                <p>Building robust web applications using PHP (Laravel, CodeIgniter, Symfony), Java, and C#, with expertise in front-end and back-end integration.</p>
+            </div>
+            <div class="service-item">
+                <h3>Graphic Design</h3>
+                <p>Creating visually appealing graphics for branding, social media, and print using Adobe Creative Suite and Figma.</p>
+            </div>
+            <div class="service-item">
+                <h3>UI/UX Design</h3>
+                <p>Designing intuitive user interfaces and experiences with a focus on usability and aesthetics, using Figma and user research.</p>
+            </div>
+            <div class="service-item">
+                <h3>Database Management</h3>
+                <p>Managing and optimizing databases like PostgreSQL, MySQL, MongoDB, and Oracle for efficient data handling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="tools">
+        <h2>My Tools</h2>
+        <div class="tools-grid">
+            <div class="tool-item">
+                <img src="https://www.figma.com/favicon.ico" alt="Figma">
+                <h3>Figma</h3>
+            </div>
+            <div class="tool-item">
+                <img src="https://www.adobe.com/favicon.ico" alt="Photoshop">
+                <h3>Photoshop</h3>
+            </div>
+            <div class="tool-item">
+                <img src="illustrator.png" alt="Illustrator">
+                <h3>Illustrator</h3>
+            </div>
+            <div class="tool-item">
+                <img src="https://code.visualstudio.com/favicon.ico" alt="VS Code">
+                <h3>VS Code</h3>
+            </div>
+            <div class="tool-item">
+                <img src="https://laravel.com/img/favicon/favicon.ico" alt="Laravel">
+                <h3>Laravel</h3>
+            </div>
+            <div class="tool-item">
+                <img src="https://git-scm.com/favicon.ico" alt="Git">
+                <h3>Git</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-item">
+                <img src="https://www.php.net/favicon.ico" alt="PHP Icon">
+                <div>
+                    <h3>PHP (Laravel, CodeIgniter, Symfony)</h3>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <img src="https://www.java.com/favicon.ico" alt="Java Icon">
+                <div>
+                    <h3>Java</h3>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="85%"></div></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <img src="https://learn.microsoft.com/favicon.ico" alt="C# Icon">
+                <div>
+                    <h3>C# (.NET, Windows Forms)</h3>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="80%"></div></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <img src="https://www.postgresql.org/favicon.ico" alt="Database Icon">
+                 <div>
+                    <h3>Databases (PostgreSQL, MySQL, MongoDB)</h3>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="85%"></div></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <img src="https://www.adobe.com/favicon.ico" alt="Graphic Design Icon">
+                <div>
+                    <h3>Graphic Design</h3>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div>
+                </div>
+            </div>
+            <div class="skill-item">
+                <img src="https://cdn-icons-png.flaticon.com/512/1087/1087812.png" alt="Soft Skills Icon">
+                <div>
+                    <h3>Creativity & Teamwork</h3>
+                    <div class="skill-bar"><div class="skill-bar-fill" data-width="95%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Experience Section -->
+    <section id="timeline" class="timeline">
+        <h2>Education & Experience</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <h3>Bachelor’s in IT & Design, IT University Antananarivo</h3>
+                <p>2022 - Present<br>Studying graphic design, UI/UX, front-end and back-end development, web optimization, and database management.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Graphic Designer & Content Creator, MAHAFALY Creation</h3>
+                <p>Jan 2021 - Mar 2022, Antananarivo<br>Designed visual content for social media and print, developed branding materials, and collaborated on digital campaigns.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>DTS in Multimedia, E-MEDIA Madagascar</h3>
+                <p>Jul 2020 - Jul 2022<br>Acquired skills in visual creation, video editing, animation, and web development.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Scientific Baccalaureate, Capricorn School Tulear</h3>
+                <p>2012 - 2020, Madagascar<br>Graduated with a science-focused Baccalaureate, building a foundation in logic and analytical thinking.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <h2>Certifications</h2>
+        <div class="certifications-grid">
+            <div class="certification-item">
+                <h3>C1 English Certificate</h3>
+                <p>2021, ITTI Madagascar<br>Advanced proficiency in spoken and written English.</p>
+            </div>
+            <div class="certification-item">
+                <h3>C1 English Certificate</h3>
+                <p>2022, FLTC Madagascar<br>Further validated advanced English communication skills.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="work" class="case-studies">
+        <h2>Selected Work</h2>
+        <div class="case-grid">
+            <div class="case-card">
+                <div class="case-card-inner">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" alt="Brand Identity">
+                    <div class="case-card-content">
+                        <h3>Brand Identity for Startup</h3>
+                        <p>Developed a minimalist brand identity for a local startup, increasing engagement by 40%.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-card-inner">
+                    <img src="https://images.unsplash.com/photo-1516321318427-4b57e7a935a7" alt="Website Redesign">
+                    <div class="case-card-content">
+                        <h3>Non-Profit Website Redesign</h3>
+                        <p>Redesigned a non-profit’s website using Laravel, improving user retention and accessibility.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-card-inner">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113" alt="Social Media Campaign">
+                    <div class="case-card-content">
+                        <h3>Social Media Campaign</h3>
+                        <p>Created visuals for a social media campaign at MAHAFALY Creation, boosting reach by 25%.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-card-inner">
+                    <img src="https://images.unsplash.com/photo-1556740714-3c9d6e02d882" alt="App Prototype">
+                    <div class="case-card-content">
+                        <h3>Mobile App Prototype</h3>
+                        <p>Designed a user-friendly mobile app prototype in Figma for a university project.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-card-inner">
+                    <img src="https://images.unsplash.com/photo-1509281373149-e957c6292018" alt="Poster Series">
+                    <div class="case-card-content">
+                        <h3>Event Poster Series</h3>
+                        <p>Designed a series of event posters for a university club, blending bold typography and visuals.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="case-card">
+                <div class="case-card-inner">
+                    <img src="https://images.unsplash.com/photo-1611068815476-7d4917c035b7" alt="Video Animation">
+                    <div class="case-card-content">
+                        <h3>Video Animation Project</h3>
+                        <p>Created a promotional video animation for a client, using skills from my DTS in Multimedia.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>What People Say</h2>
+        <div class="testimonial-carousel">
+            <div class="testimonial active">
+                <p>“Mitia’s creativity and technical skills brought our campaign to life. A true asset!”</p>
+                <h4>Marketing Lead, MAHAFALY Creation</h4>
+            </div>
+            <div class="testimonial">
+                <p>“Working with Mitia was seamless. His designs are innovative and user-focused.”</p>
+                <h4>Professor, IT University Antananarivo</h4>
+            </div>
+            <div class="testimonial">
+                <p>“Mitia’s adaptability and teamwork made our project a success.”</p>
+                <h4>Peer, E-MEDIA Madagascar</h4>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <span class="carousel-dot active"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <h2>Insights & Reflections</h2>
+        <div class="blog-grid">
+            <div class="blog-post">
+                <img src="https://images.unsplash.com/photo-1516321318427-4b57e7a935a7" alt="Laravel Tips">
+                <div class="blog-post-content">
+                    <h3>Top Laravel Tips for Beginners</h3>
+                    <p>Sharing my experience with Laravel to help new developers build robust applications.</p>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="https://images.unsplash.com/photo-1556740714-3c9d6e02d882" alt="UI/UX Trends">
+                <div class="blog-post-content">
+                    <h3>2025 UI/UX Design Trends</h3>
+                    <p>Exploring the latest trends in user interface and experience design.</p>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="https://images.unsplash.com/photo-1509281373149-e957c6292018" alt="Graphic Design">
+                <div class="blog-post-content">
+                    <h3>The Art of Minimalist Graphic Design</h3>
+                    <p>How simplicity can create powerful visual impact in branding.</p>
+                </div>
+            </div>
+            <div class="blog-post">
+                <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113" alt="Database Optimization">
+                <div class="blog-post-content">
+                    <h3>Optimizing Databases for Performance</h3>
+                    <p>Tips for managing PostgreSQL and MongoDB efficiently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Get in Touch</h2>
+        <p>Email: <a href="mailto:multiaandrimalala@gmail.com">multiaandrimalala@gmail.com</a> | Phone: <a href="tel:+261385599347">+261 38 55 993 47</a></p>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="hire-me">Hire Me</button>
+        </form>
+        <a href="mitia_resume.pdf" class="resume-download" download>Download My Resume</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Let’s build something extraordinary together.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/mitia-andrimalala" target="_blank">LinkedIn</a>
+            <a href="https://github.com/mitiahub" target="_blank">GitHub</a>
+            <a href="mailto:multiaandrimalala@gmail.com">Email</a>
+        </div>
+        <p>© 2025 Mitia Andrimalala RAZANADRAKOTO. All rights reserved.</p>
+        <a href="#home" class="back-to-top">Back to Top</a>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('.nav-links a, .back-to-top').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                navLinks.classList.remove('active');
+                hamburger.textContent = '☰';
+            });
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+
+        // Hero Animations
+        gsap.from('.hero-content h1 span', {
+            y: 50,
+            opacity: 0,
+            duration: 0.5,
+            stagger: 0.05,
+            delay: 0.5
+        });
+        gsap.from('.hero-content p', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: 1
+        });
+        gsap.from('.social-links-hero a', {
+            y: 20,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.2,
+            delay: 1.5
+        });
+        gsap.from('.profile-img', {
+            scrollTrigger: {
+                trigger: '.about',
+                start: 'top 80%',
+            },
+            scale: 0.8,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'back.out(1.7)'
+        });
+
+        // Typed Text Animation
+        const typedText = document.querySelector('.typed-text');
+        const words = ['Fullstack Developer', 'Graphic Designer'];
+        let wordIndex = 0;
+
+        function typeWord() {
+            gsap.to(typedText, {
+                duration: 1,
+                text: words[wordIndex],
+                ease: 'none',
+                onComplete: () => {
+                    gsap.to(typedText, {
+                        duration: 0.5,
+                        text: '',
+                        delay: 1,
+                        ease: 'none',
+                        onComplete: () => {
+                            wordIndex = (wordIndex + 1) % words.length;
+                            typeWord();
+                        }
+                    });
+                }
+            });
+        }
+        gsap.to(typedText, { opacity: 1, duration: 0, delay: 1.5, onComplete: typeWord });
+
+        // Section Title Animations
+        document.querySelectorAll('section h2').forEach(h2 => {
+            gsap.from(h2, {
+                scrollTrigger: {
+                    trigger: h2,
+                    start: 'top 80%',
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out'
+            });
+        });
+
+        // About Section Animations
+        gsap.from('.about p', {
+            scrollTrigger: {
+                trigger: '.about',
+                start: 'top 80%',
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2
+        });
+
+        // Services Animations
+        gsap.utils.toArray('.service-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2,
+                ease: 'power2.out'
+            });
+        });
+
+        // Tools Animations
+        gsap.utils.toArray('.tool-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                },
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2,
+                ease: 'back.out(1.7)'
+            });
+        });
+
+        // Skill Bar Animations
+        gsap.utils.toArray('.skill-bar-fill').forEach(bar => {
+            gsap.to(bar, {
+                scrollTrigger: {
+                    trigger: bar,
+                    start: 'top 90%',
+                },
+                width: bar.dataset.width,
+                duration: 1.5,
+                ease: 'bounce.out'
+            });
+        });
+
+        // Timeline Animations
+        gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                },
+                x: -50,
+                scale: 0.9,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.3,
+                ease: 'power2.out'
+            });
+        });
+
+        // Certifications Animations
+        gsap.utils.toArray('.certification-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%',
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2,
+                ease: 'power2.out'
+            });
+        });
+
+        // Case Card Animations
+        gsap.utils.toArray('.case-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                },
+                y: 100,
+                opacity: 0,
+                rotationY: 90,
+                duration: 1,
+                delay: i * 0.2,
+                ease: 'back.out(1.7)'
+            });
+        });
+
+        // Testimonial Carousel
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentTestimonial = 0;
+
+        function showTestimonial(index) {
+            testimonials.forEach((t, i) => {
+                t.classList.toggle('active', i === index);
+            });
+            dots.forEach((d, i) => {
+                d.classList.toggle('active', i === index);
+            });
+        }
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentTestimonial = i;
+                showTestimonial(currentTestimonial);
+            });
+        });
+
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+
+        // Blog Post Animations
+        gsap.utils.toArray('.blog-post').forEach((post, i) => {
+            gsap.from(post, {
+                scrollTrigger: {
+                    trigger: post,
+                    start: 'top 85%',
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2,
+                ease: 'power2.out'
+            });
+        });
+
+        // Contact Form Animation
+        gsap.utils.toArray('.contact input, .contact textarea, .contact button, .resume-download').forEach((el, i) => {
+            gsap.from(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 90%',
+                },
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.2,
+                ease: 'power2.out'
+            });
+        });
+    </script>
+</body>
+</html>
