@@ -932,14 +932,18 @@
         /* Contact Section */
         .contact {
             padding: 10rem 3rem;
-            max-width: 420px;
-            margin: 6rem auto 0 auto;
+            max-width: 600px;
+            min-height: 70vh;
+            margin: 7vh auto 7vh auto;
             text-align: center;
             background: linear-gradient(135deg, #181818 70%, #232323 100%);
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 212, 255, 0.10), 0 1.5px 8px rgba(0,0,0,0.25);
             position: relative;
             animation: fadeInUp 1.2s cubic-bezier(.23,1.02,.32,1) 0.2s both;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         @keyframes fadeInUp {
@@ -966,6 +970,10 @@
             flex-direction: column;
             gap: 1.3rem;
             margin-bottom: 1.5rem;
+            width: 100%;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact input,
@@ -978,6 +986,7 @@
             font-size: 1.05rem;
             transition: border-color 0.3s, box-shadow 0.3s;
             box-shadow: 0 1px 4px rgba(0,212,255,0.04);
+            width: 100%;
         }
 
         .contact input:focus,
@@ -1059,6 +1068,7 @@
             .contact {
                 padding: 3.5rem 0.7rem;
                 max-width: 98vw;
+                min-height: unset;
             }
             .contact h2 {
                 font-size: 1.3rem;
@@ -2043,12 +2053,20 @@
                     formStatus.className = 'form-status success';
                     contactForm.reset();
                     showModal(); // Show the popup
+                    setTimeout(() => {
+                        formStatus.textContent = '';
+                        formStatus.className = 'form-status';
+                    }, 2500);
                 } else {
                     throw new Error('Erreur lors de l\'envoi du message');
                 }
             } catch (error) {
                 formStatus.textContent = 'Une erreur est survenue. Veuillez réessayer plus tard.';
                 formStatus.className = 'form-status error';
+                setTimeout(() => {
+                    formStatus.textContent = '';
+                    formStatus.className = 'form-status';
+                }, 3500);
             }
         });
     </script>
