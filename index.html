@@ -1447,6 +1447,79 @@
             color: #ff0000;
             border: 1px solid #ff0000;
         }
+
+        /* Popup Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90%;
+            margin: auto;
+            position: relative;
+            transform: translateY(-50px);
+            transition: transform 0.3s ease;
+            border: 2px solid #00D4FF;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-content h3 {
+            color: #00D4FF;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .modal-content p {
+            color: #B0B0B0;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #B0B0B0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #00D4FF;
+        }
+
+        .modal-icon {
+            text-align: center;
+            font-size: 3rem;
+            color: #00D4FF;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -1730,6 +1803,16 @@
         <a href="#home" class="back-to-top">Back to Top</a>
     </footer>
 
+    <!-- Modal Popup -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-icon">✓</div>
+            <h3>Message Envoyé !</h3>
+            <p>Votre message a été envoyé avec succès. Je vous répondrai dès que possible.</p>
+        </div>
+    </div>
+
     <script>
         // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
@@ -1988,6 +2071,22 @@
         const contactForm = document.getElementById('contact-form');
         const formStatus = document.getElementById('form-status');
 
+        // Modal functionality
+        const modal = document.getElementById('successModal');
+        const closeModal = document.querySelector('.modal-close');
+
+        function showModal() {
+            modal.classList.add('active');
+            setTimeout(() => {
+                modal.classList.remove('active');
+            }, 3000);
+        }
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        // Update form submission
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -2005,6 +2104,7 @@
                     formStatus.textContent = 'Message envoyé avec succès ! Je vous répondrai dès que possible.';
                     formStatus.className = 'form-status success';
                     contactForm.reset();
+                    showModal(); // Show the popup
                 } else {
                     throw new Error('Erreur lors de l\'envoi du message');
                 }
