@@ -1474,6 +1474,74 @@
                 font-size: 0.9rem;
             }
         }
+
+        /* Popup Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            opacity: 0;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            background: #1A1A1A;
+            padding: 2.5rem 2rem 2rem 2rem;
+            border-radius: 15px;
+            max-width: 400px;
+            width: 90vw;
+            margin: auto;
+            position: relative;
+            transform: translateY(-30px) scale(0.98);
+            transition: transform 0.3s cubic-bezier(.23,1.02,.32,1);
+            border: 2px solid #00D4FF;
+            box-shadow: 0 0 32px rgba(0, 212, 255, 0.25);
+            text-align: center;
+        }
+        .modal.active .modal-content {
+            transform: translateY(0) scale(1);
+        }
+        .modal-content h3 {
+            color: #00D4FF;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .modal-content p {
+            color: #B0B0B0;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #B0B0B0;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .modal-close:hover {
+            color: #00D4FF;
+        }
+        .modal-icon {
+            text-align: center;
+            font-size: 3rem;
+            color: #00D4FF;
+            margin-bottom: 1rem;
+        }
     </style>
 </head>
 <body>
@@ -1760,7 +1828,7 @@
     <!-- Modal Popup -->
     <div id="successModal" class="modal">
         <div class="modal-content">
-            <button class="modal-close">&times;</button>
+            <button class="modal-close" aria-label="Fermer">&times;</button>
             <div class="modal-icon">✓</div>
             <h3>Message Envoyé !</h3>
             <p>Votre message a été envoyé avec succès. Je vous répondrai dès que possible.</p>
