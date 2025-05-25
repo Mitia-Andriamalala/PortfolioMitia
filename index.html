@@ -1426,6 +1426,27 @@
                 font-size: 0.9rem;
             }
         }
+
+        .form-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .form-status.success {
+            display: block;
+            background-color: rgba(0, 255, 0, 0.1);
+            color: #00ff00;
+            border: 1px solid #00ff00;
+        }
+
+        .form-status.error {
+            display: block;
+            background-color: rgba(255, 0, 0, 0.1);
+            color: #ff0000;
+            border: 1px solid #ff0000;
+        }
     </style>
 </head>
 <body>
@@ -1466,9 +1487,9 @@
         <img src="photo1.png" alt="Mitia Andrimalala" class="profile-img">
         <div class="about-content">
             <h2>About Me</h2>
-            <p>I’m Mitia Andrimalala, a passionate Fullstack Developer and Graphic Designer based in Antananarivo, Madagascar. I combine creativity with technical expertise to build innovative, user-centered solutions.</p>
+            <p>I'm Mitia Andrimalala, a passionate Fullstack Developer and Graphic Designer based in Antananarivo, Madagascar. I combine creativity with technical expertise to build innovative, user-centered solutions.</p>
             <p>My journey in IT and design has equipped me with skills in PHP (Laravel, CodeIgniter, Symfony), Java, C#, and databases like PostgreSQL, MySQL, MongoDB, and Oracle, alongside graphic design tools like Adobe Creative Suite.</p>
-            <p>I’m currently pursuing a Bachelor’s Degree in IT & Design at IT University Antananarivo, seeking an internship to contribute to dynamic teams.</p>
+            <p>I'm currently pursuing a Bachelor's Degree in IT & Design at IT University Antananarivo, seeking an internship to contribute to dynamic teams.</p>
         </div>
     </section>
 
@@ -1577,7 +1598,7 @@
         <h2>Education & Experience</h2>
         <div class="timeline-container">
             <div class="timeline-item">
-                <h3>Bachelor’s in IT & Design</h3>
+                <h3>Bachelor's in IT & Design</h3>
                 <p>2022 - Present, IT University Antananarivo<br>Studying graphic design, UI/UX, front-end and back-end development, web optimization, and database management.</p>
             </div>
             <div class="timeline-item">
@@ -1625,7 +1646,7 @@
                 <img src="flora.png" alt="Website Redesign">
                 <div class="case-card-content">
                     <h3>Non-Profit Website Redesign</h3>
-                    <p>Redesigned a non-profit’s website using Laravel, improving user retention and accessibility.</p>
+                    <p>Redesigned a non-profit's website using Laravel, improving user retention and accessibility.</p>
                 </div>
             </div>
             <div class="case-card">
@@ -1664,15 +1685,15 @@
         <h2>What People Say</h2>
         <div class="testimonial-carousel">
             <div class="testimonial active">
-                <p>“Mitia’s creativity and technical skills brought our campaign to life. A true asset!”</p>
+                <p>"Mitia's creativity and technical skills brought our campaign to life. A true asset!"</p>
                 <h4>Marketing Lead, MAHAFALY Creation</h4>
             </div>
             <div class="testimonial">
-                <p>“Working with Mitia was seamless. His designs are innovative and user-focused.”</p>
+                <p>"Working with Mitia was seamless. His designs are innovative and user-focused."</p>
                 <h4>Professor, IT University Antananarivo</h4>
             </div>
             <div class="testimonial">
-                <p>“Mitia’s adaptability and teamwork made our project a success.”</p>
+                <p>"Mitia's adaptability and teamwork made our project a success."</p>
                 <h4>Employee, E-MEDIA Madagascar</h4>
             </div>
         </div>
@@ -1687,18 +1708,19 @@
     <section id="contact" class="contact">
         <h2>Get in Touch</h2>
         <p>Email: <a href="mailto:mitiaandrimalala@gmail.com">mitiaandrimalala@gmail.com</a> | Phone: <a href="tel:+261385599347">+261 38 55 993 47</a></p>
-        <form action="https://formspree.io/f/your-form-id" method="POST">
+        <form id="contact-form" action="https://formspree.io/f/xrbqwqly" method="POST">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Hire Me</button>
+            <div id="form-status" class="form-status"></div>
         </form>
-        <a href="mitia_resume.pdf" class="resume-download" download>Download My Resume</a>
+        <a href="assets/UpdateCV.pdf" class="resume-download" download>Download My Resume</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>Let’s build something extraordinary together.</p>
+        <p>Let's build something extraordinary together.</p>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/mitia-andrimalala" target="_blank">LinkedIn</a>
             <a href="https://github.com/mitiahub" target="_blank">GitHub</a>
@@ -1963,18 +1985,33 @@
         });
 
         // Contact Form Animation
-        gsap.utils.toArray('.contact input, .contact textarea, .contact button, .resume-download').forEach((el, i) => {
-            gsap.from(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 90%'
-                },
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                delay: i * 0.2,
-                ease: 'power3.out'
-            });
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            try {
+                const formData = new FormData(contactForm);
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    formStatus.textContent = 'Message envoyé avec succès ! Je vous répondrai dès que possible.';
+                    formStatus.className = 'form-status success';
+                    contactForm.reset();
+                } else {
+                    throw new Error('Erreur lors de l\'envoi du message');
+                }
+            } catch (error) {
+                formStatus.textContent = 'Une erreur est survenue. Veuillez réessayer plus tard.';
+                formStatus.className = 'form-status error';
+            }
         });
     </script>
 </body>
