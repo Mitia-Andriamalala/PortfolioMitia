@@ -931,19 +931,15 @@
 
         /* Contact Section */
         .contact {
-            padding: 10rem 3rem;
-            max-width: 600px;
-            min-height: 70vh;
-            margin: 7vh auto 7vh auto;
+            padding: 8rem 2rem;
+            max-width: 1200px;
+            margin: 6rem auto 6rem auto;
             text-align: center;
             background: linear-gradient(135deg, #181818 70%, #232323 100%);
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 212, 255, 0.10), 0 1.5px 8px rgba(0,0,0,0.25);
             position: relative;
             animation: fadeInUp 1.2s cubic-bezier(.23,1.02,.32,1) 0.2s both;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         @keyframes fadeInUp {
@@ -969,11 +965,13 @@
             display: flex;
             flex-direction: column;
             gap: 1.3rem;
-            margin-bottom: 1.5rem;
+            margin: 0 auto 1.5rem auto;
             width: 100%;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 700px;
+            background: rgba(26,26,26,0.92);
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,212,255,0.07);
+            padding: 2.5rem 2rem 2rem 2rem;
         }
 
         .contact input,
@@ -987,6 +985,7 @@
             transition: border-color 0.3s, box-shadow 0.3s;
             box-shadow: 0 1px 4px rgba(0,212,255,0.04);
             width: 100%;
+            margin-bottom: 0.5rem;
         }
 
         .contact input:focus,
@@ -1062,6 +1061,13 @@
             background-color: rgba(255, 0, 0, 0.08);
             color: #ff4d4d;
             border: 1px solid #ff4d4d;
+        }
+
+        @media (max-width: 1024px) {
+            .contact form {
+                max-width: 98vw;
+                padding: 1.2rem 0.5rem;
+            }
         }
 
         @media (max-width: 600px) {
@@ -2049,14 +2055,10 @@
                 });
 
                 if (response.ok) {
-                    formStatus.textContent = 'Message envoyé avec succès ! Je vous répondrai dès que possible.';
-                    formStatus.className = 'form-status success';
+                    formStatus.textContent = '';
+                    formStatus.className = 'form-status';
                     contactForm.reset();
-                    showModal(); // Show the popup
-                    setTimeout(() => {
-                        formStatus.textContent = '';
-                        formStatus.className = 'form-status';
-                    }, 2500);
+                    showModal(); // Affiche le popup uniquement après envoi réussi
                 } else {
                     throw new Error('Erreur lors de l\'envoi du message');
                 }
