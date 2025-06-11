@@ -760,175 +760,6 @@
             font-size: 1.1rem;
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            padding: 10rem 3rem;
-            background: #121212;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials h2 {
-            font-size: 3rem;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .testimonials h2::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: #00D4FF;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
-        }
-
-        .testimonials h2:hover::after {
-            width: 100px;
-        }
-
-        .testimonial-carousel {
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .testimonial {
-            display: none;
-            opacity: 0;
-            transition: all 0.5s ease;
-            padding: 2rem;
-            background: #1A1A1A;
-            border-radius: 15px;
-            margin: 0 1rem;
-        }
-
-        .testimonial.active {
-            display: block;
-            opacity: 1;
-        }
-
-        .testimonial p {
-            font-size: 1.4rem;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: #B0B0B0;
-            line-height: 1.8;
-        }
-
-        .testimonial h4 {
-            font-size: 1.2rem;
-            color: #00D4FF;
-        }
-
-        .carousel-dots {
-            margin-top: 2.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .carousel-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background: #2A2A2A;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot:hover {
-            transform: scale(1.2);
-        }
-
-        .carousel-dot.active {
-            background: #00D4FF;
-            transform: scale(1.5);
-        }
-
-        /* Blog Section */
-        .blog {
-            padding: 10rem 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #0A0A0A 70%, #121212 100%);
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.1);
-        }
-
-        .blog h2 {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .blog h2::after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background: #00D4FF;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: width 0.3s ease;
-        }
-
-        .blog h2:hover::after {
-            width: 100px;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2.5rem;
-            padding: 0 1rem;
-        }
-
-        .blog-post {
-            background: #1A1A1A;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .blog-post:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .blog-post img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .blog-post:hover img {
-            transform: scale(1.1);
-        }
-
-        .blog-post-content {
-            padding: 2rem;
-        }
-
-        .blog-post h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .blog-post p {
-            color: #B0B0B0;
-            font-size: 1.1rem;
-        }
-
         /* Contact Section */
         .contact {
             padding: 8rem 2rem;
@@ -1559,7 +1390,6 @@
                 <a href="#timeline">Experience</a>
                 <a href="#certifications">Certifications</a>
                 <a href="#work">Work</a>
-                <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -1772,30 +1602,6 @@
                     <p>A promotional poster and flyer for a  sports brand.</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <h2>What People Say</h2>
-        <div class="testimonial-carousel">
-            <div class="testimonial active">
-                <p>"Mitia's creativity and technical skills brought our campaign to life. A true asset!"</p>
-                <h4>Marketing Lead, MAHAFALY Creation</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Working with Mitia was seamless. His designs are innovative and user-focused."</p>
-                <h4>Professor, IT University Antananarivo</h4>
-            </div>
-            <div class="testimonial">
-                <p>"Mitia's adaptability and teamwork made our project a success."</p>
-                <h4>Employee, E-MEDIA Madagascar</h4>
-            </div>
-        </div>
-        <div class="carousel-dots">
-            <span class="carousel-dot active"></span>
-            <span class="carousel-dot"></span>
-            <span class="carousel-dot"></span>
         </div>
     </section>
 
@@ -2043,47 +1849,6 @@
                 y: 150,
                 opacity: 0,
                 duration: 1.2,
-                delay: i * 0.2,
-                ease: 'power3.out'
-            });
-        });
-
-        // Testimonial Carousel
-        const testimonials = document.querySelectorAll('.testimonial');
-        const dots = document.querySelectorAll('.carousel-dot');
-        let currentTestimonial = 0;
-
-        function showTestimonial(index) {
-            testimonials.forEach((t, i) => {
-                t.classList.toggle('active', i === index);
-            });
-            dots.forEach((d, i) => {
-                d.classList.toggle('active', i === index);
-            });
-        }
-
-        dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                currentTestimonial = i;
-                showTestimonial(currentTestimonial);
-            });
-        });
-
-        setInterval(() => {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }, 7000);
-
-        // Blog Post Animations
-        gsap.utils.toArray('.blog-post').forEach((post, i) => {
-            gsap.from(post, {
-                scrollTrigger: {
-                    trigger: post,
-                    start: 'top 85%'
-                },
-                y: 100,
-                opacity: 0,
-                duration: 1,
                 delay: i * 0.2,
                 ease: 'power3.out'
             });
