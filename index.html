@@ -1542,28 +1542,6 @@
             color: #00D4FF;
             margin-bottom: 1rem;
         }
-
-        .image-slider {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .slider-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .slider-image.active {
-            opacity: 1;
-        }
     </style>
 </head>
 <body>
@@ -1753,21 +1731,6 @@
         <h2>Selected Work</h2>
         <div class="case-grid">
             <div class="case-card">
-                <div class="case-card-inner">
-                    <div class="image-slider">
-                        <img src="affiche1.png" alt="Video Animation" class="slider-image active">
-                        <img src="affiche2.png" alt="Video Animation" class="slider-image">
-                        <img src="Flyers1.png" alt="Video Animation" class="slider-image">
-                        <img src="Flyers2.png" alt="Video Animation" class="slider-image">
-                        <img src="Flyers3.png" alt="Video Animation" class="slider-image">
-                    </div>
-                    <div class="case-card-content">
-                        <h3>Print Advertising Project</h3>
-                        <p>Created a promotional poster and flyer for a fictional sports brand.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="case-card">
                 <img src="official.png" alt="Brand Identity">
                 <div class="case-card-content">
                     <h3>Brand Identity for Startup</h3>
@@ -1800,6 +1763,13 @@
                 <div class="case-card-content">
                     <h3>Event Poster Series</h3>
                     <p>Designed a series of event posters for a university club, blending bold typography and visuals.</p>
+                </div>
+            </div>
+            <div class="case-card">
+                <img src="affiche2.png" alt="Video Animation">
+                <div class="case-card-content">
+                    <h3>Print Advertising Project</h3>
+                    <p>Created a promotional poster and flyer for a fictional sports brand.</p>
                 </div>
             </div>
         </div>
@@ -2168,21 +2138,6 @@
                     formStatus.className = 'form-status';
                 }, 3500);
             }
-        });
-
-        // Image Slider Animation
-        const videoCard = document.querySelector('.case-card:has(.image-slider)');
-        const sliderImages = videoCard.querySelectorAll('.slider-image');
-        let currentImageIndex = 0;
-
-        function showNextImage() {
-            sliderImages[currentImageIndex].classList.remove('active');
-            currentImageIndex = (currentImageIndex + 1) % sliderImages.length;
-            sliderImages[currentImageIndex].classList.add('active');
-        }
-
-        videoCard.addEventListener('click', () => {
-            showNextImage();
         });
     </script>
 </body>
