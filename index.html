@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mitia Andrimalala Portfolio</title>
+    <title>Portfolio Mitia Andrimalala</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -471,15 +471,15 @@
 
         .skill-item {
             display: flex;
-            flex-direction: column; /* Changed to column to stack items vertically */
+            flex-direction: column;
             align-items: center;
             gap: 1rem;
             background: #1A1A1A;
-            padding: 1.5rem; /* Increased padding for better spacing */
+            padding: 1.5rem;
             border-radius: 10px;
             transition: all 0.4s ease;
             cursor: pointer;
-            max-width: 400px; /* Increased to give more space for text */
+            max-width: 400px;
             width: 100%;
         }
 
@@ -503,13 +503,12 @@
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            text-align: center; /* Center-align text */
+            text-align: center;
         }
 
         .skill-details h3 {
-            font-size: 1.2rem; /* Slightly larger for readability */
-            /* Removed white-space: nowrap, overflow: hidden, and text-overflow: ellipsis */
-            line-height: 1.4; /* Added to improve readability for multiline text */
+            font-size: 1.2rem;
+            line-height: 1.4;
         }
 
         .skill-bar {
@@ -517,7 +516,7 @@
             height: 12px;
             border-radius: 6px;
             overflow: hidden;
-            width: 150px; /* Kept the same */
+            width: 150px;
             position: relative;
         }
 
@@ -679,7 +678,7 @@
             z-index: 1;
         }
 
-        /* Case Studies Section */
+        /* Case Studies Section - MODIFIEE */
         .case-studies {
             padding: 10rem 3rem;
             max-width: 1400px;
@@ -726,11 +725,13 @@
             transition: all 0.4s ease;
             cursor: pointer;
             position: relative;
+            text-decoration: none;
+            color: inherit;
         }
 
         .case-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.4);
         }
 
         .case-card img {
@@ -753,11 +754,64 @@
         .case-card h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .case-card:hover h3 {
+            color: #00D4FF;
         }
 
         .case-card p {
             color: #B0B0B0;
             font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Nouveau style pour les liens de projets */
+        .project-link {
+            color: #00D4FF;
+            font-weight: 600;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .case-card:hover .project-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .case-card:hover .project-link::after {
+            transform: translateX(5px);
+        }
+
+        /* Effet de pulse sur les cartes */
+        .case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 20px;
+            background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .case-card:hover::before {
+            opacity: 1;
         }
 
         /* Contact Section */
@@ -1024,16 +1078,16 @@
 
             .skill-item {
                 padding: 1rem 1.5rem;
-                max-width: 350px; /* Adjusted to accommodate longer text */
+                max-width: 350px;
             }
 
             .skill-details h3 {
-                font-size: 1.1rem; /* Reduced font size for better fit */
+                font-size: 1.1rem;
             }
 
             .skill-bar {
                 height: 10px;
-                width: 120px; /* Reduced width to fit smaller screens */
+                width: 120px;
             }
 
             .case-card img {
@@ -1143,12 +1197,12 @@
             }
 
             .skill-details h3 {
-                font-size: 1rem; /* Further reduced for smaller screens */
+                font-size: 1rem;
             }
 
             .skill-bar {
                 height: 8px;
-                width: 100px; /* Further reduced to fit smaller screens */
+                width: 100px;
             }
 
             .timeline-item {
@@ -1270,11 +1324,11 @@
             }
 
             .skill-details h3 {
-                font-size: 0.9rem; /* Further reduced for very small screens */
+                font-size: 0.9rem;
             }
 
             .skill-bar {
-                width: 80px; /* Further reduced for very small screens */
+                width: 80px;
             }
 
             .case-card img {
@@ -1382,14 +1436,14 @@
             <div class="logo">Mitia Andrimalala</div>
             <div class="hamburger">☰</div>
             <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
+                <a href="#home">Accueil</a>
+                <a href="#about">À Propos</a>
                 <a href="#services">Services</a>
-                <a href="#tools">Tools</a>
-                <a href="#skills">Skills</a>
-                <a href="#timeline">Experience</a>
+                <a href="#tools">Outils</a>
+                <a href="#skills">Compétences</a>
+                <a href="#timeline">Expérience</a>
                 <a href="#certifications">Certifications</a>
-                <a href="#work">Work</a>
+                <a href="#work">Réalisations</a>
                 <a href="#contact">Contact</a>
             </div>
         </nav>
@@ -1398,8 +1452,8 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1><span>H</span><span>i</span><span>,</span> <span>I</span><span>'</span><span>m</span> <span>Mitia</span></h1>
-            <p>I'm a <span class="typed-text"></span></p>
+            <h1><span>S</span><span>a</span><span>l</span><span>u</span><span>t</span><span>,</span> <span>je</span> <span>s</span><span>u</span><span>i</span><span>s</span> <span>Mitia</span></h1>
+            <p>Je suis <span class="typed-text"></span></p>
             <div class="social-links-hero">
                 <a href="https://www.linkedin.com/in/mitia-andrimalala-9a0709309/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/Mitia-Andriamalala" target="_blank">GitHub</a>
@@ -1411,43 +1465,43 @@
     <section id="about" class="about">
         <img src="photo1.png" alt="Mitia Andrimalala" class="profile-img">
         <div class="about-content">
-            <h2>About Me</h2>
-            <p>I'm Mitia Andrimalala, a passionate Fullstack Developer and Graphic Designer based in Antananarivo, Madagascar. I combine creativity with technical expertise to build innovative, user-centered solutions.</p>
-            <p>My journey in IT and design has equipped me with skills in PHP (Laravel, CodeIgniter, Symfony), Java, C#, and databases like PostgreSQL, MySQL, MongoDB, and Oracle, alongside graphic design tools like Adobe Creative Suite.</p>
-            <p>I'm currently pursuing a Bachelor's Degree in IT & Design at IT University Antananarivo, seeking an internship to contribute to dynamic teams.</p>
+            <h2>À Propos de Moi</h2>
+            <p>Je suis Mitia Andrimalala, un développeur Fullstack et Designer Graphique passionné basé à Antananarivo, Madagascar. Je combine créativité et expertise technique pour créer des solutions innovantes et centrées sur l'utilisateur.</p>
+            <p>Mon parcours en informatique et en design m'a permis d'acquérir des compétences en PHP (Laravel, CodeIgniter, Symfony), Java, C#, et des bases de données comme PostgreSQL, MySQL, MongoDB et Oracle, ainsi que les outils de design graphique comme Adobe Creative Suite.</p>
+            <p>Je poursuis actuellement une Licence en Informatique & Design à IT University Antananarivo et recherche un stage pour contribuer à des équipes dynamiques.</p>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
-        <h2>My Services</h2>
+        <h2>Mes Services</h2>
         <div class="services-grid">
             <div class="service-item">
-                <h3>Fullstack Development</h3>
-                <p>Building robust web applications using PHP (Laravel, CodeIgniter, Symfony), Java, and C#, with expertise in front-end and back-end integration.</p>
+                <h3>Développement Fullstack</h3>
+                <p>Création d'applications web robustes en utilisant PHP (Laravel, CodeIgniter, Symfony), Java et C#, avec expertise en intégration front-end et back-end.</p>
             </div>
             <div class="service-item">
-                <h3>Graphic Design</h3>
-                <p>Creating visually appealing graphics for branding, social media, and print using Adobe Creative Suite and Figma.</p>
+                <h3>Design Graphique</h3>
+                <p>Création de graphiques visuellement attrayants pour le branding, les réseaux sociaux et l'impression en utilisant Adobe Creative Suite et Figma.</p>
             </div>
             <div class="service-item">
-                <h3>UI/UX Design</h3>
-                <p>Designing intuitive user interfaces and experiences with a focus on usability and aesthetics, using Figma and user research.</p>
+                <h3>Design UI/UX</h3>
+                <p>Conception d'interfaces utilisateur intuitives et d'expériences avec un focus sur l'utilisabilité et l'esthétique, utilisant Figma et la recherche utilisateur.</p>
             </div>
             <div class="service-item">
-                <h3>Database Management</h3>
-                <p>Managing and optimizing databases like PostgreSQL, MySQL, MongoDB, and Oracle for efficient data handling.</p>
+                <h3>Gestion de Bases de Données</h3>
+                <p>Gestion et optimisation de bases de données comme PostgreSQL, MySQL, MongoDB et Oracle pour une manipulation efficace des données.</p>
             </div>
         </div>
     </section>
 
     <!-- Tools Section -->
     <section id="tools" class="tools">
-        <h2>My Tools</h2>
+        <h2>Mes Outils</h2>
         <div class="tools-grid">
             <div class="tool-item">
-                <img src="xd.png" alt="Figma">
-                <h3>Xd</h3>
+                <img src="xd.png" alt="Adobe XD">
+                <h3>Adobe XD</h3>
             </div>
             <div class="tool-item">
                 <img src="photoshop1.png" alt="Photoshop">
@@ -1458,16 +1512,16 @@
                 <h3>Illustrator</h3>
             </div>
             <div class="tool-item">
-                <img src="Php2.png" alt="Intellij">
-                <h3>Phpstorm</h3>
+                <img src="Php2.png" alt="PHPStorm">
+                <h3>PHPStorm</h3>
             </div>
             <div class="tool-item">
-                <img src="JetBrains.svg" alt="Intellij">
-                <h3>Intellij</h3>
+                <img src="JetBrains.svg" alt="IntelliJ">
+                <h3>IntelliJ</h3>
             </div>
             <div class="tool-item">
-                <img src="dg.png" alt="Intellij">
-                <h3>Datagrip</h3>
+                <img src="dg.png" alt="DataGrip">
+                <h3>DataGrip</h3>
             </div>
             <div class="tool-item">
                 <img src="github2.png" alt="Git">
@@ -1478,40 +1532,40 @@
 
     <!-- Skills Section -->
     <section id="skills" class="skills">
-        <h2>My Skills</h2>
+        <h2>Mes Compétences</h2>
         <div class="skills-grid">
             <div class="skill-item">
-                <img src="php.png" alt="PHP Icon">
+                <img src="php.png" alt="Icône PHP">
                 <div class="skill-details">
                     <h3>PHP (Laravel, CodeIgniter, Symfony)</h3>
                     <div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div>
                 </div>
             </div>
             <div class="skill-item">
-                <img src="java.png" alt="Java Icon">
+                <img src="java.png" alt="Icône Java">
                 <div class="skill-details">
-                    <h3>Java (SpringBoot, Java Fx)</h3>
+                    <h3>Java (SpringBoot, JavaFX)</h3>
                     <div class="skill-bar"><div class="skill-bar-fill" data-width="75%"></div></div>
                 </div>
             </div>
             <div class="skill-item">
-                <img src="database1.png" alt="Database Icon">
+                <img src="database1.png" alt="Icône Base de Données">
                 <div class="skill-details">
-                    <h3>Databases (PostgreSQL, MySQL)</h3>
+                    <h3>Bases de Données (PostgreSQL, MySQL)</h3>
                     <div class="skill-bar"><div class="skill-bar-fill" data-width="80%"></div></div>
                 </div>
             </div>
             <div class="skill-item">
-                <img src="layers.png" alt="Graphic Design Icon">
+                <img src="layers.png" alt="Icône Design Graphique">
                 <div class="skill-details">
-                    <h3>Graphic Design</h3>
+                    <h3>Design Graphique</h3>
                     <div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div>
                 </div>
             </div>
             <div class="skill-item">
-                <img src="brainstorm.png" alt="Soft Skills Icon">
+                <img src="brainstorm.png" alt="Icône Soft Skills">
                 <div class="skill-details">
-                    <h3>Creativity & Teamwork</h3>
+                    <h3>Créativité & Travail d'Équipe</h3>
                     <div class="skill-bar"><div class="skill-bar-fill" data-width="95%"></div></div>
                 </div>
             </div>
@@ -1520,23 +1574,23 @@
 
     <!-- Education & Experience Section -->
     <section id="timeline" class="timeline">
-        <h2>Education & Experience</h2>
+        <h2>Formation & Expérience</h2>
         <div class="timeline-container">
             <div class="timeline-item">
-                <h3>Bachelor's in IT & Design</h3>
-                <p>2022 - Present, IT University Antananarivo<br>Studying graphic design, UI/UX, front-end and back-end development, web optimization, and database management.</p>
+                <h3>Licence en Informatique & Design</h3>
+                <p>2022 - Présent, IT University Antananarivo<br>Étude du design graphique, UI/UX, développement front-end et back-end, optimisation web et gestion de bases de données.</p>
             </div>
             <div class="timeline-item">
-                <h3>Graphic Designer & Content Creator</h3>
-                <p>Jan 2021 - Mar 2022, MAHAFALY Creation, Antananarivo<br>Designed visual content for social media and print, developed branding materials, and collaborated on digital campaigns.</p>
+                <h3>Designer Graphique & Créateur de Contenu</h3>
+                <p>Jan 2021 - Mar 2022, MAHAFALY Creation, Antananarivo<br>Conception de contenu visuel pour les réseaux sociaux et l'impression, développement de matériaux de branding et collaboration sur des campagnes digitales.</p>
             </div>
             <div class="timeline-item">
-                <h3>DTS in Multimedia</h3>
-                <p>Jul 2020 - Jul 2022, E-MEDIA Madagascar<br>Acquired skills in visual creation, video editing, animation, and web development.</p>
+                <h3>DTS en Multimédia</h3>
+                <p>Jul 2020 - Jul 2022, E-MEDIA Madagascar<br>Acquisition de compétences en création visuelle, montage vidéo, animation et développement web.</p>
             </div>
             <div class="timeline-item">
-                <h3>Scientific Baccalaureate</h3>
-                <p>2012 - 2020, Capricorn School Tulear<br>Graduated with a science-focused Baccalaureate, building a foundation in logic and analytical thinking.</p>
+                <h3>Baccalauréat Scientifique</h3>
+                <p>2012 - 2020, École Capricorn Tulear<br>Diplômé avec un Baccalauréat axé sur les sciences, construisant une base en logique et pensée analytique.</p>
             </div>
         </div>
     </section>
@@ -1546,60 +1600,66 @@
         <h2>Certifications</h2>
         <div class="certifications-grid">
             <div class="certification-item">
-                <h3>C1 English Certificate</h3>
-                <p>2021, ITTI Madagascar<br>Advanced proficiency in spoken and written English.</p>
+                <h3>Certificat d'Anglais C1</h3>
+                <p>2021, ITTI Madagascar<br>Maîtrise avancée de l'anglais parlé et écrit.</p>
             </div>
             <div class="certification-item">
-                <h3>C1 English Certificate</h3>
-                <p>2022, FLTC Madagascar<br>Further validated advanced English communication skills.</p>
+                <h3>Certificat d'Anglais C1</h3>
+                <p>2022, FLTC Madagascar<br>Validation supplémentaire des compétences avancées de communication en anglais.</p>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
+    <!-- Case Studies Section - MODIFIEE -->
     <section id="work" class="case-studies">
-        <h2>Selected Work</h2>
+        <h2>Réalisations Sélectionnées</h2>
         <div class="case-grid">
-            <div class="case-card">
-                <img src="official.png" alt="Brand Identity">
+            <div class="case-card" onclick="window.location.href='projects/branding-startup.html'">
+                <img src="official.png" alt="Identité de Marque">
                 <div class="case-card-content">
-                    <h3>Brand Identity for Startup</h3>
-                    <p>Developed a minimalist brand identity for a local startup.</p>
+                    <h3>Identité de Marque pour Startup</h3>
+                    <p>Développement d'une identité de marque minimaliste et moderne pour une startup technologique locale, incluant logo, charte graphique et supports de communication.</p>
+                    <div class="project-link">Voir le projet</div>
                 </div>
             </div>
-            <div class="case-card">
-                <img src="flora.png" alt="Website Redesign">
+            <div class="case-card" onclick="window.location.href='projects/ecommerce-fleurs.html'">
+                <img src="flora.png" alt="E-commerce de Fleurs">
                 <div class="case-card-content">
-                    <h3>E-commerce Flower Shop Platform</h3>
-                    <p>Developed a full-stack e-commerce platform for a flower shop using Java and web technologies.</p>
+                    <h3>Plateforme E-commerce de Fleurs</h3>
+                    <p>Développement d'une plateforme e-commerce complète pour un magasin de fleurs utilisant Java Spring Boot et les technologies web modernes.</p>
+                    <div class="project-link">Voir le projet</div>
                 </div>
             </div>
-            <div class="case-card"> 
-                <img src="index.png" alt="Social Media Campaign">
+            <div class="case-card" onclick="window.location.href='projects/gestion-medicale.html'">
+                <img src="index.png" alt="Système Gestion Médicale">
                 <div class="case-card-content">
-                    <h3>Medical Appointment Management System</h3>
-                    <p>Built a comprehensive appointment scheduling system with Laravel 9 and Bootstrap 5 for healthcare professionals and patients.</p>
+                    <h3>Système de Gestion de Rendez-vous Médicaux</h3>
+                    <p>Construction d'un système complet de planification de rendez-vous avec Laravel 9 et Bootstrap 5 pour les professionnels de santé et les patients.</p>
+                    <div class="project-link">Voir le projet</div>
                 </div>
             </div>
-            <div class="case-card">
-                <img src="mobile.png" alt="App Prototype">
+            <div class="case-card" onclick="window.location.href='projects/prototype-mobile.html'">
+                <img src="mobile.png" alt="Prototype d'App Mobile">
                 <div class="case-card-content">
-                    <h3>Mobile App Prototype</h3>
-                    <p>Designed a user-friendly mobile app prototype in Figma for a university project.</p>
+                    <h3>Prototype d'Application Mobile</h3>
+                    <p>Conception d'un prototype d'application mobile convivial dans Figma pour un projet universitaire avec focus sur l'UX/UI moderne.</p>
+                    <div class="project-link">Voir le projet</div>
                 </div>
             </div>
-            <div class="case-card">
-                <img src="affiche.png" alt="Poster Series">
+            <div class="case-card" onclick="window.location.href='projects/affiches-evenement.html'">
+                <img src="affiche.png" alt="Série d'Affiches">
                 <div class="case-card-content">
-                    <h3>Event Poster Series</h3>
-                    <p>Designed a series of event posters for a university club, blending bold typography and visuals.</p>
+                    <h3>Série d'Affiches d'Événement</h3>
+                    <p>Conception d'une série d'affiches d'événement pour un club universitaire, mélangeant typographie audacieuse et visuels impactants.</p>
+                    <div class="project-link">Voir le projet</div>
                 </div>
             </div>
-            <div class="case-card">
-                <img src="Flyers1.png" alt="Video Animation">
+            <div class="case-card" onclick="window.location.href='projects/publicite-imprimee.html'">
+                <img src="Flyers1.png" alt="Publicité Imprimée">
                 <div class="case-card-content">
-                    <h3>Print Advertising Project</h3>
-                    <p>A promotional poster and flyer for a  sports brand.</p>
+                    <h3>Projet de Publicité Imprimée</h3>
+                    <p>Création d'une campagne publicitaire complète avec affiches et dépliants pour une marque de sport, alliant créativité et efficacité commerciale.</p>
+                    <div class="project-link">Voir le projet</div>
                 </div>
             </div>
         </div>
@@ -1607,28 +1667,28 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <h2>Get in Touch</h2>
-        <p>Email: <a href="mailto:mitiaandrimalala@gmail.com">mitiaandrimalala@gmail.com</a> | Phone: <a href="tel:+261385599347">+261 38 55 993 47</a></p>
+        <h2>Contactez-moi</h2>
+        <p>Email : <a href="mailto:mitiaandrimalala@gmail.com">mitiaandrimalala@gmail.com</a> | Téléphone : <a href="tel:+261385599347">+261 38 55 993 47</a></p>
         <form id="contact-form" action="https://formspree.io/f/xrbqwqly" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Hire Me</button>
+            <input type="text" name="name" placeholder="Votre Nom" required>
+            <input type="email" name="email" placeholder="Votre Email" required>
+            <textarea name="message" placeholder="Votre Message" required></textarea>
+            <button type="submit">Engagez-moi</button>
             <div id="form-status" class="form-status"></div>
         </form>
-        <a href="assets/UpdateCV.pdf" class="resume-download" download>Download My Resume</a>
+        <a href="assets/UpdateCV.pdf" class="resume-download" download>Télécharger mon CV</a>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>Let's build something extraordinary together.</p>
+        <p>Construisons quelque chose d'extraordinaire ensemble.</p>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/mitia-andrimalala-9a0709309/" target="_blank">LinkedIn</a>
             <a href="https://github.com/Mitia-Andriamalala" target="_blank">GitHub</a>
             <a href="mailto:multiaandrimalala@gmail.com">Email</a>
         </div>
-        <p>© 2025 Mitia Andrimalala RAZANADRAKOTO. All rights reserved.</p>
-        <a href="#home" class="back-to-top">Back to Top</a>
+        <p>© 2025 Mitia Andrimalala RAZANADRAKOTO. Tous droits réservés.</p>
+        <a href="#home" class="back-to-top">Retour en Haut</a>
     </footer>
 
     <!-- Modal Popup -->
@@ -1705,7 +1765,7 @@
 
         // Typed Text Animation
         const typedText = document.querySelector('.typed-text');
-        const words = ['Fullstack Developer', 'Graphic Designer'];
+        const words = ['Développeur Fullstack', 'Designer Graphique'];
         let wordIndex = 0;
 
         function typeWord() {
@@ -1839,7 +1899,7 @@
             });
         });
 
-        // Case Card Animations
+        // Case Card Animations - AMELIOREE
         gsap.utils.toArray('.case-card').forEach((card, i) => {
             gsap.from(card, {
                 scrollTrigger: {
@@ -1848,9 +1908,30 @@
                 },
                 y: 150,
                 opacity: 0,
+                rotation: 5,
                 duration: 1.2,
                 delay: i * 0.2,
                 ease: 'power3.out'
+            });
+
+            // Animation du lien projet au hover
+            const projectLink = card.querySelector('.project-link');
+            card.addEventListener('mouseenter', () => {
+                gsap.to(projectLink, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(projectLink, {
+                    y: 10,
+                    opacity: 0,
+                    duration: 0.3,
+                    ease: 'power2.out'
+                });
             });
         });
 
@@ -1891,7 +1972,7 @@
                     formStatus.textContent = '';
                     formStatus.className = 'form-status';
                     contactForm.reset();
-                    showModal(); // Affiche le popup uniquement après envoi réussi
+                    showModal();
                 } else {
                     throw new Error('Erreur lors de l\'envoi du message');
                 }
@@ -1903,6 +1984,26 @@
                     formStatus.className = 'form-status';
                 }, 3500);
             }
+        });
+
+        // Animation pour les cartes de projets au clic
+        document.querySelectorAll('.case-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Animation de transition avant la redirection
+                gsap.to(card, {
+                    scale: 1.1,
+                    duration: 0.2,
+                    ease: 'power2.out',
+                    onComplete: () => {
+                        gsap.to(card, {
+                            scale: 0.9,
+                            opacity: 0.8,
+                            duration: 0.3,
+                            ease: 'power2.in'
+                        });
+                    }
+                });
+            });
         });
     </script>
 </body>
