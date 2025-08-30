@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branding Startup - Mitia Andrimalala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0A0A0A;
+            color: #E0E0E0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(255, 183, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: #FFB700;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #FFB700;
+            border-radius: 25px;
+        }
+
+        .back-btn:hover {
+            background: #FFB700;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #FFB700;
+        }
+
+        /* Hero Section */
+        .project-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../official.png') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+
+        .project-category {
+            color: #FFB700;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(255, 183, 0, 0.3);
+        }
+
+        .project-subtitle {
+            font-size: 1.6rem;
+            color: #B0B0B0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 183, 0, 0.1);
+            color: #FFB700;
+            border: 1px solid #FFB700;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #FFB700;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .overview {
+            background: linear-gradient(135deg, #121212 70%, #1A1A1A 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(255, 183, 0, 0.1);
+        }
+
+        .overview-text {
+            font-size: 1.3rem;
+            color: #B0B0B0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #FFB700;
+        }
+
+        .detail-title {
+            color: #FFB700;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content {
+            color: #B0B0B0;
+            font-size: 1rem;
+        }
+
+        /* Brand Elements Grid */
+        .brand-elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .brand-card {
+            background: #1A1A1A;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .brand-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 183, 0, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .brand-card:hover::before {
+            transform: translate(50%, 50%);
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            border-color: #FFB700;
+            box-shadow: 0 15px 30px rgba(255, 183, 0, 0.2);
+        }
+
+        .brand-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .brand-card-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .brand-card-title {
+            color: #FFB700;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .brand-card-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+        }
+
+        /* Color Palette */
+        .color-palette {
+            margin-top: 4rem;
+        }
+
+        .colors-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .color-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #2A2A2A;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .color-circle:hover {
+            transform: scale(1.1);
+            border-color: #FFB700;
+        }
+
+        .color-code {
+            color: #B0B0B0;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .color-name {
+            color: #FFFFFF;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Typography Section */
+        .typography {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .font-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .font-item {
+            text-align: center;
+        }
+
+        .font-primary {
+            font-family: 'Inter', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFB700;
+            margin-bottom: 1rem;
+        }
+
+        .font-secondary {
+            font-family: 'Inter', sans-serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .font-description {
+            color: #B0B0B0;
+            font-size: 1rem;
+        }
+
+        /* Process Timeline */
+        .process-section {
+            margin-top: 4rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 80px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: #FFB700;
+        }
+
+        .timeline-number {
+            background: #FFB700;
+            color: #0A0A0A;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            z-index: 1;
+            position: relative;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-title {
+            color: #FFB700;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+        }
+
+        /* Results */
+        .results {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 183, 0, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 183, 0, 0.2);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFB700;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            color: #B0B0B0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Next Project */
+        .next-project {
+            background: #121212;
+            padding: 8rem 3rem;
+            text-align: center;
+        }
+
+        .next-btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #FFB700, #FFC940);
+            color: #0A0A0A;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 183, 0, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .overview, .typography, .results {
+                padding: 2rem;
+            }
+
+            .project-details, .brand-elements, .font-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .colors-grid {
+                gap: 1rem;
+            }
+
+            .color-circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            .font-primary {
+                font-size: 2rem;
+            }
+
+            .font-secondary {
+                font-size: 1.5rem;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .timeline-item::after {
+                display: none;
+            }
+
+            .timeline-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .next-project {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="../index.html" class="back-btn">← Retour au Portfolio</a>
+            <div class="logo">Mitia Andrimalala</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="project-category">Branding & Design</div>
+            <h1 class="project-title">Identité de Marque pour Startup Tech</h1>
+            <p class="project-subtitle">Création d'une identité visuelle moderne et minimaliste pour une startup technologique émergente à Madagascar.</p>
+            <div class="project-tags">
+                <span class="tag">Branding</span>
+                <span class="tag">Logo Design</span>
+                <span class="tag">Adobe Illustrator</span>
+                <span class="tag">Photoshop</span>
+                <span class="tag">Figma</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+        <div class="overview">
+            <h2 class="section-title">Contexte du Projet</h2>
+            <p class="overview-text">
+                Cette startup technologique malgache avait besoin d'une identité de marque forte pour se démarquer dans le secteur compétitif des solutions digitales. L'objectif était de créer une image moderne, professionnelle et mémorable qui reflète l'innovation et la fiabilité de l'entreprise.
+            </p>
+            <p class="overview-text">
+                Le défi consistait à équilibrer modernité et accessibilité, en créant une identité qui parle aux clients locaux tout en ayant une portée internationale. L'identité devait être déclinable sur tous les supports, du digital au print.
+            </p>
+
+            <div class="project-details">
+                <div class="detail-item">
+                    <div class="detail-title">DURÉE</div>
+                    <div class="detail-content">6 semaines (Recherche + Création)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">CLIENT</div>
+                    <div class="detail-content">TechMada Solutions</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">MON RÔLE</div>
+                    <div class="detail-content">Brand Designer & Directeur Artistique</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">SECTEUR</div>
+                    <div class="detail-content">Technologie & Solutions Digitales</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Elements -->
+    <section class="content-section">
+        <h2 class="section-title">Éléments de Marque</h2>
+        <div class="brand-elements">
+            <div class="brand-card">
+                <img src="../official.png" alt="Logo Principal">
+                <div class="brand-card-content">
+                    <h3 class="brand-card-title">Logo Principal</h3>
+                    <p class="brand-card-description">Logo moderne avec typographie sur mesure, représentant l'innovation technologique et la croissance.</p>
+                </div>
+            </div>
+            <div class="brand-card">
+                <img src="../official.png" alt="Variations Logo">
+                <div class="brand-card-content">
+                    <h3 class="brand-card-title">Variations du Logo</h3>
+                    <p class="brand-card-description">Déclinaisons en horizontal, vertical et pictogramme pour tous types d'applications.</p>
+                </div>
+            </div>
+            <div class="brand-card">
+                <img src="../official.png" alt="Applications">
+                <div class="brand-card-content">
+                    <h3 class="brand-card-title">Applications</h3>
+                    <p class="brand-card-description">Cartes de visite, papier en-tête, signatures email et supports digitaux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Palette -->
+    <section class="content-section">
+        <div class="color-palette">
+            <h2 class="section-title">Palette Chromatique</h2>
+            <div class="colors-grid">
+                <div class="color-item">
+                    <div class="color-circle" style="background: #FFB700;"></div>
+                    <div class="color-code">#FFB700</div>
+                    <div class="color-name">Amber Primary</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background: #1A1A1A;"></div>
+                    <div class="color-code">#1A1A1A</div>
+                    <div class="color-name">Charcoal Black</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background: #FFFFFF;"></div>
+                    <div class="color-code">#FFFFFF</div>
+                    <div class="color-name">Pure White</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background: #B0B0B0;"></div>
+                    <div class="color-code">#B0B0B0</div>
+                    <div class="color-name">Silver Gray</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="content-section">
+        <div class="typography">
+            <h2 class="section-title">Typographie</h2>
+            <div class="font-showcase">
+                <div class="font-item">
+                    <div class="font-primary">TECHMADA</div>
+                    <div class="font-description">Inter Black - Titres et Logo<br>Moderne, lisible, technologique</div>
+                </div>
+                <div class="font-item">
+                    <div class="font-secondary">Solutions innovantes</div>
+                    <div class="font-description">Inter Regular - Texte courant<br>Lisibilité optimale, élégance</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="content-section">
+        <div class="process-section">
+            <h2 class="section-title">Processus Créatif</h2>
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Recherche & Benchmarking</h3>
+                    <p class="timeline-description">Analyse du secteur tech malgache, étude de la concurrence internationale, définition des valeurs de marque et personas cibles.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Concepts & Esquisses</h3>
+                    <p class="timeline-description">Brainstorming créatif, développement de 3 directions artistiques distinctes, sketching et premiers concepts de logo.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Digitalisation & Raffinement</h3>
+                    <p class="timeline-description">Vectorisation du logo sélectionné, développement de la palette couleurs, création de la typographie sur mesure.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Applications & Guidelines</h3>
+                    <p class="timeline-description">Déclinaisons sur supports multiples, création du guide de style complet, tests d'application et validation finale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="content-section">
+        <div class="results">
+            <h2 class="section-title">Impact & Résultats</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">200%</div>
+                    <div class="result-label">Amélioration Reconnaissance</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">15+</div>
+                    <div class="result-label">Supports Créés</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">98%</div>
+                    <div class="result-label">Satisfaction Client</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">3</div>
+                    <div class="result-label">Prix Design Locaux</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="next-project">
+        <h2 class="section-title">Projet Suivant</h2>
+        <p style="color: #B0B0B0; font-size: 1.3rem; margin-bottom: 3rem;">
+            Découvrez comment j'ai conçu un prototype d'application mobile moderne
+        </p>
+        <a href="prototype-mobile.html" class="next-btn">Voir Prototype Mobile →</a>
+    </section>
+
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from('.project-category', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-title', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.8,
+            ease: 'elastic.out(1, 0.5)'
+        });
+
+        gsap.from('.project-subtitle', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            delay: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-tags .tag', {
+            scale: 0,
+            opacity: 0,
+            duration: 0.8,
+            delay: 1.5,
+            stagger: 0.1,
+            ease: 'back.out(2)'
+        });
+
+        // Brand Elements Animation
+        gsap.utils.toArray('.brand-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%'
+                },
+                y: 100,
+                rotation: 3,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        // Color Palette Animation
+        gsap.utils.toArray('.color-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.5,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'back.out(1.7)'
+            });
+        });
+
+        // Timeline Animation
+        gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                x: i % 2 === 0 ? -100 : 100,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        // Results Animation
+        gsap.utils.toArray('.result-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.3,
+                rotation: 180,
+                opacity: 0,
+                duration: 1.5,
+                delay: i * 0.3,
+                ease: 'elastic.out(1, 0.6)'
+            });
+
+            // Animation des chiffres
+            const numberElement = item.querySelector('.result-number');
+            const finalText = numberElement.textContent;
+            const hasPercent = finalText.includes('%');
+            const hasPlus = finalText.includes('+');
+            
+            const finalNumber = parseInt(finalText);
+            if (!isNaN(finalNumber)) {
+                gsap.from({ number: 0 }, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    number: finalNumber,
+                    duration: 2.5,
+                    delay: i * 0.3 + 0.8,
+                    ease: 'power2.out',
+                    onUpdate: function() {
+                        const current = Math.round(this.targets()[0].number);
+                        let suffix = '';
+                        if (hasPercent) suffix = '%';
+                        if (hasPlus) suffix = '+';
+                        numberElement.textContent = current + suffix;
+                    }
+                });
+            }
+        });
+
+        // Section Title Animations
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>

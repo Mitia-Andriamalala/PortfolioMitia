@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype Mobile - Mitia Andrimalala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0A0A0A;
+            color: #E0E0E0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(138, 43, 226, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: #8A2BE2;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #8A2BE2;
+            border-radius: 25px;
+        }
+
+        .back-btn:hover {
+            background: #8A2BE2;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #8A2BE2;
+        }
+
+        /* Hero Section */
+        .project-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../mobile.png') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+
+        .project-category {
+            color: #8A2BE2;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .project-subtitle {
+            font-size: 1.6rem;
+            color: #B0B0B0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(138, 43, 226, 0.1);
+            color: #8A2BE2;
+            border: 1px solid #8A2BE2;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #8A2BE2;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .overview {
+            background: linear-gradient(135deg, #121212 70%, #1A1A1A 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.1);
+        }
+
+        .overview-text {
+            font-size: 1.3rem;
+            color: #B0B0B0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #8A2BE2;
+        }
+
+        .detail-title {
+            color: #8A2BE2;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content {
+            color: #B0B0B0;
+            font-size: 1rem;
+        }
+
+        /* User Journey */
+        .user-journey {
+            margin-top: 4rem;
+        }
+
+        .journey-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .journey-step {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .journey-step::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .journey-step:hover::before {
+            transform: translate(50%, 50%);
+        }
+
+        .journey-step:hover {
+            transform: translateY(-10px);
+            border-color: #8A2BE2;
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: #8A2BE2;
+            color: #0A0A0A;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-title {
+            color: #8A2BE2;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Wireframes Section */
+        .wireframes {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .wireframes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .wireframe-item {
+            background: #0F0F0F;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .wireframe-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
+        }
+
+        .wireframe-phone {
+            width: 100%;
+            height: 350px;
+            background: #2A2A2A;
+            margin: 1rem;
+            border-radius: 25px;
+            position: relative;
+            border: 3px solid #8A2BE2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wireframe-screen {
+            width: 90%;
+            height: 90%;
+            background: #1A1A1A;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wireframe-content {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .wireframe-title {
+            color: #8A2BE2;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Features Grid */
+        .features-section {
+            margin-top: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: #1A1A1A;
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .feature-card:hover::before {
+            transform: translate(50%, 50%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #8A2BE2;
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #8A2BE2;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0A0A0A;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-title {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Design System */
+        .design-system {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .design-item {
+            background: #0F0F0F;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .design-title {
+            color: #8A2BE2;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 3px solid #2A2A2A;
+        }
+
+        .typography-sample {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .typography-description {
+            color: #B0B0B0;
+            font-size: 0.9rem;
+        }
+
+        /* Results */
+        .results {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(138, 43, 226, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(138, 43, 226, 0.2);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #8A2BE2;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            color: #B0B0B0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Next Project */
+        .next-project {
+            background: #121212;
+            padding: 8rem 3rem;
+            text-align: center;
+        }
+
+        .next-btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #8A2BE2, #9A4FDB);
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .overview, .wireframes, .design-system, .results {
+                padding: 2rem;
+            }
+
+            .project-details, .journey-steps, .wireframes-grid, .features-grid, .design-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wireframe-phone {
+                height: 300px;
+            }
+
+            .next-project {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="../index.html" class="back-btn">← Retour au Portfolio</a>
+            <div class="logo">Mitia Andrimalala</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="project-category">UX/UI Design</div>
+            <h1 class="project-title">Prototype d'Application Mobile</h1>
+            <p class="project-subtitle">Conception d'une application mobile intuitive pour la gestion de tâches, centrée sur l'expérience utilisateur et l'accessibilité.</p>
+            <div class="project-tags">
+                <span class="tag">Figma</span>
+                <span class="tag">UX Research</span>
+                <span class="tag">UI Design</span>
+                <span class="tag">Prototypage</span>
+                <span class="tag">User Testing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+        <div class="overview">
+            <h2 class="section-title">Vue d'Ensemble</h2>
+            <p class="overview-text">
+                Ce projet académique avait pour objectif de créer une application mobile moderne pour la gestion de tâches et de projets personnels. L'accent a été mis sur une approche centrée utilisateur, avec une interface intuitive et une expérience fluide sur mobile.
+            </p>
+            <p class="overview-text">
+                Le défi principal était de simplifier un système complexe de gestion de tâches tout en conservant des fonctionnalités avancées pour les utilisateurs expérimentés. L'application devait être accessible aux débutants mais suffisamment puissante pour les power users.
+            </p>
+
+            <div class="project-details">
+                <div class="detail-item">
+                    <div class="detail-title">DURÉE</div>
+                    <div class="detail-content">8 semaines (Design Sprint)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">CONTEXTE</div>
+                    <div class="detail-content">Projet Académique - IT University</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">ÉQUIPE</div>
+                    <div class="detail-content">Designer Solo + 15 Testeurs</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">PLATEFORME</div>
+                    <div class="detail-content">iOS & Android</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Journey -->
+    <section class="content-section">
+        <div class="user-journey">
+            <h2 class="section-title">Parcours Utilisateur</h2>
+            <div class="journey-steps">
+                <div class="journey-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Découverte</h3>
+                    <p class="step-description">L'utilisateur découvre l'app via l'App Store et télécharge après avoir vu les captures d'écran attrayantes.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Onboarding</h3>
+                    <p class="step-description">Introduction rapide et interactive en 3 étapes pour comprendre les fonctionnalités principales.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Première Utilisation</h3>
+                    <p class="step-description">Création de la première tâche guidée avec tips contextuels pour encourager l'adoption.</p>
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Usage Régulier</h3>
+                    <p class="step-description">Utilisation quotidienne facilitée par les raccourcis, notifications intelligentes et synchronisation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wireframes -->
+    <section class="content-section">
+        <div class="wireframes">
+            <h2 class="section-title">Wireframes & Maquettes</h2>
+            <div class="wireframes-grid">
+                <div class="wireframe-item">
+                    <div class="wireframe-phone">
+                        <div class="wireframe-screen"></div>
+                    </div>
+                    <div class="wireframe-content">
+                        <h3 class="wireframe-title">Écran d'Accueil</h3>
+                    </div>
+                </div>
+                <div class="wireframe-item">
+                    <div class="wireframe-phone">
+                        <div class="wireframe-screen"></div>
+                    </div>
+                    <div class="wireframe-content">
+                        <h3 class="wireframe-title">Liste des Tâches</h3>
+                    </div>
+                </div>
+                <div class="wireframe-item">
+                    <div class="wireframe-phone">
+                        <div class="wireframe-screen"></div>
+                    </div>
+                    <div class="wireframe-content">
+                        <h3 class="wireframe-title">Création de Tâche</h3>
+                    </div>
+                </div>
+                <div class="wireframe-item">
+                    <div class="wireframe-phone">
+                        <div class="wireframe-screen"></div>
+                    </div>
+                    <div class="wireframe-content">
+                        <h3 class="wireframe-title">Profil Utilisateur</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="content-section">
+        <div class="features-section">
+            <h2 class="section-title">Fonctionnalités Principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="feature-title">Gestion de Tâches</h3>
+                    <p class="feature-description">Création, édition et organisation de tâches avec système de priorités, dates d'échéance et catégories personnalisables.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3 class="feature-title">Synchronisation Cloud</h3>
+                    <p class="feature-description">Synchronisation automatique entre appareils avec sauvegarde sécurisée et accès hors ligne complet.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Interface Personnalisable</h3>
+                    <p class="feature-description">Thèmes sombres/clairs, couleurs d'accent personnalisables et organisation flexible des vues.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Analytiques Personnelles</h3>
+                    <p class="feature-description">Suivi de productivité avec graphiques, statistiques de completion et insights sur les habitudes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3 class="feature-title">Notifications Intelligentes</h3>
+                    <p class="feature-description">Rappels contextuels basés sur la localisation, l'heure et les habitudes utilisateur.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Collaboration</h3>
+                    <p class="feature-description">Partage de projets, assignation de tâches et commentaires en temps réel pour le travail d'équipe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design System -->
+    <section class="content-section">
+        <div class="design-system">
+            <h2 class="section-title">Système de Design</h2>
+            <div class="design-grid">
+                <div class="design-item">
+                    <h3 class="design-title">Couleurs Principales</h3>
+                    <div class="color-swatch" style="background: #8A2BE2;"></div>
+                    <p style="color: #B0B0B0; font-size: 0.9rem;">Purple Primary #8A2BE2</p>
+                </div>
+                <div class="design-item">
+                    <h3 class="design-title">Couleurs Secondaires</h3>
+                    <div class="color-swatch" style="background: #FF6B9D;"></div>
+                    <p style="color: #B0B0B0; font-size: 0.9rem;">Pink Accent #FF6B9D</p>
+                </div>
+                <div class="design-item">
+                    <h3 class="design-title">Typographie</h3>
+                    <div class="typography-sample">TaskFlow</div>
+                    <p class="typography-description">Inter Bold pour les titres</p>
+                </div>
+                <div class="design-item">
+                    <h3 class="design-title">Icons</h3>
+                    <div style="font-size: 2rem; margin: 1rem 0;">📱 ✓ + ⚙️</div>
+                    <p class="typography-description">Style minimaliste et cohérent</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="content-section">
+        <div class="results">
+            <h2 class="section-title">Tests Utilisateurs & Résultats</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">92%</div>
+                    <div class="result-label">Satisfaction Utilisateur</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">15</div>
+                    <div class="result-label">Testeurs Participants</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">4.6</div>
+                    <div class="result-label">Note d'Utilisabilité /5</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">18</div>
+                    <div class="result-label">Écrans Conçus</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="next-project">
+        <h2 class="section-title">Projet Suivant</h2>
+        <p style="color: #B0B0B0; font-size: 1.3rem; margin-bottom: 3rem;">
+            Découvrez comment j'ai créé une série d'affiches d'événement impactantes
+        </p>
+        <a href="affiches-evenement.html" class="next-btn">Voir Affiches Événement →</a>
+    </section>
+
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from('.project-category', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-title', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.8,
+            ease: 'elastic.out(1, 0.5)'
+        });
+
+        gsap.from('.project-subtitle', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            delay: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-tags .tag', {
+            scale: 0,
+            opacity: 0,
+            duration: 0.8,
+            delay: 1.5,
+            stagger: 0.1,
+            ease: 'back.out(2)'
+        });
+
+        // Journey Steps Animation
+        gsap.utils.toArray('.journey-step').forEach((step, i) => {
+            gsap.from(step, {
+                scrollTrigger: {
+                    trigger: step,
+                    start: 'top 80%'
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        // Wireframes Animation
+        gsap.utils.toArray('.wireframe-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%'
+                },
+                scale: 0.8,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.1,
+                ease: 'back.out(1.5)'
+            });
+        });
+
+        // Features Animation
+        gsap.utils.toArray('.feature-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%'
+                },
+                y: 80,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.15,
+                ease: 'power3.out'
+            });
+        });
+
+        // Design System Animation
+        gsap.utils.toArray('.design-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.9,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+
+        // Results Animation
+        gsap.utils.toArray('.result-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.3,
+                opacity: 0,
+                duration: 1.5,
+                delay: i * 0.2,
+                ease: 'elastic.out(1, 0.6)'
+            });
+
+            // Animation des chiffres
+            const numberElement = item.querySelector('.result-number');
+            const finalText = numberElement.textContent;
+            const hasPercent = finalText.includes('%');
+            const hasDot = finalText.includes('.');
+            
+            if (!hasDot) {
+                const finalNumber = parseInt(finalText);
+                if (!isNaN(finalNumber)) {
+                    gsap.from({ number: 0 }, {
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top 85%'
+                        },
+                        number: finalNumber,
+                        duration: 2,
+                        delay: i * 0.2 + 0.5,
+                        ease: 'power2.out',
+                        onUpdate: function() {
+                            const current = Math.round(this.targets()[0].number);
+                            numberElement.textContent = current + (hasPercent ? '%' : '');
+                        }
+                    });
+                }
+            } else {
+                // For decimal numbers like 4.6
+                const finalNumber = parseFloat(finalText);
+                if (!isNaN(finalNumber)) {
+                    gsap.from({ number: 0 }, {
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top 85%'
+                        },
+                        number: finalNumber,
+                        duration: 2,
+                        delay: i * 0.2 + 0.5,
+                        ease: 'power2.out',
+                        onUpdate: function() {
+                            const current = this.targets()[0].number;
+                            numberElement.textContent = current.toFixed(1);
+                        }
+                    });
+                }
+            }
+        });
+
+        // Section Titles Animation
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>

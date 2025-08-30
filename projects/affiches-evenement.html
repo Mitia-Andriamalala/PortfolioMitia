@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiches Événement - Mitia Andrimalala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0A0A0A;
+            color: #E0E0E0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(255, 69, 0, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: #FF4500;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #FF4500;
+            border-radius: 25px;
+        }
+
+        .back-btn:hover {
+            background: #FF4500;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #FF4500;
+        }
+
+        /* Hero Section */
+        .project-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../affiche.png') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+
+        .project-category {
+            color: #FF4500;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+        }
+
+        .project-subtitle {
+            font-size: 1.6rem;
+            color: #B0B0B0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 69, 0, 0.1);
+            color: #FF4500;
+            border: 1px solid #FF4500;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #FF4500;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .overview {
+            background: linear-gradient(135deg, #121212 70%, #1A1A1A 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.1);
+        }
+
+        .overview-text {
+            font-size: 1.3rem;
+            color: #B0B0B0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #FF4500;
+        }
+
+        .detail-title {
+            color: #FF4500;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content {
+            color: #B0B0B0;
+            font-size: 1rem;
+        }
+
+        /* Event Series */
+        .event-series {
+            margin-top: 4rem;
+        }
+
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .series-card {
+            background: #1A1A1A;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .series-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 69, 0, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .series-card:hover::before {
+            transform: translate(50%, 50%);
+        }
+
+        .series-card:hover {
+            transform: translateY(-10px);
+            border-color: #FF4500;
+            box-shadow: 0 15px 30px rgba(255, 69, 0, 0.3);
+        }
+
+        .series-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .series-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .series-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .series-title {
+            color: #FF4500;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .series-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .series-specs {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #808080;
+        }
+
+        /* Design Process */
+        .design-process {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .process-step {
+            background: #0F0F0F;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 4px solid #FF4500;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: #FF4500;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0A0A0A;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-title {
+            color: #FF4500;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Typography & Style */
+        .typography-section {
+            margin-top: 4rem;
+        }
+
+        .typo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .typo-item {
+            background: #1A1A1A;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #2A2A2A;
+            transition: all 0.3s ease;
+        }
+
+        .typo-item:hover {
+            border-color: #FF4500;
+            transform: translateY(-5px);
+        }
+
+        .typo-large {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FF4500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .typo-medium {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 1rem;
+        }
+
+        .typo-description {
+            color: #B0B0B0;
+            font-size: 1rem;
+        }
+
+        /* Color Palette */
+        .color-section {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .colors-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .color-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .color-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #2A2A2A;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .color-circle:hover {
+            transform: scale(1.1);
+            border-color: #FF4500;
+        }
+
+        .color-code {
+            color: #B0B0B0;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .color-name {
+            color: #FFFFFF;
+            font-weight: 500;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Impact & Results */
+        .results {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 69, 0, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 69, 0, 0.2);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FF4500;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            color: #B0B0B0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Gallery Full Width */
+        .gallery-section {
+            margin-top: 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            aspect-ratio: 3/4;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(255, 69, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 69, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Next Project */
+        .next-project {
+            background: #121212;
+            padding: 8rem 3rem;
+            text-align: center;
+        }
+
+        .next-btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #FF4500, #FF6A33);
+            color: #FFFFFF;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 69, 0, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .overview, .design-process, .color-section, .results {
+                padding: 2rem;
+            }
+
+            .project-details, .series-grid, .process-steps, .typo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .colors-grid {
+                gap: 1rem;
+            }
+
+            .color-circle {
+                width: 80px;
+                height: 80px;
+            }
+
+            .typo-large {
+                font-size: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .next-project {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="../index.html" class="back-btn">← Retour au Portfolio</a>
+            <div class="logo">Mitia Andrimalala</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="project-category">Design Graphique & Événementiel</div>
+            <h1 class="project-title">Série d'Affiches d'Événement</h1>
+            <p class="project-subtitle">Création d'une campagne visuelle complète pour les événements du club étudiant, alliant typographie audacieuse et identité visuelle cohérente.</p>
+            <div class="project-tags">
+                <span class="tag">Poster Design</span>
+                <span class="tag">Adobe Illustrator</span>
+                <span class="tag">Photoshop</span>
+                <span class="tag">Typographie</span>
+                <span class="tag">Print Design</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+        <div class="overview">
+            <h2 class="section-title">Contexte du Projet</h2>
+            <p class="overview-text">
+                Le club informatique de l'université avait besoin d'une campagne visuelle forte pour promouvoir sa série d'événements annuels. L'objectif était de créer une identité cohérente mais suffisamment flexible pour différents types d'événements : conférences tech, hackathons, soirées de networking.
+            </p>
+            <p class="overview-text">
+                Le défi était de concevoir des affiches qui se démarquent dans l'environnement visuel saturé du campus, tout en maintenant une cohérence de marque et en respectant les contraintes budgétaires d'impression.
+            </p>
+
+            <div class="project-details">
+                <div class="detail-item">
+                    <div class="detail-title">DURÉE</div>
+                    <div class="detail-content">4 semaines (5 affiches)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">CLIENT</div>
+                    <div class="detail-content">Club Informatique ITU</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">MON RÔLE</div>
+                    <div class="detail-content">Designer Graphique Principal</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">FORMATS</div>
+                    <div class="detail-content">A2, A3, Digital (réseaux sociaux)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Series -->
+    <section class="content-section">
+        <div class="event-series">
+            <h2 class="section-title">Série d'Événements</h2>
+            <div class="series-grid">
+                <div class="series-card">
+                    <img src="../affiche.png" alt="Tech Talk Series">
+                    <div class="series-content">
+                        <h3 class="series-title">Tech Talk Series</h3>
+                        <p class="series-description">Conférences mensuelles avec des professionnels du secteur tech malgache et international.</p>
+                        <div class="series-specs">
+                            <span>Format: A2</span>
+                            <span>Tirage: 50 ex</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="series-card">
+                    <img src="../affiche.png" alt="Hackathon Weekend">
+                    <div class="series-content">
+                        <h3 class="series-title">Hackathon Weekend</h3>
+                        <p class="series-description">Concours de programmation intensif de 48h avec des prix attractifs.</p>
+                        <div class="series-specs">
+                            <span>Format: A2</span>
+                            <span>Tirage: 100 ex</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="series-card">
+                    <img src="../affiche.png" alt="Networking Night">
+                    <div class="series-content">
+                        <h3 class="series-title">Networking Night</h3>
+                        <p class="series-description">Soirée de networking entre étudiants, alumni et entreprises partenaires.</p>
+                        <div class="series-specs">
+                            <span>Format: A3</span>
+                            <span>Tirage: 75 ex</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Process -->
+    <section class="content-section">
+        <div class="design-process">
+            <h2 class="section-title">Processus de Création</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-icon">🎯</div>
+                    <h3 class="step-title">Briefing & Analyse</h3>
+                    <p class="step-description">Analyse des besoins du club, étude de la cible étudiante et benchmarking des événements similaires sur le campus.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">✏️</div>
+                    <h3 class="step-title">Concepts & Esquisses</h3>
+                    <p class="step-description">Développement de 3 directions créatives distinctes avec exploration typographique et composition.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">🎨</div>
+                    <h3 class="step-title">Déclinaisons Visuelles</h3>
+                    <p class="step-description">Création des différentes affiches en maintenant une cohérence visuelle tout en adaptant aux spécificités de chaque événement.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-icon">🖨️</div>
+                    <h3 class="step-title">Préparation & Production</h3>
+                    <p class="step-description">Préparation des fichiers pour l'impression, tests colorimétriques et supervision de la production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography & Style -->
+    <section class="content-section">
+        <div class="typography-section">
+            <h2 class="section-title">Typographie & Style</h2>
+            <div class="typo-grid">
+                <div class="typo-item">
+                    <div class="typo-large">TECH</div>
+                    <div class="typo-medium">Talk Series</div>
+                    <p class="typo-description">Inter Black pour l'impact<br>Lisibilité maximale à distance</p>
+                </div>
+                <div class="typo-item">
+                    <div class="typo-large" style="color: #FFA500;">HACK</div>
+                    <div class="typo-medium">Weekend</div>
+                    <p class="typo-description">Variation colorée selon l'événement<br>Dynamisme et énergie</p>
+                </div>
+                <div class="typo-item">
+                    <div class="typo-large" style="color: #32CD32;">NET</div>
+                    <div class="typo-medium">Working</div>
+                    <p class="typo-description">Palette évolutive<br>Cohérence dans la variété</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Palette -->
+    <section class="content-section">
+        <div class="color-section">
+            <h2 class="section-title">Palette Chromatique</h2>
+            <div class="colors-grid">
+                <div class="color-item">
+                    <div class="color-circle" style="background: #FF4500;"></div>
+                    <div class="color-code">#FF4500</div>
+                    <div class="color-name">Orange Red</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background: #FFA500;"></div>
+                    <div class="color-code">#FFA500</div>
+                    <div class="color-name">Orange</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background: #32CD32;"></div>
+                    <div class="color-code">#32CD32</div>
+                    <div class="color-name">Lime Green</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background: #1A1A1A;"></div>
+                    <div class="color-code">#1A1A1A</div>
+                    <div class="color-name">Deep Black</div>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background: #FFFFFF;"></div>
+                    <div class="color-code">#FFFFFF</div>
+                    <div class="color-name">Pure White</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="content-section">
+        <div class="gallery-section">
+            <h2 class="section-title">Galerie Complète</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../affiche.png" alt="Affiche Tech Talk">
+                    <div class="gallery-overlay">
+                        <span>Tech Talk</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../affiche.png" alt="Affiche Hackathon">
+                    <div class="gallery-overlay">
+                        <span>Hackathon</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../affiche.png" alt="Affiche Networking">
+                    <div class="gallery-overlay">
+                        <span>Networking</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../affiche.png" alt="Version Digital">
+                    <div class="gallery-overlay">
+                        <span>Digital</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="content-section">
+        <div class="results">
+            <h2 class="section-title">Impact & Résultats</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">300%</div>
+                    <div class="result-label">Augmentation Participation</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">5</div>
+                    <div class="result-label">Affiches Créées</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">500+</div>
+                    <div class="result-label">Impressions Totales</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">95%</div>
+                    <div class="result-label">Satisfaction Client</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="next-project">
+        <h2 class="section-title">Projet Suivant</h2>
+        <p style="color: #B0B0B0; font-size: 1.3rem; margin-bottom: 3rem;">
+            Découvrez ma campagne de publicité imprimée pour une marque de sport
+        </p>
+        <a href="publicite-imprimee.html" class="next-btn">Voir Publicité Imprimée →</a>
+    </section>
+
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from('.project-category', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-title', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.8,
+            ease: 'elastic.out(1, 0.5)'
+        });
+
+        gsap.from('.project-subtitle', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            delay: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-tags .tag', {
+            scale: 0,
+            opacity: 0,
+            duration: 0.8,
+            delay: 1.5,
+            stagger: 0.1,
+            ease: 'back.out(2)'
+        });
+
+        // Series Cards Animation
+        gsap.utils.toArray('.series-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%'
+                },
+                y: 100,
+                rotation: 2,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        // Process Steps Animation
+        gsap.utils.toArray('.process-step').forEach((step, i) => {
+            gsap.from(step, {
+                scrollTrigger: {
+                    trigger: step,
+                    start: 'top 80%'
+                },
+                y: 80,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.15,
+                ease: 'power3.out'
+            });
+        });
+
+        // Typography Items Animation
+        gsap.utils.toArray('.typo-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%'
+                },
+                scale: 0.9,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        // Color Palette Animation
+        gsap.utils.toArray('.color-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.5,
+                rotation: 180,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'back.out(1.7)'
+            });
+        });
+
+        // Gallery Animation
+        gsap.utils.toArray('.gallery-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%'
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+
+        // Results Animation
+        gsap.utils.toArray('.result-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.3,
+                rotation: 360,
+                opacity: 0,
+                duration: 1.5,
+                delay: i * 0.2,
+                ease: 'elastic.out(1, 0.6)'
+            });
+
+            // Animation des chiffres
+            const numberElement = item.querySelector('.result-number');
+            const finalText = numberElement.textContent;
+            const hasPercent = finalText.includes('%');
+            const hasPlus = finalText.includes('+');
+            
+            const finalNumber = parseInt(finalText);
+            if (!isNaN(finalNumber)) {
+                gsap.from({ number: 0 }, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    number: finalNumber,
+                    duration: 2.5,
+                    delay: i * 0.2 + 0.8,
+                    ease: 'power2.out',
+                    onUpdate: function() {
+                        const current = Math.round(this.targets()[0].number);
+                        let suffix = '';
+                        if (hasPercent) suffix = '%';
+                        if (hasPlus) suffix = '+';
+                        numberElement.textContent = current + suffix;
+                    }
+                });
+            }
+        });
+
+        // Section Titles Animation
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>

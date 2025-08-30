@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicité Imprimée - Mitia Andrimalala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0A0A0A;
+            color: #E0E0E0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(0, 255, 127, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: #00FF7F;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #00FF7F;
+            border-radius: 25px;
+        }
+
+        .back-btn:hover {
+            background: #00FF7F;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #00FF7F;
+        }
+
+        /* Hero Section */
+        .project-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../Flyers1.png') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+
+        .project-category {
+            color: #00FF7F;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(0, 255, 127, 0.3);
+        }
+
+        .project-subtitle {
+            font-size: 1.6rem;
+            color: #B0B0B0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(0, 255, 127, 0.1);
+            color: #00FF7F;
+            border: 1px solid #00FF7F;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #00FF7F;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .overview {
+            background: linear-gradient(135deg, #121212 70%, #1A1A1A 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 255, 127, 0.1);
+        }
+
+        .overview-text {
+            font-size: 1.3rem;
+            color: #B0B0B0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #00FF7F;
+        }
+
+        .detail-title {
+            color: #00FF7F;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content {
+            color: #B0B0B0;
+            font-size: 1rem;
+        }
+
+        /* Campaign Overview */
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .campaign-item {
+            background: #1A1A1A;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .campaign-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 127, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .campaign-item:hover::before {
+            transform: translate(50%, 50%);
+        }
+
+        .campaign-item:hover {
+            transform: translateY(-10px);
+            border-color: #00FF7F;
+            box-shadow: 0 15px 30px rgba(0, 255, 127, 0.3);
+        }
+
+        .campaign-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .campaign-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .campaign-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .campaign-title {
+            color: #00FF7F;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .campaign-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .campaign-specs {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #808080;
+            margin-top: 1rem;
+        }
+
+        /* Strategy Section */
+        .strategy-section {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .strategy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .strategy-card {
+            background: #0F0F0F;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border-top: 4px solid #00FF7F;
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 255, 127, 0.2);
+        }
+
+        .strategy-icon {
+            width: 70px;
+            height: 70px;
+            background: #00FF7F;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #0A0A0A;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .strategy-title {
+            color: #00FF7F;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .strategy-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+        }
+
+        /* Creative Process */
+        .creative-process {
+            margin-top: 4rem;
+        }
+
+        .process-timeline {
+            position: relative;
+            margin-top: 3rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #00FF7F;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 4rem;
+            position: relative;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            text-align: right;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 2rem;
+            background: #1A1A1A;
+            border-radius: 15px;
+            margin: 0 2rem;
+            position: relative;
+        }
+
+        .timeline-number {
+            background: #00FF7F;
+            color: #0A0A0A;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .timeline-title {
+            color: #00FF7F;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+        }
+
+        /* Brand Guidelines */
+        .brand-guidelines {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guideline-item {
+            background: #0F0F0F;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #2A2A2A;
+            transition: all 0.3s ease;
+        }
+
+        .guideline-item:hover {
+            border-color: #00FF7F;
+            transform: translateY(-5px);
+        }
+
+        .guideline-title {
+            color: #00FF7F;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .color-demo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 3px solid #2A2A2A;
+        }
+
+        .font-demo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .guideline-description {
+            color: #B0B0B0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Performance Metrics */
+        .performance {
+            margin-top: 4rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .metric-card {
+            background: #1A1A1A;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid #2A2A2A;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 127, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .metric-card:hover::before {
+            left: 100%;
+        }
+
+        .metric-card:hover {
+            border-color: #00FF7F;
+            transform: translateY(-5px);
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00FF7F;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric-label {
+            color: #B0B0B0;
+            font-size: 1rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric-description {
+            color: #808080;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Gallery */
+        .gallery-section {
+            margin-top: 4rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 255, 127, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 255, 127, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .overlay-title {
+            color: #0A0A0A;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .overlay-description {
+            color: #0A0A0A;
+            font-size: 1rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        /* Results */
+        .results {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 255, 127, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 127, 0.2);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00FF7F;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            color: #B0B0B0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Next Project */
+        .next-project {
+            background: #121212;
+            padding: 8rem 3rem;
+            text-align: center;
+        }
+
+        .next-btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #00FF7F, #32FF9A);
+            color: #0A0A0A;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 127, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .overview, .strategy-section, .brand-guidelines, .results {
+                padding: 2rem;
+            }
+
+            .project-details, .campaign-grid, .strategy-grid, .guidelines-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-line {
+                display: none;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                margin-bottom: 2rem;
+            }
+
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-item:nth-child(even) .timeline-content {
+                text-align: left;
+            }
+
+            .timeline-content {
+                margin: 1rem 0 0 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .next-project {
+                padding: 4rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid, .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="../index.html" class="back-btn">← Retour au Portfolio</a>
+            <div class="logo">Mitia Andrimalala</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="project-category">Publicité & Marketing</div>
+            <h1 class="project-title">Campagne Publicitaire Sport</h1>
+            <p class="project-subtitle">Création d'une campagne publicitaire complète pour une marque de sport émergente, incluant affiches, dépliants et supports digitaux.</p>
+            <div class="project-tags">
+                <span class="tag">Print Design</span>
+                <span class="tag">Campagne</span>
+                <span class="tag">Adobe Creative Suite</span>
+                <span class="tag">Branding</span>
+                <span class="tag">Marketing Visuel</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+        <div class="overview">
+            <h2 class="section-title">Contexte & Objectifs</h2>
+            <p class="overview-text">
+                SportMax, une nouvelle marque d'équipements sportifs malgache, avait besoin d'une campagne publicitaire percutante pour son lancement. L'objectif était de créer une identité visuelle forte qui communique performance, dynamisme et accessibilité pour le marché local.
+            </p>
+            <p class="overview-text">
+                Le défi consistait à développer une campagne multicanal cohérente, depuis les supports print traditionnels jusqu'aux formats digitaux, tout en respectant un budget limité et en maximisant l'impact visuel pour se démarquer de la concurrence internationale.
+            </p>
+
+            <div class="project-details">
+                <div class="detail-item">
+                    <div class="detail-title">DURÉE</div>
+                    <div class="detail-content">6 semaines (Stratégie + Création)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">CLIENT</div>
+                    <div class="detail-content">SportMax Madagascar</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">MON RÔLE</div>
+                    <div class="detail-content">Directeur Artistique & Designer</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">CANAUX</div>
+                    <div class="detail-content">Print, Digital, Affichage Urbain</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campaign Items -->
+    <section class="content-section">
+        <h2 class="section-title">Éléments de Campagne</h2>
+        <div class="campaign-grid">
+            <div class="campaign-item">
+                <img src="../Flyers1.png" alt="Affiche Principale">
+                <div class="campaign-content">
+                    <h3 class="campaign-title">Affiche Principale</h3>
+                    <p class="campaign-description">Affiche grand format pour l'affichage urbain et les points de vente, mettant en avant le slogan "Dépassez Vos Limites".</p>
+                    <div class="campaign-specs">
+                        <span>Format: A1</span>
+                        <span>Tirage: 200 ex</span>
+                    </div>
+                </div>
+            </div>
+            <div class="campaign-item">
+                <img src="../Flyers1.png" alt="Dépliant Produits">
+                <div class="campaign-content">
+                    <h3 class="campaign-title">Dépliant Tri-fold</h3>
+                    <p class="campaign-description">Dépliant présentant la gamme de produits avec photos lifestyle et informations techniques détaillées.</p>
+                    <div class="campaign-specs">
+                        <span>Format: A4 tri-fold</span>
+                        <span>Tirage: 1000 ex</span>
+                    </div>
+                </div>
+            </div>
+            <div class="campaign-item">
+                <img src="../Flyers1.png" alt="Supports Digitaux">
+                <div class="campaign-content">
+                    <h3 class="campaign-title">Assets Digitaux</h3>
+                    <p class="campaign-description">Déclinaisons pour réseaux sociaux, bannières web et newsletter avec animations subtiles.</p>
+                    <div class="campaign-specs">
+                        <span>Formats: Multi</span>
+                        <span>Réseaux: FB, IG, LinkedIn</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategy -->
+    <section class="content-section">
+        <div class="strategy-section">
+            <h2 class="section-title">Stratégie Créative</h2>
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <div class="strategy-icon">🎯</div>
+                    <h3 class="strategy-title">Positionnement</h3>
+                    <p class="strategy-description">Marque accessible et motivante pour sportifs amateurs et professionnels malgaches, avec un message d'empowerment personnel.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">🎨</div>
+                    <h3 class="strategy-title">Direction Artistique</h3>
+                    <p class="strategy-description">Style dynamique et énergique avec typographie bold, couleurs vives et photography lifestyle authentique.</p>
+                </div>
+                <div class="strategy-card">
+                    <div class="strategy-icon">📢</div>
+                    <h3 class="strategy-title">Message Clé</h3>
+                    <p class="strategy-description">"Dépassez Vos Limites" - Slogan qui résonne avec l'ambition de performance et de dépassement de soi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creative Process -->
+    <section class="content-section">
+        <div class="creative-process">
+            <h2 class="section-title">Processus Créatif</h2>
+            <div class="process-timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Recherche & Analyse</h3>
+                        <p class="timeline-description">Analyse du marché sportif malgache, étude des concurrents internationaux présents localement et définition des personas cibles.</p>
+                    </div>
+                    <div class="timeline-number">1</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Stratégie & Concept</h3>
+                        <p class="timeline-description">Développement du concept créatif "Dépassez Vos Limites" et définition de la direction artistique globale de la campagne.</p>
+                    </div>
+                    <div class="timeline-number">2</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Création & Design</h3>
+                        <p class="timeline-description">Production des visuels, shooting photo lifestyle et création de tous les supports print et digitaux de la campagne.</p>
+                    </div>
+                    <div class="timeline-number">3</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Production & Lancement</h3>
+                        <p class="timeline-description">Préparation des fichiers de production, supervision de l'impression et coordination du lancement multicanal.</p>
+                    </div>
+                    <div class="timeline-number">4</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Guidelines -->
+    <section class="content-section">
+        <div class="brand-guidelines">
+            <h2 class="section-title">Guidelines Visuelles</h2>
+            <div class="guidelines-grid">
+                <div class="guideline-item">
+                    <h3 class="guideline-title">Couleur Primaire</h3>
+                    <div class="color-demo" style="background: #00FF7F;"></div>
+                    <p class="guideline-description">Vert Spring #00FF7F<br>Énergie, vitalité, nature</p>
+                </div>
+                <div class="guideline-item">
+                    <h3 class="guideline-title">Couleur Secondaire</h3>
+                    <div class="color-demo" style="background: #FF4500;"></div>
+                    <p class="guideline-description">Orange Red #FF4500<br>Dynamisme, passion, performance</p>
+                </div>
+                <div class="guideline-item">
+                    <h3 class="guideline-title">Typographie</h3>
+                    <div class="font-demo">SPORTMAX</div>
+                    <p class="guideline-description">Inter Black<br>Impact maximal, lisibilité</p>
+                </div>
+                <div class="guideline-item">
+                    <h3 class="guideline-title">Style Photo</h3>
+                    <div style="font-size: 3rem; margin: 1rem 0; color: #00FF7F;">📸</div>
+                    <p class="guideline-description">Lifestyle authentique<br>Action, mouvement, émotion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Metrics -->
+    <section class="content-section">
+        <div class="performance">
+            <h2 class="section-title">Métriques de Performance</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-number">85%</div>
+                    <div class="metric-label">Reconnaissance Marque</div>
+                    <div class="metric-description">Test post-campagne</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">2.5M</div>
+                    <div class="metric-label">Impressions Totales</div>
+                    <div class="metric-description">Tous supports confondus</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">150%</div>
+                    <div class="metric-label">↗ Ventes Q1</div>
+                    <div class="metric-description">vs. période précédente</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">12</div>
+                    <div class="metric-label">Supports Créés</div>
+                    <div class="metric-description">Print & Digital</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">4.2</div>
+                    <div class="metric-label">Engagement Rate</div>
+                    <div class="metric-description">Réseaux sociaux</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-number">95%</div>
+                    <div class="metric-label">Satisfaction Client</div>
+                    <div class="metric-description">Feedback final</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="content-section">
+        <div class="gallery-section">
+            <h2 class="section-title">Portfolio Campagne</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="../Flyers1.png" alt="Affiche A1">
+                    <div class="gallery-overlay">
+                        <div class="overlay-title">Affiche Principale</div>
+                        <div class="overlay-description">Grand format pour affichage urbain</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../Flyers1.png" alt="Dépliant">
+                    <div class="gallery-overlay">
+                        <div class="overlay-title">Dépliant Produits</div>
+                        <div class="overlay-description">Présentation gamme complète</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../Flyers1.png" alt="Social Media">
+                    <div class="gallery-overlay">
+                        <div class="overlay-title">Réseaux Sociaux</div>
+                        <div class="overlay-description">Déclinaisons digitales</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../Flyers1.png" alt="Bannières Web">
+                    <div class="gallery-overlay">
+                        <div class="overlay-title">Bannières Web</div>
+                        <div class="overlay-description">Formats display adaptatifs</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../Flyers1.png" alt="Point de Vente">
+                    <div class="gallery-overlay">
+                        <div class="overlay-title">PLV Magasin</div>
+                        <div class="overlay-description">Supports point de vente</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="../Flyers1.png" alt="Newsletter">
+                    <div class="gallery-overlay">
+                        <div class="overlay-title">Template Email</div>
+                        <div class="overlay-description">Design newsletter responsive</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="content-section">
+        <div class="results">
+            <h2 class="section-title">Impact & Résultats</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">150%</div>
+                    <div class="result-label">Augmentation Ventes</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">85%</div>
+                    <div class="result-label">Reconnaissance Marque</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">2.5M</div>
+                    <div class="result-label">Impressions Totales</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">12</div>
+                    <div class="result-label">Supports Créés</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="next-project">
+        <h2 class="section-title">Retour au Portfolio</h2>
+        <p style="color: #B0B0B0; font-size: 1.3rem; margin-bottom: 3rem;">
+            Découvrez tous mes autres projets et réalisations
+        </p>
+        <a href="../index.html" class="next-btn">Voir Portfolio Complet →</a>
+    </section>
+
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from('.project-category', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-title', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.8,
+            ease: 'elastic.out(1, 0.5)'
+        });
+
+        gsap.from('.project-subtitle', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            delay: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-tags .tag', {
+            scale: 0,
+            opacity: 0,
+            duration: 0.8,
+            delay: 1.5,
+            stagger: 0.1,
+            ease: 'back.out(2)'
+        });
+
+        // Campaign Items Animation
+        gsap.utils.toArray('.campaign-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%'
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        // Strategy Cards Animation
+        gsap.utils.toArray('.strategy-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%'
+                },
+                y: 80,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.15,
+                ease: 'power3.out'
+            });
+        });
+
+        // Timeline Animation
+        gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                x: i % 2 === 0 ? -100 : 100,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        // Guidelines Animation
+        gsap.utils.toArray('.guideline-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%'
+                },
+                scale: 0.9,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+
+        // Metrics Animation
+        gsap.utils.toArray('.metric-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+
+            // Counter animation
+            const numberElement = card.querySelector('.metric-number');
+            const finalText = numberElement.textContent;
+            const hasPercent = finalText.includes('%');
+            const hasK = finalText.includes('K');
+            const hasM = finalText.includes('M');
+            const hasDot = finalText.includes('.');
+
+            let finalNumber;
+            let multiplier = 1;
+
+            if (hasM) {
+                finalNumber = parseFloat(finalText) * 1000000;
+                multiplier = 1000000;
+            } else if (hasK) {
+                finalNumber = parseFloat(finalText) * 1000;
+                multiplier = 1000;
+            } else {
+                finalNumber = parseFloat(finalText);
+            }
+
+            if (!isNaN(finalNumber)) {
+                gsap.from({ number: 0 }, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%'
+                    },
+                    number: finalNumber,
+                    duration: 2,
+                    delay: i * 0.1 + 0.5,
+                    ease: 'power2.out',
+                    onUpdate: function() {
+                        let current = this.targets()[0].number;
+                        let displayValue;
+
+                        if (hasM) {
+                            displayValue = (current / 1000000).toFixed(1) + 'M';
+                        } else if (hasK) {
+                            displayValue = (current / 1000).toFixed(0) + 'K';
+                        } else if (hasDot) {
+                            displayValue = current.toFixed(1);
+                        } else {
+                            displayValue = Math.round(current);
+                        }
+
+                        if (hasPercent && !hasM && !hasK) {
+                            displayValue += '%';
+                        }
+
+                        numberElement.textContent = displayValue;
+                    }
+                });
+            }
+        });
+
+        // Gallery Animation
+        gsap.utils.toArray('.gallery-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 80%'
+                },
+                scale: 0.9,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+
+        // Results Animation
+        gsap.utils.toArray('.result-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.3,
+                opacity: 0,
+                duration: 1.5,
+                delay: i * 0.2,
+                ease: 'elastic.out(1, 0.6)'
+            });
+
+            // Counter for results
+            const numberElement = item.querySelector('.result-number');
+            const finalText = numberElement.textContent;
+            const hasPercent = finalText.includes('%');
+            const hasM = finalText.includes('M');
+            
+            let finalNumber;
+            if (hasM) {
+                finalNumber = parseFloat(finalText) * 1000000;
+            } else {
+                finalNumber = parseInt(finalText);
+            }
+
+            if (!isNaN(finalNumber)) {
+                gsap.from({ number: 0 }, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    number: finalNumber,
+                    duration: 2.5,
+                    delay: i * 0.2 + 0.8,
+                    ease: 'power2.out',
+                    onUpdate: function() {
+                        let current = this.targets()[0].number;
+                        let displayValue;
+                        
+                        if (hasM) {
+                            displayValue = (current / 1000000).toFixed(1) + 'M';
+                        } else {
+                            displayValue = Math.round(current);
+                            if (hasPercent) displayValue += '%';
+                        }
+                        
+                        numberElement.textContent = displayValue;
+                    }
+                });
+            }
+        });
+
+        // Section Titles Animation
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>
