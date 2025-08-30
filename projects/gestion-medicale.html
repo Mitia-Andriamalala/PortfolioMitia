@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de Gestion Médicale - Mitia Andrimalala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0A0A0A;
+            color: #E0E0E0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(0, 212, 255, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: #00D4FF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #00D4FF;
+            border-radius: 25px;
+        }
+
+        .back-btn:hover {
+            background: #00D4FF;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #00D4FF;
+        }
+
+        /* Hero Section */
+        .project-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../index.png') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+
+        .project-category {
+            color: #00D4FF;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .project-subtitle {
+            font-size: 1.6rem;
+            color: #B0B0B0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(0, 212, 255, 0.1);
+            color: #00D4FF;
+            border: 1px solid #00D4FF;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #00D4FF;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .overview {
+            background: linear-gradient(135deg, #121212 70%, #1A1A1A 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+        }
+
+        .overview-text {
+            font-size: 1.3rem;
+            color: #B0B0B0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #00D4FF;
+        }
+
+        .detail-title {
+            color: #00D4FF;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content {
+            color: #B0B0B0;
+            font-size: 1rem;
+        }
+
+        /* Technologies Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            border-color: #00D4FF;
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+        }
+
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            background: #00D4FF;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0A0A0A;
+            font-weight: bold;
+        }
+
+        .tech-name {
+            color: #FFFFFF;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Results Section */
+        .results {
+            background: linear-gradient(135deg, #1A1A1A 70%, #232323 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00D4FF;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            color: #B0B0B0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Next Project */
+        .next-project {
+            background: #121212;
+            padding: 8rem 3rem;
+            text-align: center;
+        }
+
+        .next-btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #00D4FF, #00A3CC);
+            color: #0A0A0A;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .overview {
+                padding: 2rem;
+            }
+
+            .project-details {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 1rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item img {
+                height: 250px;
+            }
+
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .next-project {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="../index.html" class="back-btn">← Retour au Portfolio</a>
+            <div class="logo">Mitia Andrimalala</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="project-category">Développement Web</div>
+            <h1 class="project-title">Système de Gestion de Rendez-vous Médicaux</h1>
+            <p class="project-subtitle">Une solution complète pour la planification et la gestion des rendez-vous médicaux, développée avec Laravel 9 et Bootstrap 5.</p>
+            <div class="project-tags">
+                <span class="tag">Laravel 9</span>
+                <span class="tag">PHP</span>
+                <span class="tag">Bootstrap 5</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">JavaScript</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+        <div class="overview">
+            <h2 class="section-title">Vue d'ensemble du Projet</h2>
+            <p class="overview-text">
+                Ce projet consiste en un système complet de gestion des rendez-vous médicaux développé pour faciliter la communication entre les professionnels de santé et leurs patients. La plateforme offre une interface intuitive permettant aux patients de prendre rendez-vous en ligne et aux médecins de gérer efficacement leur planning.
+            </p>
+            <p class="overview-text">
+                Le système intègre des fonctionnalités avancées comme la confirmation automatique par email, la gestion des disponibilités, et un tableau de bord administratif complet pour le suivi des rendez-vous.
+            </p>
+
+            <div class="project-details">
+                <div class="detail-item">
+                    <div class="detail-title">DURÉE DU PROJET</div>
+                    <div class="detail-content">3 mois (Développement complet)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">MON RÔLE</div>
+                    <div class="detail-content">Développeur Fullstack & Designer UI</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">CLIENT</div>
+                    <div class="detail-content">Projet Académique - IT University</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">ÉQUIPE</div>
+                    <div class="detail-content">Développement individuel</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="content-section">
+        <h2 class="section-title">Technologies Utilisées</h2>
+        <div class="tech-grid">
+            <div class="tech-item">
+                <div class="tech-icon">L</div>
+                <div class="tech-name">Laravel 9</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">PHP</div>
+                <div class="tech-name">PHP 8</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">B</div>
+                <div class="tech-name">Bootstrap 5</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">M</div>
+                <div class="tech-name">MySQL</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">JS</div>
+                <div class="tech-name">JavaScript</div>
+            </div>
+            <div class="tech-item">
+                <div class="tech-icon">G</div>
+                <div class="tech-name">Git</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Défis et Solutions -->
+    <section class="content-section">
+        <h2 class="section-title">Défis & Solutions</h2>
+        <div class="overview">
+            <div class="project-details">
+                <div class="detail-item">
+                    <div class="detail-title">DÉFI #1: Gestion des Conflits de Rendez-vous</div>
+                    <div class="detail-content">
+                        Implémentation d'un système de vérification en temps réel pour éviter les double-réservations et optimiser la gestion des créneaux horaires.
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">DÉFI #2: Notifications Automatiques</div>
+                    <div class="detail-content">
+                        Développement d'un système d'emails automatiques avec Laravel Mail pour confirmer, rappeler et annuler les rendez-vous.
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">DÉFI #3: Interface Responsive</div>
+                    <div class="detail-content">
+                        Création d'une interface adaptable utilisant Bootstrap 5 pour une expérience optimale sur tous les appareils.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="content-section">
+        <h2 class="section-title">Captures d'Écran</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="../index.png" alt="Tableau de bord principal">
+                <div class="gallery-overlay">
+                    <span>Tableau de Bord Principal</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../index.png" alt="Interface de réservation">
+                <div class="gallery-overlay">
+                    <span>Interface de Réservation</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="../index.png" alt="Gestion des patients">
+                <div class="gallery-overlay">
+                    <span>Gestion des Patients</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="content-section">
+        <div class="results">
+            <h2 class="section-title">Résultats Obtenus</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">95%</div>
+                    <div class="result-label">Satisfaction Utilisateur</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">100+</div>
+                    <div class="result-label">Rendez-vous Gérés</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">24/7</div>
+                    <div class="result-label">Disponibilité Système</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">50%</div>
+                    <div class="result-label">Réduction Temps Admin</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fonctionnalités Clés -->
+    <section class="content-section">
+        <h2 class="section-title">Fonctionnalités Principales</h2>
+        <div class="overview">
+            <div class="project-details">
+                <div class="detail-item">
+                    <div class="detail-title">AUTHENTIFICATION MULTI-RÔLES</div>
+                    <div class="detail-content">
+                        Système d'authentification sécurisé avec des rôles distincts pour administrateurs, médecins et patients avec permissions personnalisées.
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">CALENDRIER INTERACTIF</div>
+                    <div class="detail-content">
+                        Interface de calendrier dynamique permettant la visualisation et la gestion des créneaux disponibles en temps réel.
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">GESTION DES PATIENTS</div>
+                    <div class="detail-content">
+                        Base de données complète des patients avec historique médical, informations de contact et suivi des rendez-vous.
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">NOTIFICATIONS EMAIL</div>
+                    <div class="detail-content">
+                        Système automatisé d'envoi d'emails pour confirmations, rappels 24h avant, et notifications d'annulation.
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">RAPPORTS & STATISTIQUES</div>
+                    <div class="detail-content">
+                        Génération de rapports détaillés sur l'activité de la clinique, taux d'occupation et analyses de performance.
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">INTERFACE RESPONSIVE</div>
+                    <div class="detail-content">
+                        Design adaptatif optimisé pour ordinateurs, tablettes et smartphones avec Bootstrap 5.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apprentissages -->
+    <section class="content-section">
+        <h2 class="section-title">Apprentissages Clés</h2>
+        <div class="overview">
+            <p class="overview-text">
+                Ce projet m'a permis d'approfondir mes compétences en développement Laravel et de comprendre les enjeux spécifiques au secteur médical. J'ai particulièrement développé mes compétences en :
+            </p>
+            <ul style="color: #B0B0B0; font-size: 1.2rem; line-height: 2; margin-top: 2rem; padding-left: 2rem;">
+                <li>Architecture MVC complexe avec Laravel</li>
+                <li>Gestion des relations de base de données (One-to-Many, Many-to-Many)</li>
+                <li>Implémentation de systèmes d'authentification robustes</li>
+                <li>Développement d'APIs RESTful pour les interactions AJAX</li>
+                <li>Optimisation des performances avec mise en cache</li>
+                <li>Tests unitaires et d'intégration avec PHPUnit</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="next-project">
+        <h2 class="section-title">Projet Suivant</h2>
+        <p style="color: #B0B0B0; font-size: 1.3rem; margin-bottom: 3rem;">
+            Découvrez comment j'ai créé une plateforme e-commerce complète pour un fleuriste
+        </p>
+        <a href="ecommerce-fleurs.html" class="next-btn">Voir E-commerce Fleurs →</a>
+    </section>
+
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation
+        gsap.from('.project-category', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-title', {
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            delay: 0.8,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-subtitle', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 1.1,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-tags .tag', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            delay: 1.4,
+            stagger: 0.1,
+            ease: 'back.out(1.7)'
+        });
+
+        // Section Animations
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+
+        gsap.utils.toArray('.detail-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                y: 80,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+
+        gsap.utils.toArray('.tech-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.8,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'back.out(1.7)'
+            });
+        });
+
+        gsap.utils.toArray('.gallery-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                y: 100,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        gsap.utils.toArray('.result-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.5,
+                opacity: 0,
+                duration: 1.5,
+                delay: i * 0.2,
+                ease: 'elastic.out(1, 0.5)'
+            });
+
+            // Counter animation for numbers
+            const numberElement = item.querySelector('.result-number');
+            const finalNumber = numberElement.textContent;
+            
+            if (!isNaN(parseInt(finalNumber))) {
+                gsap.from({ number: 0 }, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    number: parseInt(finalNumber),
+                    duration: 2,
+                    delay: i * 0.2 + 0.5,
+                    ease: 'power2.out',
+                    onUpdate: function() {
+                        numberElement.textContent = Math.round(this.targets()[0].number) + (finalNumber.includes('%') ? '%' : '');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

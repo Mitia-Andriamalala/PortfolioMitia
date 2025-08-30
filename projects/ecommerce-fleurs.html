@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce de Fleurs - Mitia Andrimalala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0A0A0A;
+            color: #E0E0E0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .nav-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            box-shadow: 0 2px 10px rgba(255, 107, 157, 0.1);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: #FF6B9D;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #FF6B9D;
+            border-radius: 25px;
+        }
+
+        .back-btn:hover {
+            background: #FF6B9D;
+            color: #0A0A0A;
+            transform: translateY(-2px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #FF6B9D;
+        }
+
+        /* Hero Section */
+        .project-hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../flora.png') center/cover no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 1000px;
+            padding: 0 2rem;
+        }
+
+        .project-category {
+            color: #FF6B9D;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .project-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: #FFFFFF;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .project-subtitle {
+            font-size: 1.6rem;
+            color: #B0B0B0;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: rgba(255, 107, 157, 0.1);
+            color: #FF6B9D;
+            border: 1px solid #FF6B9D;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 8rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #FFFFFF;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: #FF6B9D;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .overview {
+            background: linear-gradient(135deg, #121212 70%, #1A1A1A 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.1);
+        }
+
+        .overview-text {
+            font-size: 1.3rem;
+            color: #B0B0B0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .detail-item {
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #FF6B9D;
+        }
+
+        .detail-title {
+            color: #FF6B9D;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content {
+            color: #B0B0B0;
+            font-size: 1rem;
+        }
+
+        /* Tech Stack with different styling */
+        .tech-stack {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tech-category {
+            background: #0F0F0F;
+            padding: 2rem;
+            border-radius: 15px;
+            border-top: 4px solid #FF6B9D;
+        }
+
+        .category-title {
+            color: #FF6B9D;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tech-list li {
+            color: #B0B0B0;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #2A2A2A;
+            font-size: 1rem;
+        }
+
+        .tech-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: #1A1A1A;
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .feature-card:hover::before {
+            transform: translate(50%, 50%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #FF6B9D;
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.2);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: #FF6B9D;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0A0A0A;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-title {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Process Timeline */
+        .process-timeline {
+            margin-top: 4rem;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 80px;
+            width: 2px;
+            height: calc(100% + 2rem);
+            background: #FF6B9D;
+        }
+
+        .timeline-number {
+            background: #FF6B9D;
+            color: #0A0A0A;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            z-index: 1;
+            position: relative;
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: #1A1A1A;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 0.5rem;
+        }
+
+        .timeline-title {
+            color: #FF6B9D;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #B0B0B0;
+            line-height: 1.6;
+        }
+
+        /* Results with different metrics */
+        .results {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .result-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 107, 157, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 157, 0.2);
+        }
+
+        .result-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FF6B9D;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-label {
+            color: #B0B0B0;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* Next Project */
+        .next-project {
+            background: #121212;
+            padding: 8rem 3rem;
+            text-align: center;
+        }
+
+        .next-btn {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            background: linear-gradient(45deg, #FF6B9D, #FF8FB3);
+            color: #0A0A0A;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .project-title {
+                font-size: 2.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .overview, .tech-stack, .results {
+                padding: 2rem;
+            }
+
+            .project-details, .tech-categories, .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .timeline-item::after {
+                display: none;
+            }
+
+            .timeline-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+
+            .next-project {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="nav-header">
+        <div class="nav-content">
+            <a href="../index.html" class="back-btn">← Retour au Portfolio</a>
+            <div class="logo">Mitia Andrimalala</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <div class="project-category">E-Commerce & Design</div>
+            <h1 class="project-title">Plateforme E-commerce de Fleurs</h1>
+            <p class="project-subtitle">Une boutique en ligne élégante et fonctionnelle pour un fleuriste, développée avec Java et les technologies web modernes.</p>
+            <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">HTML/CSS</span>
+                <span class="tag">JavaScript</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="content-section">
+        <div class="overview">
+            <h2 class="section-title">Aperçu du Projet</h2>
+            <p class="overview-text">
+                Flora Boutique est une plateforme e-commerce spécialement conçue pour un fleuriste local souhaitant digitaliser son activité. Le projet combine une interface utilisateur élégante avec une architecture back-end robuste pour gérer les commandes, les stocks et les livraisons de fleurs.
+            </p>
+            <p class="overview-text">
+                Cette plateforme offre une expérience d'achat immersive avec des galeries photo haute qualité, un système de personnalisation des bouquets, et une intégration complète avec les systèmes de paiement et de livraison locaux.
+            </p>
+
+            <div class="project-details">
+                <div class="detail-item">
+                    <div class="detail-title">DURÉE</div>
+                    <div class="detail-content">4 mois (Design + Développement)</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">ÉQUIPE</div>
+                    <div class="detail-content">2 développeurs + 1 designer</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">MON RÔLE</div>
+                    <div class="detail-content">Lead Developer & UI/UX Designer</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-title">CLIENT</div>
+                    <div class="detail-content">Flora Boutique - Fleuriste Local</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="content-section">
+        <div class="tech-stack">
+            <h2 class="section-title">Stack Technique</h2>
+            <div class="tech-categories">
+                <div class="tech-category">
+                    <div class="category-title">Backend</div>
+                    <ul class="tech-list">
+                        <li>Java 11</li>
+                        <li>Spring Boot 2.7</li>
+                        <li>Spring Security</li>
+                        <li>Spring Data JPA</li>
+                        <li>PostgreSQL</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="category-title">Frontend</div>
+                    <ul class="tech-list">
+                        <li>HTML5 & CSS3</li>
+                        <li>JavaScript ES6+</li>
+                        <li>Bootstrap 4</li>
+                        <li>jQuery</li>
+                        <li>Thymeleaf</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="category-title">Outils & Services</div>
+                    <ul class="tech-list">
+                        <li>Maven</li>
+                        <li>Git & GitHub</li>
+                        <li>Postman</li>
+                        <li>Cloudinary (Images)</li>
+                        <li>Stripe (Paiements)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="content-section">
+        <h2 class="section-title">Fonctionnalités Principales</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🛒</div>
+                <h3 class="feature-title">Catalogue Interactif</h3>
+                <p class="feature-description">Catalogue de produits avec filtres avancés, recherche par occasion, couleur et prix. Galerie d'images haute qualité avec zoom.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">Personnalisation de Bouquets</h3>
+                <p class="feature-description">Outil de personnalisation permettant aux clients de créer leurs propres arrangements floraux avec aperçu en temps réel.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <h3 class="feature-title">Gestion des Stocks</h3>
+                <p class="feature-description">Système de gestion d'inventaire en temps réel avec alertes automatiques pour les produits en rupture de stock.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3 class="feature-title">Paiement Sécurisé</h3>
+                <p class="feature-description">Intégration Stripe pour des transactions sécurisées, support de multiples méthodes de paiement.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <h3 class="feature-title">Gestion Livraisons</h3>
+                <p class="feature-description">Planification intelligente des livraisons avec calcul automatique des zones et créneaux horaires disponibles.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Dashboard Admin</h3>
+                <p class="feature-description">Interface d'administration complète avec statistiques de vente, gestion des commandes et rapports analytiques.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Process -->
+    <section class="content-section">
+        <h2 class="section-title">Processus de Développement</h2>
+        <div class="process-timeline">
+            <div class="timeline-item">
+                <div class="timeline-number">1</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Recherche & Analyse</h3>
+                    <p class="timeline-description">Étude du marché floral local, analyse des concurrents et définition des besoins spécifiques du client. Création des personas et user journeys.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">2</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Design & Prototypage</h3>
+                    <p class="timeline-description">Création de wireframes, maquettes haute fidélité sur Figma et prototypage interactif. Focus sur l'expérience utilisateur et l'esthétique florale.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">3</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Architecture Backend</h3>
+                    <p class="timeline-description">Conception de l'architecture Spring Boot, modélisation de la base de données, implémentation des APIs REST et sécurisation des endpoints.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">4</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Développement Frontend</h3>
+                    <p class="timeline-description">Intégration des maquettes en HTML/CSS responsive, développement des interactions JavaScript et connexion avec les APIs backend.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-number">5</div>
+                <div class="timeline-content">
+                    <h3 class="timeline-title">Tests & Déploiement</h3>
+                    <p class="timeline-description">Tests unitaires et d'intégration, optimisation des performances, tests utilisateurs et déploiement en production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results -->
+    <section class="content-section">
+        <div class="results">
+            <h2 class="section-title">Résultats & Impact</h2>
+            <div class="results-grid">
+                <div class="result-item">
+                    <div class="result-number">300%</div>
+                    <div class="result-label">Augmentation des Ventes</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">150+</div>
+                    <div class="result-label">Commandes/Mois</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">4.8★</div>
+                    <div class="result-label">Note Client Moyenne</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number">75%</div>
+                    <div class="result-label">Clients Récurrents</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next Project -->
+    <section class="next-project">
+        <h2 class="section-title">Projet Suivant</h2>
+        <p style="color: #B0B0B0; font-size: 1.3rem; margin-bottom: 3rem;">
+            Découvrez comment j'ai développé une identité de marque complète pour une startup tech
+        </p>
+        <a href="branding-startup.html" class="next-btn">Voir Branding Startup →</a>
+    </section>
+
+    <script>
+        // GSAP Animations similaires mais adaptées au thème floral
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Animation avec effet de pétales
+        gsap.from('.project-category', {
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            delay: 0.5,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-title', {
+            scale: 0.8,
+            opacity: 0,
+            duration: 1.5,
+            delay: 0.8,
+            ease: 'elastic.out(1, 0.5)'
+        });
+
+        gsap.from('.project-subtitle', {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            delay: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.project-tags .tag', {
+            scale: 0,
+            opacity: 0,
+            duration: 0.8,
+            delay: 1.5,
+            stagger: 0.1,
+            ease: 'back.out(2)'
+        });
+
+        // Animations des sections avec des effets floraux
+        gsap.utils.toArray('.feature-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%'
+                },
+                y: 100,
+                rotation: 5,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                x: i % 2 === 0 ? -100 : 100,
+                opacity: 0,
+                duration: 1.2,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+        });
+
+        // Animation des résultats avec effet de croissance
+        gsap.utils.toArray('.result-item').forEach((item, i) => {
+            gsap.from(item, {
+                scrollTrigger: {
+                    trigger: item,
+                    start: 'top 85%'
+                },
+                scale: 0.3,
+                rotation: 180,
+                opacity: 0,
+                duration: 1.5,
+                delay: i * 0.3,
+                ease: 'elastic.out(1, 0.6)'
+            });
+
+            // Animation des chiffres
+            const numberElement = item.querySelector('.result-number');
+            const finalText = numberElement.textContent;
+            const hasPercent = finalText.includes('%');
+            const hasStar = finalText.includes('★');
+            const hasPlus = finalText.includes('+');
+            
+            if (!hasStar) {
+                const finalNumber = parseInt(finalText);
+                if (!isNaN(finalNumber)) {
+                    gsap.from({ number: 0 }, {
+                        scrollTrigger: {
+                            trigger: item,
+                            start: 'top 85%'
+                        },
+                        number: finalNumber,
+                        duration: 2.5,
+                        delay: i * 0.3 + 0.8,
+                        ease: 'power2.out',
+                        onUpdate: function() {
+                            const current = Math.round(this.targets()[0].number);
+                            let suffix = '';
+                            if (hasPercent) suffix = '%';
+                            if (hasPlus) suffix = '+';
+                            numberElement.textContent = current + suffix;
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
