@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-commerce de Fleurs - Mitia Andrimalala</title>
+    <title>Application de Comptabilité - Mitia Andrimalala</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -72,7 +72,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../flora.png') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../back4.png') center/cover no-repeat;
             position: relative;
             overflow: hidden;
         }
@@ -306,67 +306,100 @@
             z-index: 1;
         }
 
-        /* Process Timeline */
-        .process-timeline {
+        /* Data Structure Section */
+        .data-structure {
+            background: linear-gradient(135deg, #1A1A1A 70%, #252525 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .data-card {
+            background: #0F0F0F;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #FF6B9D;
+        }
+
+        .data-title {
+            color: #FF6B9D;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .data-fields {
+            list-style: none;
+            padding: 0;
+        }
+
+        .data-fields li {
+            color: #B0B0B0;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #2A2A2A;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .data-fields li:last-child {
+            border-bottom: none;
+        }
+
+        .field-name {
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        /* Account Types */
+        .account-types {
             margin-top: 4rem;
         }
 
-        .timeline-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 3rem;
-            position: relative;
+        .accounts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .timeline-item:last-child::after {
-            display: none;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 80px;
-            width: 2px;
-            height: calc(100% + 2rem);
-            background: #FF6B9D;
-        }
-
-        .timeline-number {
-            background: #FF6B9D;
-            color: #0A0A0A;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-right: 2rem;
-            flex-shrink: 0;
-            z-index: 1;
-            position: relative;
-        }
-
-        .timeline-content {
-            flex: 1;
+        .account-card {
             background: #1A1A1A;
             padding: 2rem;
             border-radius: 15px;
-            margin-top: 0.5rem;
+            border-top: 4px solid #FF6B9D;
+            transition: all 0.3s ease;
         }
 
-        .timeline-title {
+        .account-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 107, 157, 0.2);
+        }
+
+        .account-code {
             color: #FF6B9D;
             font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .account-name {
+            color: #FFFFFF;
+            font-weight: 600;
             font-size: 1.2rem;
             margin-bottom: 1rem;
         }
 
-        .timeline-description {
+        .account-description {
             color: #B0B0B0;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
         /* Results with different metrics */
@@ -449,27 +482,12 @@
                 padding: 4rem 1.5rem;
             }
 
-            .overview, .tech-stack, .results {
+            .overview, .tech-stack, .data-structure, .results {
                 padding: 2rem;
             }
 
-            .project-details, .tech-categories, .features-grid {
+            .project-details, .tech-categories, .features-grid, .data-grid, .accounts-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .timeline-item {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .timeline-item::after {
-                display: none;
-            }
-
-            .timeline-number {
-                margin-right: 0;
-                margin-bottom: 1rem;
             }
 
             .next-project {
@@ -490,15 +508,15 @@
     <!-- Hero Section -->
     <section class="project-hero">
         <div class="hero-content">
-            <div class="project-category">E-Commerce & Design</div>
-            <h1 class="project-title">Plateforme E-commerce de Fleurs</h1>
-            <p class="project-subtitle">Une boutique en ligne élégante et fonctionnelle pour un fleuriste, développée avec Java et les technologies web modernes.</p>
+            <div class="project-category">Application Web</div>
+            <h1 class="project-title">Application de Comptabilité</h1>
+            <p class="project-subtitle">Application de gestion comptable moderne développée avec Vue.js 3, permettant l'import de données, le suivi des transactions et l'analyse financière en temps réel.</p>
             <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">HTML/CSS</span>
-                <span class="tag">JavaScript</span>
+                <span class="tag">Vue.js 3</span>
+                <span class="tag">Vite</span>
+                <span class="tag">TailwindCSS</span>
+                <span class="tag">Chart.js</span>
+                <span class="tag">PapaParse</span>
             </div>
         </div>
     </section>
@@ -508,28 +526,28 @@
         <div class="overview">
             <h2 class="section-title">Aperçu du Projet</h2>
             <p class="overview-text">
-                Flora Boutique est une plateforme e-commerce spécialement conçue pour un fleuriste local souhaitant digitaliser son activité. Le projet combine une interface utilisateur élégante avec une architecture back-end robuste pour gérer les commandes, les stocks et les livraisons de fleurs.
+                Cette application de comptabilité complète a été développée pour répondre aux besoins de gestion financière des petites et moyennes entreprises. Elle permet l'import automatisé de données comptables via fichiers CSV, offre un suivi détaillé des transactions et propose des analyses financières avancées.
             </p>
             <p class="overview-text">
-                Cette plateforme offre une expérience d'achat immersive avec des galeries photo haute qualité, un système de personnalisation des bouquets, et une intégration complète avec les systèmes de paiement et de livraison locaux.
+                L'application se distingue par son interface moderne développée avec Vue.js 3, sa capacité à traiter de gros volumes de données et ses fonctionnalités d'export multiples permettant une intégration parfaite dans l'écosystème comptable existant.
             </p>
 
             <div class="project-details">
                 <div class="detail-item">
                     <div class="detail-title">DURÉE</div>
-                    <div class="detail-content">4 mois (Design + Développement)</div>
+                    <div class="detail-content">5 mois (Conception + Développement)</div>
                 </div>
                 <div class="detail-item">
-                    <div class="detail-title">ÉQUIPE</div>
-                    <div class="detail-content">2 développeurs + 1 designer</div>
+                    <div class="detail-title">TYPE</div>
+                    <div class="detail-content">Projet Personnel / Portfolio</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-title">MON RÔLE</div>
-                    <div class="detail-content">Lead Developer & UI/UX Designer</div>
+                    <div class="detail-content">Développeur Full-Stack & UI/UX Designer</div>
                 </div>
                 <div class="detail-item">
-                    <div class="detail-title">CLIENT</div>
-                    <div class="detail-content">Flora Boutique - Fleuriste Local</div>
+                    <div class="detail-title">STATUT</div>
+                    <div class="detail-content">Déployé & Fonctionnel</div>
                 </div>
             </div>
         </div>
@@ -541,33 +559,60 @@
             <h2 class="section-title">Stack Technique</h2>
             <div class="tech-categories">
                 <div class="tech-category">
-                    <div class="category-title">Backend</div>
-                    <ul class="tech-list">
-                        <li>Java 11</li>
-                        <li>Spring Boot 2.7</li>
-                        <li>Spring Security</li>
-                        <li>Spring Data JPA</li>
-                        <li>PostgreSQL</li>
-                    </ul>
-                </div>
-                <div class="tech-category">
                     <div class="category-title">Frontend</div>
                     <ul class="tech-list">
-                        <li>HTML5 & CSS3</li>
-                        <li>JavaScript ES6+</li>
-                        <li>Bootstrap 4</li>
-                        <li>jQuery</li>
-                        <li>Thymeleaf</li>
+                        <li>Vue.js 3 (Composition API)</li>
+                        <li>Vite (Build Tool)</li>
+                        <li>Vue Router</li>
+                        <li>TailwindCSS</li>
+                        <li>Chart.js</li>
                     </ul>
                 </div>
                 <div class="tech-category">
-                    <div class="category-title">Outils & Services</div>
+                    <div class="category-title">Traitement des Données</div>
                     <ul class="tech-list">
-                        <li>Maven</li>
+                        <li>PapaParse (CSV Import)</li>
+                        <li>Axios (HTTP Client)</li>
+                        <li>JavaScript ES6+</li>
+                        <li>LocalStorage API</li>
+                        <li>File API</li>
+                    </ul>
+                </div>
+                <div class="tech-category">
+                    <div class="category-title">Outils & Workflow</div>
+                    <ul class="tech-list">
                         <li>Git & GitHub</li>
-                        <li>Postman</li>
-                        <li>Cloudinary (Images)</li>
-                        <li>Stripe (Paiements)</li>
+                        <li>ESLint</li>
+                        <li>Prettier</li>
+                        <li>Vite DevTools</li>
+                        <li>Vue DevTools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Structure -->
+    <section class="content-section">
+        <div class="data-structure">
+            <h2 class="section-title">Structure des Données</h2>
+            <div class="data-grid">
+                <div class="data-card">
+                    <h3 class="data-title">Écritures Comptables (fichier1.csv)</h3>
+                    <ul class="data-fields">
+                        <li><span class="field-name">date</span> <span>Date de l'opération</span></li>
+                        <li><span class="field-name">reference</span> <span>Référence unique</span></li>
+                        <li><span class="field-name">journal</span> <span>Code du journal (ex: OD)</span></li>
+                        <li><span class="field-name">compte</span> <span>Numéro de compte</span></li>
+                        <li><span class="field-name">debit</span> <span>Montant au débit</span></li>
+                        <li><span class="field-name">credit</span> <span>Montant au crédit</span></li>
+                    </ul>
+                </div>
+                <div class="data-card">
+                    <h3 class="data-title">Plan Comptable (fichier2.csv)</h3>
+                    <ul class="data-fields">
+                        <li><span class="field-name">compte</span> <span>Numéro de compte</span></li>
+                        <li><span class="field-name">libelle</span> <span>Libellé du compte</span></li>
                     </ul>
                 </div>
             </div>
@@ -579,75 +624,72 @@
         <h2 class="section-title">Fonctionnalités Principales</h2>
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">🛒</div>
-                <h3 class="feature-title">Catalogue Interactif</h3>
-                <p class="feature-description">Catalogue de produits avec filtres avancés, recherche par occasion, couleur et prix. Galerie d'images haute qualité avec zoom.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3 class="feature-title">Personnalisation de Bouquets</h3>
-                <p class="feature-description">Outil de personnalisation permettant aux clients de créer leurs propres arrangements floraux avec aperçu en temps réel.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📦</div>
-                <h3 class="feature-title">Gestion des Stocks</h3>
-                <p class="feature-description">Système de gestion d'inventaire en temps réel avec alertes automatiques pour les produits en rupture de stock.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💳</div>
-                <h3 class="feature-title">Paiement Sécurisé</h3>
-                <p class="feature-description">Intégration Stripe pour des transactions sécurisées, support de multiples méthodes de paiement.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🚚</div>
-                <h3 class="feature-title">Gestion Livraisons</h3>
-                <p class="feature-description">Planification intelligente des livraisons avec calcul automatique des zones et créneaux horaires disponibles.</p>
-            </div>
-            <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3 class="feature-title">Dashboard Admin</h3>
-                <p class="feature-description">Interface d'administration complète avec statistiques de vente, gestion des commandes et rapports analytiques.</p>
+                <h3 class="feature-title">Import de Données CSV</h3>
+                <p class="feature-description">Import automatisé des fichiers CSV avec validation du format, vérification des équilibres débit/crédit et détection d'erreurs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3 class="feature-title">Tableau de Bord Analytique</h3>
+                <p class="feature-description">Indicateurs clés en temps réel : ventes, achats, TVA, trésorerie avec graphiques d'évolution interactifs.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3 class="feature-title">Gestion Multi-Comptes</h3>
+                <p class="feature-description">Suivi des clients, fournisseurs, TVA, banque, charges et produits avec historique complet des transactions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📋</div>
+                <h3 class="feature-title">États Comptables</h3>
+                <p class="feature-description">Génération automatique de la balance générale, grand livre et journaux avec filtrage par période.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3 class="feature-title">Analyses Financières</h3>
+                <p class="feature-description">Analyses détaillées par compte, journal et période avec calculs de soldes et mouvements.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📤</div>
+                <h3 class="feature-title">Export Multi-Format</h3>
+                <p class="feature-description">Export des rapports en CSV, PDF et Excel pour intégration avec d'autres outils comptables.</p>
             </div>
         </div>
     </section>
 
-    <!-- Development Process -->
+    <!-- Account Types -->
     <section class="content-section">
-        <h2 class="section-title">Processus de Développement</h2>
-        <div class="process-timeline">
-            <div class="timeline-item">
-                <div class="timeline-number">1</div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Recherche & Analyse</h3>
-                    <p class="timeline-description">Étude du marché floral local, analyse des concurrents et définition des besoins spécifiques du client. Création des personas et user journeys.</p>
+        <div class="account-types">
+            <h2 class="section-title">Types de Comptes Gérés</h2>
+            <div class="accounts-grid">
+                <div class="account-card">
+                    <div class="account-code">411xx</div>
+                    <h3 class="account-name">Clients</h3>
+                    <p class="account-description">Suivi des créances clients avec historique des transactions et évolution des soldes.</p>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">2</div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Design & Prototypage</h3>
-                    <p class="timeline-description">Création de wireframes, maquettes haute fidélité sur Figma et prototypage interactif. Focus sur l'expérience utilisateur et l'esthétique florale.</p>
+                <div class="account-card">
+                    <div class="account-code">401xx</div>
+                    <h3 class="account-name">Fournisseurs</h3>
+                    <p class="account-description">Gestion des dettes fournisseurs avec suivi des échéances et historique complet.</p>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">3</div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Architecture Backend</h3>
-                    <p class="timeline-description">Conception de l'architecture Spring Boot, modélisation de la base de données, implémentation des APIs REST et sécurisation des endpoints.</p>
+                <div class="account-card">
+                    <div class="account-code">445xx</div>
+                    <h3 class="account-name">TVA</h3>
+                    <p class="account-description">TVA déductible (44566) et TVA collectée (44571) avec calculs automatiques.</p>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">4</div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Développement Frontend</h3>
-                    <p class="timeline-description">Intégration des maquettes en HTML/CSS responsive, développement des interactions JavaScript et connexion avec les APIs backend.</p>
+                <div class="account-card">
+                    <div class="account-code">512xx</div>
+                    <h3 class="account-name">Banque</h3>
+                    <p class="account-description">Suivi des mouvements bancaires avec solde en temps réel et rapprochements.</p>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">5</div>
-                <div class="timeline-content">
-                    <h3 class="timeline-title">Tests & Déploiement</h3>
-                    <p class="timeline-description">Tests unitaires et d'intégration, optimisation des performances, tests utilisateurs et déploiement en production.</p>
+                <div class="account-card">
+                    <div class="account-code">607xx</div>
+                    <h3 class="account-name">Charges</h3>
+                    <p class="account-description">Suivi des achats et analyse des dépenses par catégorie et période.</p>
+                </div>
+                <div class="account-card">
+                    <div class="account-code">701xx</div>
+                    <h3 class="account-name">Produits</h3>
+                    <p class="account-description">Suivi des ventes et analyse des revenus avec indicateurs de performance.</p>
                 </div>
             </div>
         </div>
@@ -656,23 +698,23 @@
     <!-- Results -->
     <section class="content-section">
         <div class="results">
-            <h2 class="section-title">Résultats & Impact</h2>
+            <h2 class="section-title">Performances & Capacités</h2>
             <div class="results-grid">
                 <div class="result-item">
-                    <div class="result-number">300%</div>
-                    <div class="result-label">Augmentation des Ventes</div>
+                    <div class="result-number">10K+</div>
+                    <div class="result-label">Écritures Traitées</div>
                 </div>
                 <div class="result-item">
-                    <div class="result-number">150+</div>
-                    <div class="result-label">Commandes/Mois</div>
+                    <div class="result-number">15+</div>
+                    <div class="result-label">Types de Rapports</div>
                 </div>
                 <div class="result-item">
-                    <div class="result-number">4.8★</div>
-                    <div class="result-label">Note Client Moyenne</div>
+                    <div class="result-number">3</div>
+                    <div class="result-label">Formats d'Export</div>
                 </div>
                 <div class="result-item">
-                    <div class="result-number">75%</div>
-                    <div class="result-label">Clients Récurrents</div>
+                    <div class="result-number">100%</div>
+                    <div class="result-label">Responsive Design</div>
                 </div>
             </div>
         </div>
@@ -688,10 +730,10 @@
     </section>
 
     <script>
-        // GSAP Animations similaires mais adaptées au thème floral
+        // GSAP Animations adaptées au thème comptabilité
         gsap.registerPlugin(ScrollTrigger);
 
-        // Hero Animation avec effet de pétales
+        // Hero Animation
         gsap.from('.project-category', {
             y: 50,
             opacity: 0,
@@ -725,7 +767,7 @@
             ease: 'back.out(2)'
         });
 
-        // Animations des sections avec des effets floraux
+        // Features Animation
         gsap.utils.toArray('.feature-card').forEach((card, i) => {
             gsap.from(card, {
                 scrollTrigger: {
@@ -733,7 +775,6 @@
                     start: 'top 80%'
                 },
                 y: 100,
-                rotation: 5,
                 opacity: 0,
                 duration: 1.2,
                 delay: i * 0.2,
@@ -741,21 +782,37 @@
             });
         });
 
-        gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-            gsap.from(item, {
+        // Data Cards Animation
+        gsap.utils.toArray('.data-card').forEach((card, i) => {
+            gsap.from(card, {
                 scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%'
+                    trigger: card,
+                    start: 'top 80%'
                 },
                 x: i % 2 === 0 ? -100 : 100,
                 opacity: 0,
                 duration: 1.2,
-                delay: i * 0.2,
+                delay: i * 0.3,
                 ease: 'power3.out'
             });
         });
 
-        // Animation des résultats avec effet de croissance
+        // Account Cards Animation
+        gsap.utils.toArray('.account-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%'
+                },
+                y: 80,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+
+        // Results Animation avec counters
         gsap.utils.toArray('.result-item').forEach((item, i) => {
             gsap.from(item, {
                 scrollTrigger: {
@@ -774,31 +831,57 @@
             const numberElement = item.querySelector('.result-number');
             const finalText = numberElement.textContent;
             const hasPercent = finalText.includes('%');
-            const hasStar = finalText.includes('★');
+            const hasK = finalText.includes('K');
             const hasPlus = finalText.includes('+');
             
-            if (!hasStar) {
-                const finalNumber = parseInt(finalText);
-                if (!isNaN(finalNumber)) {
-                    gsap.from({ number: 0 }, {
-                        scrollTrigger: {
-                            trigger: item,
-                            start: 'top 85%'
-                        },
-                        number: finalNumber,
-                        duration: 2.5,
-                        delay: i * 0.3 + 0.8,
-                        ease: 'power2.out',
-                        onUpdate: function() {
-                            const current = Math.round(this.targets()[0].number);
-                            let suffix = '';
-                            if (hasPercent) suffix = '%';
-                            if (hasPlus) suffix = '+';
-                            numberElement.textContent = current + suffix;
-                        }
-                    });
-                }
+            let finalNumber;
+            if (hasK) {
+                finalNumber = parseInt(finalText) * 1000;
+            } else {
+                finalNumber = parseInt(finalText);
             }
+            
+            if (!isNaN(finalNumber)) {
+                gsap.from({ number: 0 }, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    number: finalNumber,
+                    duration: 2.5,
+                    delay: i * 0.3 + 0.8,
+                    ease: 'power2.out',
+                    onUpdate: function() {
+                        let current = this.targets()[0].number;
+                        let displayValue;
+                        
+                        if (hasK) {
+                            displayValue = Math.round(current / 1000) + 'K';
+                        } else {
+                            displayValue = Math.round(current);
+                        }
+                        
+                        if (hasPercent) displayValue += '%';
+                        if (hasPlus && !hasK && !hasPercent) displayValue += '+';
+                        
+                        numberElement.textContent = displayValue;
+                    }
+                });
+            }
+        });
+
+        // Section Titles Animation
+        gsap.utils.toArray('.section-title').forEach(title => {
+            gsap.from(title, {
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
         });
     </script>
 </body>
