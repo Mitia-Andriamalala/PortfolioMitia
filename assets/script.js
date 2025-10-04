@@ -47,6 +47,153 @@ document.addEventListener('DOMContentLoaded', function() {
         gsap.set('*', { duration: 0.1 });
     }
 
+    // Professional Interactive Background System
+    function createInteractiveBackground() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.style.position = 'absolute';
+        canvas.style.top = '0';
+        canvas.style.left = '0';
+        canvas.style.zIndex = '3';
+        canvas.style.pointerEvents = 'none';
+        canvas.style.opacity = '0.4';
+        hero.appendChild(canvas);
+
+        let particles = [];
+        const particleCount = 80;
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let time = 0;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.8,
+                    vy: (Math.random() - 0.5) * 0.8,
+                    size: Math.random() * 2 + 0.5,
+                    opacity: Math.random() * 0.6 + 0.3,
+                    originalX: 0,
+                    originalY: 0,
+                    type: Math.random() > 0.7 ? 'special' : 'normal',
+                    hue: Math.random() > 0.5 ? 195 : 280, // cyan or purple
+                    connections: []
+                });
+                particles[i].originalX = particles[i].x;
+                particles[i].originalY = particles[i].y;
+            }
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            time += 0.01;
+
+            // Update and draw particles
+            particles.forEach((particle, i) => {
+                // Organic movement with sine waves
+                particle.x += particle.vx + Math.sin(time + i * 0.1) * 0.3;
+                particle.y += particle.vy + Math.cos(time + i * 0.15) * 0.3;
+
+                // Enhanced mouse influence
+                const dx = mouseX - particle.x;
+                const dy = mouseY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (distance < 200) {
+                    const force = (200 - distance) / 200;
+                    particle.x += dx * force * 0.002;
+                    particle.y += dy * force * 0.002;
+
+                    // Glow effect near mouse
+                    particle.opacity = Math.min(0.9, particle.opacity + force * 0.3);
+                } else {
+                    particle.opacity = Math.max(0.3, particle.opacity - 0.01);
+                }
+
+                // Boundary check with soft bounce
+                if (particle.x < 0 || particle.x > canvas.width) {
+                    particle.vx *= -0.8;
+                    particle.x = Math.max(0, Math.min(canvas.width, particle.x));
+                }
+                if (particle.y < 0 || particle.y > canvas.height) {
+                    particle.vy *= -0.8;
+                    particle.y = Math.max(0, Math.min(canvas.height, particle.y));
+                }
+
+                // Draw particle with gradient
+                const gradient = ctx.createRadialGradient(
+                    particle.x, particle.y, 0,
+                    particle.x, particle.y, particle.size * 2
+                );
+
+                if (particle.type === 'special') {
+                    gradient.addColorStop(0, `hsla(${particle.hue}, 80%, 60%, ${particle.opacity})`);
+                    gradient.addColorStop(1, `hsla(${particle.hue}, 80%, 40%, 0)`);
+                } else {
+                    gradient.addColorStop(0, `hsla(195, 100%, 50%, ${particle.opacity})`);
+                    gradient.addColorStop(1, `hsla(195, 100%, 30%, 0)`);
+                }
+
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Draw enhanced connections
+                particles.slice(i + 1).forEach(otherParticle => {
+                    const dx = otherParticle.x - particle.x;
+                    const dy = otherParticle.y - particle.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 120) {
+                        const opacity = (120 - distance) / 120 * 0.15;
+                        const hue = (particle.hue + otherParticle.hue) / 2;
+
+                        ctx.strokeStyle = `hsla(${hue}, 70%, 50%, ${opacity})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.beginPath();
+                        ctx.moveTo(particle.x, particle.y);
+                        ctx.lineTo(otherParticle.x, otherParticle.y);
+                        ctx.stroke();
+                    }
+                });
+            });
+
+            requestAnimationFrame(drawParticles);
+        }
+
+        // Event listeners
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            createParticles();
+        });
+
+        hero.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Initialize
+        resizeCanvas();
+        createParticles();
+        drawParticles();
+    }
+
+    // Interactive background disabled for cleaner design
+    // if (!window.matchMedia('(max-width: 768px)').matches && !prefersReducedMotion.matches) {
+    //     createInteractiveBackground();
+    // }
+
     // Smooth Scrolling
     document.querySelectorAll('.nav-links a, .back-to-top').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
