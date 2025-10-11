@@ -1,0 +1,145 @@
+/* ANIMATIONS PROFESSIONNELLES POUR LA SECTION CONTACT */
+
+/* À ajouter dans styles.css juste après .contact input, .contact textarea */
+
+.contact input,
+.contact textarea {
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+    border-color: #00D4FF;
+}
+
+.contact button {
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.contact button:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.contact button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+}
+
+.contact button:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.resume-download {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.resume-download:hover {
+    transform: translateY(-6px) scale(1.08);
+    box-shadow: 0 12px 30px rgba(0, 212, 255, 0.4);
+    background: linear-gradient(135deg, #00D4FF 0%, #0099CC 100%);
+    color: #000;
+    border-color: #00D4FF;
+}
+
+.contact form {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation de succès pour le formulaire */
+@keyframes success-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+.contact form.success {
+    animation: success-pulse 0.6s ease;
+}
+
+/* Modal amélioré */
+.modal {
+    backdrop-filter: blur(8px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-content {
+    animation: modalSlideIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.8) rotateX(15deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0);
+    }
+}
+
+.modal-icon {
+    animation: modalIconPop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s both;
+}
+
+@keyframes modalIconPop {
+    0% {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2) rotate(10deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+/* Effet de survol sur les liens email et téléphone */
+.contact a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    display: inline-block;
+}
+
+.contact a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, #00D4FF, #0099CC);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact a:hover::after {
+    width: 100%;
+}
+
+.contact a:hover {
+    color: #00D4FF;
+    transform: translateY(-2px);
+}
