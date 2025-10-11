@@ -148,110 +148,554 @@
 
     <!-- Services Section -->
     <section id="services" class="services" aria-labelledby="services-title">
-        <h2 id="services-title">Mes Services</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <h3>Développement Fullstack</h3>
-                <p>Création d'applications web robustes en utilisant PHP (Laravel, CodeIgniter, Symfony), Java et C#, avec expertise en intégration front-end et back-end.</p>
+        <div class="services-container">
+            <div class="services-header">
+                <h2 id="services-title">Ce Que Je Propose</h2>
+                <p class="services-subtitle">Des solutions complètes alliant développement technique et créativité visuelle pour concrétiser vos projets</p>
             </div>
-            <div class="service-item">
-                <h3>Design Graphique</h3>
-                <p>Création de graphiques visuellement attrayants pour le branding, les réseaux sociaux et l'impression en utilisant Adobe Creative Suite et Figma.</p>
-            </div>
-            <div class="service-item">
-                <h3>Design UI/UX</h3>
-                <p>Conception d'interfaces utilisateur intuitives et d'expériences avec un focus sur l'utilisabilité et l'esthétique, utilisant Figma et la recherche utilisateur.</p>
-            </div>
-            <div class="service-item">
-                <h3>Gestion de Bases de Données</h3>
-                <p>Gestion et optimisation de bases de données comme PostgreSQL, MySQL, MongoDB et Oracle pour une manipulation efficace des données.</p>
+
+            <div class="services-grid">
+                <!-- Service 1: Développement Fullstack -->
+                <div class="service-card" data-service-number="01">
+                    <div class="service-number">01</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+                        </svg>
+                        <div class="service-icon-bg"></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Développement Fullstack</h3>
+                        <p>Création d'applications web robustes et scalables avec une architecture moderne. De la conception de l'API au déploiement, je prends en charge l'ensemble du cycle de développement.</p>
+                        <div class="service-features">
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Architecture MVC
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                API RESTful
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Responsive Design
+                            </span>
+                        </div>
+                        <div class="service-tags">
+                            <span class="service-tag">PHP</span>
+                            <span class="service-tag">Laravel</span>
+                            <span class="service-tag">Java</span>
+                            <span class="service-tag">C#</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Design Graphique -->
+                <div class="service-card" data-service-number="02">
+                    <div class="service-number">02</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6v6H9z"/>
+                            <path d="M3 9h6M15 9h6M9 3v6M9 15v6"/>
+                        </svg>
+                        <div class="service-icon-bg"></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Design Graphique</h3>
+                        <p>Création d'identités visuelles percutantes et de supports graphiques mémorables. Du logo à la charte graphique complète, je donne vie à votre marque avec créativité.</p>
+                        <div class="service-features">
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Identité Visuelle
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Support Print
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Réseaux Sociaux
+                            </span>
+                        </div>
+                        <div class="service-tags">
+                            <span class="service-tag">Photoshop</span>
+                            <span class="service-tag">Illustrator</span>
+                            <span class="service-tag">InDesign</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Design UI/UX -->
+                <div class="service-card" data-service-number="03">
+                    <div class="service-number">03</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2"/>
+                            <path d="M12 18h.01"/>
+                        </svg>
+                        <div class="service-icon-bg"></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Design UI/UX</h3>
+                        <p>Conception d'interfaces utilisateur intuitives centrées sur l'expérience. Je crée des parcours fluides qui allient esthétique moderne et facilité d'utilisation.</p>
+                        <div class="service-features">
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Wireframing
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Prototypage
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Tests Utilisateurs
+                            </span>
+                        </div>
+                        <div class="service-tags">
+                            <span class="service-tag">Figma</span>
+                            <span class="service-tag">Adobe XD</span>
+                            <span class="service-tag">Sketch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Gestion de Bases de Données -->
+                <div class="service-card" data-service-number="04">
+                    <div class="service-number">04</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                            <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/>
+                        </svg>
+                        <div class="service-icon-bg"></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Gestion de Bases de Données</h3>
+                        <p>Conception et optimisation de bases de données performantes. Je garantis l'intégrité, la sécurité et la rapidité d'accès à vos données critiques.</p>
+                        <div class="service-features">
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Modélisation
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Optimisation
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Migration
+                            </span>
+                        </div>
+                        <div class="service-tags">
+                            <span class="service-tag">PostgreSQL</span>
+                            <span class="service-tag">MySQL</span>
+                            <span class="service-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Tools Section -->
     <section id="tools" class="tools" aria-labelledby="tools-title">
-        <h2 id="tools-title">Mes Outils</h2>
-        <div class="tools-grid" role="list" aria-label="Liste des outils utilisés">
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/xd.png" alt="Logo Adobe XD - Outil de design UI/UX" loading="lazy">
-                <h3>Adobe XD</h3>
+        <div class="tools-container">
+            <div class="tools-header">
+                <h2 id="tools-title">Ma Boîte à Outils</h2>
+                <p class="tools-subtitle">Technologies et logiciels que j'utilise au quotidien pour créer des expériences numériques exceptionnelles</p>
             </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/photoshop1.png" alt="Logo Adobe Photoshop - Outil de retouche photo" loading="lazy">
-                <h3>Photoshop</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/illustrator.png" alt="Logo Adobe Illustrator - Outil de design vectoriel" loading="lazy">
-                <h3>Illustrator</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/vs.png" alt="Logo Visual Studio Code - Éditeur de code" loading="lazy">
-                <h3>Visual Code</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/Php2.png" alt="Logo PHPStorm - IDE pour PHP" loading="lazy">
-                <h3>PHPStorm</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/JetBrains.svg" alt="Logo IntelliJ IDEA - IDE pour Java" loading="lazy">
-                <h3>IntelliJ</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/dg.png" alt="Logo DataGrip - Outil de gestion de bases de données" loading="lazy">
-                <h3>DataGrip</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/github2.png" alt="Logo Git - Système de contrôle de version" loading="lazy">
-                <h3>Git</h3>
+
+            <div class="tools-grid" role="list" aria-label="Liste des outils utilisés">
+                <!-- Design Tools -->
+                <div class="tool-card" data-category="design" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/xd.png" alt="Logo Adobe XD - Outil de design UI/UX" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category design">Design</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Adobe XD</h3>
+                        <p>Design UI/UX & prototypage interactif</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="design" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/photoshop1.png" alt="Logo Adobe Photoshop - Outil de retouche photo" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category design">Design</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Photoshop</h3>
+                        <p>Retouche photo & création graphique</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="design" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/illustrator.png" alt="Logo Adobe Illustrator - Outil de design vectoriel" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category design">Design</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Illustrator</h3>
+                        <p>Illustration vectorielle & logos</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Tools -->
+                <div class="tool-card" data-category="development" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/vs.png" alt="Logo Visual Studio Code - Éditeur de code" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category development">Dev</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>VS Code</h3>
+                        <p>Éditeur de code moderne & extensible</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="development" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/Php2.png" alt="Logo PHPStorm - IDE pour PHP" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category development">Dev</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>PHPStorm</h3>
+                        <p>IDE professionnel pour PHP</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="development" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/JetBrains.svg" alt="Logo IntelliJ IDEA - IDE pour Java" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category development">Dev</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>IntelliJ IDEA</h3>
+                        <p>IDE puissant pour Java & Kotlin</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database & DevOps Tools -->
+                <div class="tool-card" data-category="database" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/dg.png" alt="Logo DataGrip - Outil de gestion de bases de données" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category database">Database</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>DataGrip</h3>
+                        <p>Gestion avancée de bases de données</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="devops" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/github2.png" alt="Logo Git - Système de contrôle de version" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category devops">DevOps</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Git & GitHub</h3>
+                        <p>Contrôle de version & collaboration</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills" aria-labelledby="skills-title">
-        <h2 id="skills-title">Mes Compétences</h2>
-        <div class="skills-grid" role="list" aria-label="Liste des compétences techniques">
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/php.png" alt="Logo PHP - Langage de programmation" loading="lazy">
-                <div class="skill-details">
-                    <h3>PHP (Laravel, CodeIgniter, Symfony)</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence PHP : 90%"><div class="skill-bar-fill" data-width="90%"></div></div>
-                </div>
+        <div class="skills-container">
+            <div class="skills-header">
+                <h2 id="skills-title">Compétences & Expertises</h2>
+                <p class="skills-subtitle">Un mélange équilibré de compétences techniques et créatives pour donner vie à vos projets</p>
             </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/java.png" alt="Logo Java - Langage de programmation" loading="lazy">
-                <div class="skill-details">
-                    <h3>Java (SpringBoot, JavaFX)</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence Java : 75%"><div class="skill-bar-fill" data-width="75%"></div></div>
+
+            <div class="skills-grid" role="list" aria-label="Liste des compétences techniques">
+                <!-- Backend Development -->
+                <div class="skill-card" data-skill-level="expert" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/php.png" alt="Logo PHP - Langage de programmation" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Développement Backend</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <p class="skill-description">Développement d'applications web robustes et scalables</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">CodeIgniter</span>
+                            <span class="skill-tag">Symfony</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">PHP</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="90"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/C.png" alt="Logo C# - Langage de programmation" loading="lazy">
-                <div class="skill-details">
-                    <h3>C# (.NET, ASP.NET)</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence C# : 60%"><div class="skill-bar-fill" data-width="60%"></div></div>
+
+                <!-- Java Development -->
+                <div class="skill-card" data-skill-level="advanced" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/java.png" alt="Logo Java - Langage de programmation" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Développement Java</h3>
+                            <span class="skill-level advanced">Avancé</span>
+                        </div>
+                        <p class="skill-description">Applications d'entreprise et interfaces desktop</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">JavaFX</span>
+                            <span class="skill-tag">Hibernate</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/database1.png" alt="Icône base de données" loading="lazy">
-                <div class="skill-details">
-                    <h3>Bases de Données (PostgreSQL, MySQL)</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence bases de données : 80%"><div class="skill-bar-fill" data-width="80%"></div></div>
+
+                <!-- C# Development -->
+                <div class="skill-card" data-skill-level="intermediate" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/C.png" alt="Logo C# - Langage de programmation" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Développement C#</h3>
+                            <span class="skill-level intermediate">Intermédiaire</span>
+                        </div>
+                        <p class="skill-description">Développement .NET et applications web ASP.NET</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">.NET</span>
+                            <span class="skill-tag">ASP.NET</span>
+                            <span class="skill-tag">Entity Framework</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">C#</span>
+                                <span class="skill-percentage">60%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="60"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/layers.png" alt="Icône design graphique" loading="lazy">
-                <div class="skill-details">
-                    <h3>Design Visuel & Branding</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence design : 90%"><div class="skill-bar-fill" data-width="90%"></div></div>
+
+                <!-- Database Management -->
+                <div class="skill-card" data-skill-level="advanced" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/database1.png" alt="Icône base de données" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Bases de Données</h3>
+                            <span class="skill-level advanced">Avancé</span>
+                        </div>
+                        <p class="skill-description">Conception, optimisation et gestion de bases de données</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">Database</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/brainstorm.png" alt="Icône créativité et collaboration" loading="lazy">
-                <div class="skill-details">
-                    <h3>Créativité & Travail d'Équipe</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence soft skills : 95%"><div class="skill-bar-fill" data-width="95%"></div></div>
+
+                <!-- Design -->
+                <div class="skill-card" data-skill-level="expert" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/layers.png" alt="Icône design graphique" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Design Visuel & Branding</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <p class="skill-description">Création d'identités visuelles et d'interfaces modernes</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">UI/UX</span>
+                            <span class="skill-tag">Adobe Suite</span>
+                            <span class="skill-tag">Figma</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">Design</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skill-card" data-skill-level="expert" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/brainstorm.png" alt="Icône créativité et collaboration" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Soft Skills</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <p class="skill-description">Collaboration efficace et pensée créative</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Travail d'équipe</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Créativité</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">Soft Skills</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="95"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -259,23 +703,139 @@
 
     <!-- Education & Experience Section -->
     <section id="timeline" class="timeline" aria-labelledby="timeline-title">
-        <h2 id="timeline-title">Formation & Expérience</h2>
-        <div class="timeline-container">
-            <div class="timeline-item" data-year="2022 - Présent">
-                <h3>Licence en Informatique & Design</h3>
-                <p><strong>IT University Antananarivo</strong><br>Étude du design graphique, UI/UX, développement front-end et back-end, optimisation web et gestion de bases de données.</p>
+        <div class="timeline-section-container">
+            <div class="timeline-header">
+                <h2 id="timeline-title">Mon Parcours</h2>
+                <br>
+                <p class="timeline-subtitle">Une combinaison d'études académiques et d'expériences professionnelles qui ont façonné mes compétences</p>
             </div>
-            <div class="timeline-item" data-year="Jan 2021 - Mar 2022">
-                <h3>Designer Graphique & Créateur de Contenu</h3>
-                <p><strong>MAHAFALY Creation, Antananarivo</strong><br>Conception de contenu visuel pour les réseaux sociaux et l'impression, développement de matériaux de branding et collaboration sur des campagnes digitales.</p>
-            </div>
-            <div class="timeline-item" data-year="Jul 2020 - Jul 2022">
-                <h3>DTS en Multimédia</h3>
-                <p><strong>E-MEDIA Madagascar</strong><br>Acquisition de compétences en création visuelle, montage vidéo, animation et développement web.</p>
-            </div>
-            <div class="timeline-item" data-year="2012 - 2020">
-                <h3>Baccalauréat Scientifique</h3>
-                <p><strong>École Capricorn Tulear</strong><br>Diplômé avec un Baccalauréat axé sur les sciences, construisant une base en logique et pensée analytique.</p>
+
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item" data-type="education">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge education">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            Formation
+                        </div>
+                        <div class="timeline-date">2022 - Présent</div>
+                        <h3>Licence en Informatique & Design</h3>
+                        <div class="timeline-location">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            IT University Antananarivo
+                        </div>
+                        <p>Étude approfondie du design graphique, UI/UX, développement front-end et back-end, optimisation web et gestion de bases de données. Formation complète alliant théorie et pratique.</p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Design UI/UX</span>
+                            <span class="timeline-skill">Développement Web</span>
+                            <span class="timeline-skill">Bases de Données</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item" data-type="experience">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge experience">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                            </svg>
+                            Expérience
+                        </div>
+                        <div class="timeline-date">Jan 2021 - Mar 2022</div>
+                        <h3>Designer Graphique & Créateur de Contenu</h3>
+                        <div class="timeline-location">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            MAHAFALY Creation, Antananarivo
+                        </div>
+                        <p>Conception de contenu visuel pour les réseaux sociaux et l'impression, développement de matériaux de branding et collaboration sur des campagnes digitales pour divers clients.</p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Branding</span>
+                            <span class="timeline-skill">Social Media</span>
+                            <span class="timeline-skill">Print Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item" data-type="education">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge education">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            Formation
+                        </div>
+                        <div class="timeline-date">Jul 2020 - Jul 2022</div>
+                        <h3>DTS en Multimédia</h3>
+                        <div class="timeline-location">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            E-MEDIA Madagascar
+                        </div>
+                        <p>Acquisition de compétences en création visuelle, montage vidéo, animation et développement web. Formation pratique axée sur les outils de création multimédia.</p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Création Visuelle</span>
+                            <span class="timeline-skill">Montage Vidéo</span>
+                            <span class="timeline-skill">Animation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item" data-type="education">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge education">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            Formation
+                        </div>
+                        <div class="timeline-date">2012 - 2020</div>
+                        <h3>Baccalauréat Scientifique</h3>
+                        <div class="timeline-location">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            École Capricorn Tulear
+                        </div>
+                        <p>Diplômé avec un Baccalauréat axé sur les sciences, construisant une base solide en logique, pensée analytique et méthodes scientifiques.</p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Sciences</span>
+                            <span class="timeline-skill">Mathématiques</span>
+                            <span class="timeline-skill">Logique</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

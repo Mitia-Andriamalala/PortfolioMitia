@@ -3,16 +3,73 @@
 // Attendre que le DOM soit chargé et que GSAP soit disponible
 document.addEventListener('DOMContentLoaded', function() {
 
+    // Scroll Progress Bar
+    const scrollProgress = document.querySelector('.scroll-progress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (window.scrollY / windowHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+    }
+
+    // Active Nav Link on Scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function updateActiveLink() {
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink(); // Call on load
+
     // Hamburger Menu avec accessibilité
     const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    const navLinksContainer = document.querySelector('.nav-links');
 
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            const isExpanded = navLinks.classList.contains('active');
-            navLinks.classList.toggle('active');
-            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    if (hamburger && navLinksContainer) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isExpanded = navLinksContainer.classList.contains('active');
+            navLinksContainer.classList.toggle('active');
+            hamburger.classList.toggle('active');
             hamburger.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Close menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksContainer.classList.remove('active');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinksContainer.classList.contains('active')) {
+                if (!navLinksContainer.contains(e.target) && !hamburger.contains(e.target)) {
+                    navLinksContainer.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            }
         });
     }
 
@@ -195,18 +252,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // }
 
     // Smooth Scrolling
-    document.querySelectorAll('.nav-links a, .back-to-top').forEach(anchor => {
+    document.querySelectorAll('.nav-link, .back-to-top').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 60,
+                    top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
                 });
-                navLinks.classList.remove('active');
-                hamburger.textContent = '☰';
+                if (navLinksContainer) {
+                    navLinksContainer.classList.remove('active');
+                    if (hamburger) {
+                        hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                }
             }
         });
     });
@@ -327,61 +389,290 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Services Animations
-        gsap.utils.toArray('.service-item').forEach((item, i) => {
-            gsap.from(item, {
+        // Services Section Animations
+        // Animate header
+        const servicesTitle = document.querySelector('.services-header h2');
+        if (servicesTitle) {
+            gsap.set(servicesTitle, { opacity: 1 }); // Force visible
+            gsap.from(servicesTitle, {
                 scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%'
+                    trigger: '.services',
+                    start: 'top 80%'
                 },
-                y: 100,
+                y: 60,
                 opacity: 0,
                 duration: 1,
-                delay: i * 0.2,
                 ease: 'power3.out'
             });
+        }
+
+        gsap.from('.services-subtitle', {
+            scrollTrigger: {
+                trigger: '.services',
+                start: 'top 80%'
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
         });
 
-        // Tools Animations
-        gsap.utils.toArray('.tool-item').forEach((item, i) => {
-            gsap.from(item, {
+        // Animate service cards with stagger
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.from(card, {
                 scrollTrigger: {
-                    trigger: item,
+                    trigger: card,
                     start: 'top 85%'
                 },
-                scale: 0.7,
+                y: 80,
+                opacity: 0,
+                scale: 0.95,
+                duration: 1,
+                delay: i * 0.15,
+                ease: 'back.out(1.3)'
+            });
+        });
+
+        // Tools Section Animations
+        // Animate header
+        const toolsTitle = document.querySelector('.tools-header h2');
+        if (toolsTitle) {
+            gsap.set(toolsTitle, { opacity: 1 }); // Force visible
+            gsap.from(toolsTitle, {
+                scrollTrigger: {
+                    trigger: '.tools',
+                    start: 'top 80%'
+                },
+                y: 60,
                 opacity: 0,
                 duration: 1,
-                delay: i * 0.2,
-                ease: 'back.out(1.7)'
-            });
-        });
-
-        // Skill Bar Animations
-        gsap.utils.toArray('.skill-bar-fill').forEach(bar => {
-            gsap.to(bar, {
-                scrollTrigger: {
-                    trigger: bar,
-                    start: 'top 90%'
-                },
-                width: bar.dataset.width,
-                duration: 1.8,
                 ease: 'power3.out'
             });
+        }
+
+        gsap.from('.tools-subtitle', {
+            scrollTrigger: {
+                trigger: '.tools',
+                start: 'top 80%'
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
         });
 
-        // Timeline Animations
+        // Animate tool cards with stagger
+        gsap.utils.toArray('.tool-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%'
+                },
+                y: 80,
+                opacity: 0,
+                scale: 0.9,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'back.out(1.3)'
+            });
+
+            // Animate the stat bar on scroll
+            const statFill = card.querySelector('.stat-fill');
+            if (statFill) {
+                gsap.to(statFill, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%'
+                    },
+                    width: statFill.style.getPropertyValue('--stat-width'),
+                    duration: 1.5,
+                    delay: 0.5,
+                    ease: 'power3.out'
+                });
+            }
+        });
+
+        // Skills Section Animations
+        // Animate header
+        const skillsTitle = document.querySelector('.skills-header h2');
+        if (skillsTitle) {
+            gsap.set(skillsTitle, { opacity: 1 }); // Force visible
+            gsap.from(skillsTitle, {
+                scrollTrigger: {
+                    trigger: '.skills',
+                    start: 'top 80%'
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        }
+
+        gsap.from('.skills-subtitle', {
+            scrollTrigger: {
+                trigger: '.skills',
+                start: 'top 80%'
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
+        });
+
+        // Animate skill cards with stagger
+        gsap.utils.toArray('.skill-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%'
+                },
+                y: 80,
+                opacity: 0,
+                scale: 0.9,
+                duration: 1,
+                delay: i * 0.1,
+                ease: 'back.out(1.3)'
+            });
+
+            // Animate the progress bar on scroll
+            const progressFill = card.querySelector('.skill-progress-fill');
+            if (progressFill) {
+                const progress = progressFill.getAttribute('data-progress');
+                gsap.to(progressFill, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%'
+                    },
+                    width: progress + '%',
+                    duration: 1.5,
+                    delay: 0.5,
+                    ease: 'power3.out'
+                });
+            }
+        });
+
+        // Timeline Section Animations
+        // Animate header
+        const timelineTitle = document.querySelector('.timeline-header h2');
+        if (timelineTitle) {
+            gsap.set(timelineTitle, { opacity: 1 }); // Force visible
+            gsap.from(timelineTitle, {
+                scrollTrigger: {
+                    trigger: '.timeline',
+                    start: 'top 80%'
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        }
+
+        gsap.from('.timeline-subtitle', {
+            scrollTrigger: {
+                trigger: '.timeline',
+                start: 'top 80%'
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
+        });
+
+        // Animate the timeline line
+        const timelineLine = document.querySelector('.timeline-line');
+        if (timelineLine) {
+            gsap.from(timelineLine, {
+                scrollTrigger: {
+                    trigger: '.timeline-wrapper',
+                    start: 'top 80%'
+                },
+                scaleY: 0,
+                transformOrigin: 'top',
+                duration: 1.5,
+                ease: 'power3.out'
+            });
+        }
+
+        // Animate timeline items
         gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-            gsap.from(item, {
+            // Animate the dot
+            const dot = item.querySelector('.timeline-dot');
+            if (dot) {
+                gsap.from(dot, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: 'back.out(2)'
+                });
+
+                // Pulse effect on the dot when visible
+                gsap.to(dot, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    boxShadow: '0 0 0 0 rgba(0, 212, 255, 0.7)',
+                    repeat: 1,
+                    yoyo: true,
+                    duration: 1,
+                    delay: 0.6,
+                    ease: 'power2.out'
+                });
+            }
+
+            // Animate the content card
+            gsap.to(item, {
                 scrollTrigger: {
                     trigger: item,
                     start: 'top 85%'
                 },
-                x: -100,
-                opacity: 0,
-                duration: 1.2,
-                delay: i * 0.3,
+                opacity: 1,
+                x: 0,
+                duration: 1,
+                delay: i * 0.2,
                 ease: 'power3.out'
+            });
+
+            // Animate badges and elements inside
+            const badge = item.querySelector('.timeline-badge');
+            if (badge) {
+                gsap.from(badge, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 85%'
+                    },
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.3 + i * 0.2,
+                    ease: 'back.out(2)'
+                });
+            }
+
+            // Animate skill tags
+            const skills = item.querySelectorAll('.timeline-skill');
+            skills.forEach((skill, j) => {
+                gsap.from(skill, {
+                    scrollTrigger: {
+                        trigger: item,
+                        start: 'top 80%'
+                    },
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.4,
+                    delay: 0.5 + i * 0.2 + j * 0.05,
+                    ease: 'back.out(1.7)'
+                });
             });
         });
 
