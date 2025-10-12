@@ -676,55 +676,191 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Certifications Animations
-        gsap.utils.toArray('.certification-item').forEach((item, i) => {
-            gsap.from(item, {
+        // Certifications Section Animations
+        // Animate header
+        const certificationsTitle = document.querySelector('.certifications-header h2');
+        if (certificationsTitle) {
+            gsap.set(certificationsTitle, { opacity: 1 }); // Force visible
+            gsap.from(certificationsTitle, {
                 scrollTrigger: {
-                    trigger: item,
-                    start: 'top 85%'
+                    trigger: '.certifications',
+                    start: 'top 80%'
                 },
-                y: 100,
+                y: 60,
                 opacity: 0,
                 duration: 1,
-                delay: i * 0.2,
                 ease: 'power3.out'
             });
+        }
+
+        gsap.from('.certifications-subtitle', {
+            scrollTrigger: {
+                trigger: '.certifications',
+                start: 'top 80%'
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
         });
 
-        // Case Card Animations
-        gsap.utils.toArray('.case-card').forEach((card, i) => {
+        // Animate certification cards
+        gsap.utils.toArray('.certification-card').forEach((card, i) => {
+            // Card main animation
             gsap.from(card, {
                 scrollTrigger: {
                     trigger: card,
                     start: 'top 85%'
                 },
-                y: 150,
+                y: 80,
                 opacity: 0,
-                rotation: 5,
-                duration: 1.2,
+                scale: 0.95,
+                duration: 1,
                 delay: i * 0.2,
-                ease: 'power3.out'
+                ease: 'back.out(1.3)'
             });
 
-            // Animation du lien projet au hover
+            // Animate badge
+            const badge = card.querySelector('.certification-badge');
+            if (badge) {
+                gsap.from(badge, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%'
+                    },
+                    scale: 0,
+                    opacity: 0,
+                    rotation: -180,
+                    duration: 0.6,
+                    delay: 0.3 + i * 0.2,
+                    ease: 'back.out(2)'
+                });
+            }
+
+            // Animate skills tags
+            const skills = card.querySelectorAll('.cert-skill');
+            skills.forEach((skill, j) => {
+                gsap.from(skill, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%'
+                    },
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.4,
+                    delay: 0.5 + i * 0.2 + j * 0.05,
+                    ease: 'back.out(1.7)'
+                });
+            });
+
+            // Animate verified badge
+            const verified = card.querySelector('.certification-verified');
+            if (verified) {
+                gsap.from(verified, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%'
+                    },
+                    x: -20,
+                    opacity: 0,
+                    duration: 0.6,
+                    delay: 0.6 + i * 0.2,
+                    ease: 'power2.out'
+                });
+            }
+        });
+
+        // Case Studies Section Animations
+        // Animate header
+        const caseStudiesTitle = document.querySelector('.case-studies-header h2');
+        if (caseStudiesTitle) {
+            gsap.set(caseStudiesTitle, { opacity: 1 }); // Force visible
+            gsap.from(caseStudiesTitle, {
+                scrollTrigger: {
+                    trigger: '.case-studies',
+                    start: 'top 80%'
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        }
+
+        gsap.from('.case-studies-subtitle', {
+            scrollTrigger: {
+                trigger: '.case-studies',
+                start: 'top 80%'
+            },
+            y: 40,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
+        });
+
+        // Animate case cards
+        gsap.utils.toArray('.case-card').forEach((card, i) => {
+            // Card main animation
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%'
+                },
+                y: 80,
+                opacity: 0,
+                scale: 0.95,
+                duration: 1,
+                delay: i * 0.2,
+                ease: 'back.out(1.3)'
+            });
+
+            // Animate category tag
+            const category = card.querySelector('.case-category');
+            if (category) {
+                gsap.from(category, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%'
+                    },
+                    x: 20,
+                    opacity: 0,
+                    duration: 0.5,
+                    delay: 0.3 + i * 0.2,
+                    ease: 'power2.out'
+                });
+            }
+
+            // Animate tags
+            const tags = card.querySelectorAll('.case-tag');
+            tags.forEach((tag, j) => {
+                gsap.from(tag, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%'
+                    },
+                    scale: 0,
+                    opacity: 0,
+                    duration: 0.4,
+                    delay: 0.5 + i * 0.2 + j * 0.05,
+                    ease: 'back.out(1.7)'
+                });
+            });
+
+            // Animate project link
             const projectLink = card.querySelector('.project-link');
             if (projectLink) {
-                card.addEventListener('mouseenter', () => {
-                    gsap.to(projectLink, {
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                });
-
-                card.addEventListener('mouseleave', () => {
-                    gsap.to(projectLink, {
-                        y: 10,
-                        opacity: 0,
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
+                gsap.from(projectLink, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 80%'
+                    },
+                    x: -20,
+                    opacity: 0,
+                    duration: 0.6,
+                    delay: 0.6 + i * 0.2,
+                    ease: 'power2.out'
                 });
             }
         });

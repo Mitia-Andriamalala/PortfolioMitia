@@ -842,71 +842,229 @@
 
     <!-- Certifications Section -->
     <section id="certifications" class="certifications" aria-labelledby="certifications-title">
-        <h2 id="certifications-title">Certifications</h2>
-        <div class="certifications-grid">
-            <div class="certification-item">
-                <h3>Certificat d'Anglais C1</h3>
-                <p>2021, ITTI Madagascar<br>Maîtrise avancée de l'anglais parlé et écrit.</p>
+        <div class="certifications-container">
+            <div class="certifications-header">
+                <h2 id="certifications-title">Certifications & Diplômes</h2>
+                <p class="certifications-subtitle">Validations officielles de mes compétences linguistiques et techniques</p>
             </div>
-            <div class="certification-item">
-                <h3>Certificat d'Anglais C1</h3>
-                <p>2022, FLTC Madagascar<br>Validation supplémentaire des compétences avancées de communication en anglais.</p>
+
+            <div class="certifications-grid">
+                <!-- Certification 1 -->
+                <div class="certification-card" data-level="c1">
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 15l3.5-3.5M12 15l-3.5-3.5M12 15V3m0 12"/>
+                            <path d="M2.5 12.326A10 10 0 1121.5 12.326"/>
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                        </svg>
+                        <span class="badge-level">C1</span>
+                    </div>
+                    <div class="certification-content">
+                        <div class="certification-header">
+                            <h3>Certificat d'Anglais Avancé</h3>
+                            <span class="certification-year">2021</span>
+                        </div>
+                        <div class="certification-org">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                                <path d="M9 22V12h6v10"/>
+                            </svg>
+                            ITTI Madagascar
+                        </div>
+                        <p class="certification-description">Certification officielle attestant d'une maîtrise avancée de l'anglais parlé et écrit, niveau C1 du CECRL.</p>
+                        <div class="certification-skills">
+                            <span class="cert-skill">Communication</span>
+                            <span class="cert-skill">Business English</span>
+                            <span class="cert-skill">Technical Writing</span>
+                        </div>
+                    </div>
+                    <div class="certification-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                        <span>Vérifié</span>
+                    </div>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="certification-card" data-level="c1">
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 15l3.5-3.5M12 15l-3.5-3.5M12 15V3m0 12"/>
+                            <path d="M2.5 12.326A10 10 0 1121.5 12.326"/>
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                        </svg>
+                        <span class="badge-level">C1</span>
+                    </div>
+                    <div class="certification-content">
+                        <div class="certification-header">
+                            <h3>Certificat d'Anglais Avancé</h3>
+                            <span class="certification-year">2022</span>
+                        </div>
+                        <div class="certification-org">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                                <path d="M9 22V12h6v10"/>
+                            </svg>
+                            FLTC Madagascar
+                        </div>
+                        <p class="certification-description">Validation supplémentaire des compétences avancées en communication anglaise, confirmant le niveau C1 CECRL.</p>
+                        <div class="certification-skills">
+                            <span class="cert-skill">Advanced Speaking</span>
+                            <span class="cert-skill">Professional Writing</span>
+                            <span class="cert-skill">Comprehension</span>
+                        </div>
+                    </div>
+                    <div class="certification-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                        <span>Vérifié</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Case Studies Section - MODIFIEE -->
     <section id="work" class="case-studies" aria-labelledby="work-title">
-        <h2 id="work-title">Réalisations Sélectionnées</h2>
-        <div class="case-grid" role="list" aria-label="Portfolio de projets réalisés">
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/branding-startup.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/branding-startup.html'" aria-label="Voir le projet d'identité de marque pour startup">
+        <div class="case-studies-container">
+            <div class="case-studies-header">
+                <h2 id="work-title">Réalisations Sélectionnées</h2>
+                <br>
+                <p class="case-studies-subtitle">Découvrez une sélection de projets qui illustrent mon expertise en développement et design</p>
+            </div>
+
+            <div class="case-grid" role="list" aria-label="Portfolio de projets réalisés">
+            <div class="case-card" role="listitem" data-category="design" tabindex="0" onclick="window.location.href='projects/branding-startup.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/branding-startup.html'" aria-label="Voir le projet d'identité de marque pour startup">
+                <span class="case-category design-cat">Design</span>
                 <img src="assets/images/projects/back.png" alt="Aperçu du projet d'identité de marque - logo et charte graphique moderne" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Identité de Marque pour Startup</h3>
-                    <p>Développement d'une identité de marque minimaliste et moderne pour une startup technologique locale, incluant logo, charte graphique et supports de communication.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Identité de Marque pour Startup</h3>
+                        <p>Identité visuelle complète pour une startup tech : logo, charte graphique et supports de communication.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Branding</span>
+                            <span class="case-tag">Logo Design</span>
+                            <span class="case-tag">Illustrator</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/ecommerce-fleurs.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/ecommerce-fleurs.html'" aria-label="Voir le projet de plateforme de comptabilité">
+            <div class="case-card" role="listitem" data-category="development" tabindex="0" onclick="window.location.href='projects/ecommerce-fleurs.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/ecommerce-fleurs.html'" aria-label="Voir le projet de plateforme de comptabilité">
+                <span class="case-category dev-cat">Dev</span>
                 <img src="assets/images/projects/compta.png" alt="Interface de l'application de gestion comptable avec tableaux de bord" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Plateforme de Comptabilité</h3>
-                    <p>Application de gestion comptable développée avec Vue.js 3, permettant la gestion des comptes, l'import de données, le suivi des transactions et l'analyse financière en temps réel.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Plateforme de Comptabilité</h3>
+                        <p>Application de gestion comptable complète avec Vue.js 3 : suivi des transactions et analyse financière en temps réel.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Vue.js 3</span>
+                            <span class="case-tag">TypeScript</span>
+                            <span class="case-tag">Vite</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/gestion-medicale.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/gestion-medicale.html'" aria-label="Voir le projet de système de gestion médicale">
+            <div class="case-card" role="listitem" data-category="development" tabindex="0" onclick="window.location.href='projects/gestion-medicale.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/gestion-medicale.html'" aria-label="Voir le projet de système de gestion médicale">
+                <span class="case-category dev-cat">Dev</span>
                 <img src="assets/images/projects/index.png" alt="Interface du système de gestion de rendez-vous médicaux" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Système de Gestion de Rendez-vous Médicaux</h3>
-                    <p>Construction d'un système complet de planification de rendez-vous avec Laravel 9 et Bootstrap 5 pour les professionnels de santé et les patients.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Système de Gestion de Rendez-vous Médicaux</h3>
+                        <p>Plateforme de planification médicale avec Laravel 9 pour professionnels de santé et patients.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Laravel 9</span>
+                            <span class="case-tag">Bootstrap 5</span>
+                            <span class="case-tag">MySQL</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/prototype-mobile.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/prototype-mobile.html'" aria-label="Voir le projet de prototype d'application mobile">
+            <div class="case-card" role="listitem" data-category="design" tabindex="0" onclick="window.location.href='projects/prototype-mobile.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/prototype-mobile.html'" aria-label="Voir le projet de prototype d'application mobile">
+                <span class="case-category design-cat">Design</span>
                 <img src="assets/images/projects/mobile.png" alt="Maquettes du prototype d'application mobile sur différents écrans" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Prototype d'Application Mobile</h3>
-                    <p>Conception d'un prototype d'application mobile convivial dans Figma pour un projet universitaire avec focus sur l'UX/UI moderne.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Prototype d'Application Mobile</h3>
+                        <p>Prototype mobile moderne dans Figma avec focus sur l'expérience utilisateur et l'interface intuitive.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Figma</span>
+                            <span class="case-tag">UI/UX</span>
+                            <span class="case-tag">Prototypage</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/affiches-evenement.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/affiches-evenement.html'" aria-label="Voir le projet d'affiches d'événement">
+            <div class="case-card" role="listitem" data-category="design" tabindex="0" onclick="window.location.href='projects/affiches-evenement.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/affiches-evenement.html'" aria-label="Voir le projet d'affiches d'événement">
+                <span class="case-category design-cat">Design</span>
                 <img src="assets/images/projects/affiche.png" alt="Collection d'affiches d'événement avec typographie créative" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Série d'Affiches d'Événement</h3>
-                    <p>Conception d'une série d'affiches d'événement pour un club universitaire, mélangeant typographie audacieuse et visuels impactants.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Série d'Affiches d'Événement</h3>
+                        <p>Collection d'affiches événementielles avec typographie audacieuse et visuels percutants.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Print Design</span>
+                            <span class="case-tag">Photoshop</span>
+                            <span class="case-tag">Typography</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/publicite-imprimee.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/publicite-imprimee.html'" aria-label="Voir le projet de publicité imprimée">
+            <div class="case-card" role="listitem" data-category="design" tabindex="0" onclick="window.location.href='projects/publicite-imprimee.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/publicite-imprimee.html'" aria-label="Voir le projet de publicité imprimée">
+                <span class="case-category design-cat">Design</span>
                 <img src="assets/images/projects/Flyers1.png" alt="Matériaux publicitaires imprimés - affiches et dépliants sport" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Projet de Publicité Imprimée</h3>
-                    <p>Création d'une campagne publicitaire complète avec affiches et dépliants pour une marque de sport, alliant créativité et efficacité commerciale.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Projet de Publicité Imprimée</h3>
+                        <p>Campagne publicitaire print pour marque de sport : affiches et dépliants créatifs et impactants.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Marketing</span>
+                            <span class="case-tag">InDesign</span>
+                            <span class="case-tag">Branding</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
