@@ -70,25 +70,56 @@
 
     <!-- Header -->
     <header id="header" role="banner">
+        <!-- Scroll Progress Bar -->
+        <div class="scroll-progress"></div>
+
         <nav role="navigation" aria-label="Navigation principale">
-            <div class="logo" aria-label="Mitia Andrimalala - Page d'accueil">Mitia Andrimalala</div>
-            <button class="hamburger" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="logo" aria-label="Mitia Andrimalala - Page d'accueil">
+                <span class="logo-text">Mitia<span class="logo-accent">.</span></span>
+                <span class="logo-subtitle">Dev & Design</span>
+            </div>
+
+            <button class="hamburger" aria-label="Ouvrir le menu de navigation" aria-expanded="false" aria-controls="nav-links">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
             <div class="nav-links" id="nav-links" role="menubar">
-                <a href="#home" role="menuitem">Accueil</a>
-                <a href="#about" role="menuitem">À Propos</a>
-                <a href="#services" role="menuitem">Services</a>
-                <a href="#tools" role="menuitem">Outils</a>
-                <a href="#skills" role="menuitem">Compétences</a>
-                <a href="#timeline" role="menuitem">Expérience</a>
-                <a href="#certifications" role="menuitem">Certifications</a>
-                <a href="#work" role="menuitem">Réalisations</a>
-                <a href="#contact" role="menuitem">Contact</a>
+                <a href="#home" role="menuitem" class="nav-link active">
+                    <span class="nav-text">Accueil</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#about" role="menuitem" class="nav-link">
+                    <span class="nav-text">À Propos</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#services" role="menuitem" class="nav-link">
+                    <span class="nav-text">Services</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#skills" role="menuitem" class="nav-link">
+                    <span class="nav-text">Compétences</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#work" role="menuitem" class="nav-link">
+                    <span class="nav-text">Réalisations</span>
+                    <span class="nav-indicator"></span>
+                </a>
+                <a href="#contact" role="menuitem" class="nav-link nav-link-cta">
+                    <span class="nav-text">Contact</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero" role="banner" aria-label="Section d'introduction">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
         <div class="hero-content">
             <h1><span>B</span><span>o</span><span>n</span><span>j</span><span>o</span><span>u</span><span>r</span><span>,</span> <span>je</span> <span>s</span><span>u</span><span>i</span><span>s</span> <span>Mitia</span></h1>
             <p>Je suis <span class="typed-text" aria-live="polite" aria-label="Profession animée"></span></p>
@@ -104,121 +135,569 @@
 
     <!-- About Section -->
     <section id="about" class="about" aria-labelledby="about-title">
-        <img src="assets/images/profile/photo1.png" alt="Photo de profil de Mitia Andrimalala, développeur fullstack et designer graphique" class="profile-img" loading="lazy">
-        <div class="about-content">
-            <h2 id="about-title">À Propos de Moi</h2>
-            <p>Je suis Mitia Andrimalala, un développeur Fullstack et Designer Graphique passionné basé à Antananarivo, Madagascar. Je combine créativité et expertise technique pour créer des solutions innovantes et centrées sur l'utilisateur.</p>
-            <p>Mon parcours en informatique et en design m'a permis d'acquérir des compétences en PHP (Laravel, CodeIgniter, Symfony), Java, C#, et des bases de données comme PostgreSQL, MySQL, MongoDB et Oracle, ainsi que les outils de design graphique comme Adobe Creative Suite.</p>
-            <p>Je poursuis actuellement une Licence en Informatique & Design à IT University Antananarivo et recherche un stage pour contribuer à des équipes dynamiques.</p>
+        <div class="about-container">
+            <img src="assets/images/profile/photo1.png" alt="Photo de profil de Mitia Andrimalala, développeur fullstack et designer graphique" class="profile-img" loading="lazy">
+            <div class="about-content">
+                <h2 id="about-title">À Propos de Moi</h2>
+                <p>Je suis Mitia Andrimalala, un développeur Fullstack et Designer Graphique passionné basé à Antananarivo, Madagascar. Je combine créativité et expertise technique pour créer des solutions innovantes et centrées sur l'utilisateur.</p>
+                <p>Mon parcours en informatique et en design m'a permis d'acquérir des compétences en PHP (Laravel, CodeIgniter, Symfony), Java, C#, et des bases de données comme PostgreSQL, MySQL, MongoDB et Oracle, ainsi que les outils de design graphique comme Adobe Creative Suite.</p>
+                <p>Je poursuis actuellement une Licence en Informatique & Design à IT University Antananarivo et recherche un stage pour contribuer à des équipes dynamiques.</p>
+            </div>
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services" aria-labelledby="services-title">
-        <h2 id="services-title">Mes Services</h2>
-        <div class="services-grid">
-            <div class="service-item">
-                <h3>Développement Fullstack</h3>
-                <p>Création d'applications web robustes en utilisant PHP (Laravel, CodeIgniter, Symfony), Java et C#, avec expertise en intégration front-end et back-end.</p>
+        <div class="services-container">
+            <div class="services-header">
+                <h2 id="services-title">Ce Que Je Propose</h2>
+                <br>
+                <p class="services-subtitle">Des solutions complètes alliant développement technique et créativité visuelle pour concrétiser vos projets</p>
             </div>
-            <div class="service-item">
-                <h3>Design Graphique</h3>
-                <p>Création de graphiques visuellement attrayants pour le branding, les réseaux sociaux et l'impression en utilisant Adobe Creative Suite et Figma.</p>
-            </div>
-            <div class="service-item">
-                <h3>Design UI/UX</h3>
-                <p>Conception d'interfaces utilisateur intuitives et d'expériences avec un focus sur l'utilisabilité et l'esthétique, utilisant Figma et la recherche utilisateur.</p>
-            </div>
-            <div class="service-item">
-                <h3>Gestion de Bases de Données</h3>
-                <p>Gestion et optimisation de bases de données comme PostgreSQL, MySQL, MongoDB et Oracle pour une manipulation efficace des données.</p>
+
+            <div class="services-grid">
+                <!-- Service 1: Développement Fullstack -->
+                <div class="service-card" data-service-number="01">
+                    <div class="service-number">01</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>
+                        </svg>
+                        <div class="service-icon-bg"></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Développement Fullstack</h3>
+                        <p>Création d'applications web robustes et scalables avec une architecture moderne. De la conception de l'API au déploiement, je prends en charge l'ensemble du cycle de développement.</p>
+                        <div class="service-features">
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Architecture MVC
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                API RESTful
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Responsive Design
+                            </span>
+                        </div>
+                        <div class="service-tags">
+                            <span class="service-tag">PHP</span>
+                            <span class="service-tag">Laravel</span>
+                            <span class="service-tag">Java</span>
+                            <span class="service-tag">C#</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Design Graphique -->
+                <div class="service-card" data-service-number="02">
+                    <div class="service-number">02</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6v6H9z"/>
+                            <path d="M3 9h6M15 9h6M9 3v6M9 15v6"/>
+                        </svg>
+                        <div class="service-icon-bg"></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Design Graphique</h3>
+                        <p>Création d'identités visuelles percutantes et de supports graphiques mémorables. Du logo à la charte graphique complète, je donne vie à votre marque avec créativité.</p>
+                        <div class="service-features">
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Identité Visuelle
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Support Print
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Réseaux Sociaux
+                            </span>
+                        </div>
+                        <div class="service-tags">
+                            <span class="service-tag">Photoshop</span>
+                            <span class="service-tag">Illustrator</span>
+                            <span class="service-tag">InDesign</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: Design UI/UX -->
+                <div class="service-card" data-service-number="03">
+                    <div class="service-number">03</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2"/>
+                            <path d="M12 18h.01"/>
+                        </svg>
+                        <div class="service-icon-bg"></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Design UI/UX</h3>
+                        <p>Conception d'interfaces utilisateur intuitives centrées sur l'expérience. Je crée des parcours fluides qui allient esthétique moderne et facilité d'utilisation.</p>
+                        <div class="service-features">
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Wireframing
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Prototypage
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Tests Utilisateurs
+                            </span>
+                        </div>
+                        <div class="service-tags">
+                            <span class="service-tag">Figma</span>
+                            <span class="service-tag">Adobe XD</span>
+                            <span class="service-tag">Sketch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4: Gestion de Bases de Données -->
+                <div class="service-card" data-service-number="04">
+                    <div class="service-number">04</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                            <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/>
+                        </svg>
+                        <div class="service-icon-bg"></div>
+                    </div>
+                    <div class="service-content">
+                        <h3>Gestion de Bases de Données</h3>
+                        <p>Conception et optimisation de bases de données performantes. Je garantis l'intégrité, la sécurité et la rapidité d'accès à vos données critiques.</p>
+                        <div class="service-features">
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Modélisation
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Optimisation
+                            </span>
+                            <span class="feature-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                Migration
+                            </span>
+                        </div>
+                        <div class="service-tags">
+                            <span class="service-tag">PostgreSQL</span>
+                            <span class="service-tag">MySQL</span>
+                            <span class="service-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Tools Section -->
     <section id="tools" class="tools" aria-labelledby="tools-title">
-        <h2 id="tools-title">Mes Outils</h2>
-        <div class="tools-grid" role="list" aria-label="Liste des outils utilisés">
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/xd.png" alt="Logo Adobe XD - Outil de design UI/UX" loading="lazy">
-                <h3>Adobe XD</h3>
+        <div class="tools-container">
+            <div class="tools-header">
+                <h2 id="tools-title">Ma Boîte à Outils</h2>
+                <p class="tools-subtitle">Technologies et logiciels que j'utilise au quotidien pour créer des expériences numériques exceptionnelles</p>
             </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/photoshop1.png" alt="Logo Adobe Photoshop - Outil de retouche photo" loading="lazy">
-                <h3>Photoshop</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/illustrator.png" alt="Logo Adobe Illustrator - Outil de design vectoriel" loading="lazy">
-                <h3>Illustrator</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/vs.png" alt="Logo Visual Studio Code - Éditeur de code" loading="lazy">
-                <h3>Visual Code</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/Php2.png" alt="Logo PHPStorm - IDE pour PHP" loading="lazy">
-                <h3>PHPStorm</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/JetBrains.svg" alt="Logo IntelliJ IDEA - IDE pour Java" loading="lazy">
-                <h3>IntelliJ</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/dg.png" alt="Logo DataGrip - Outil de gestion de bases de données" loading="lazy">
-                <h3>DataGrip</h3>
-            </div>
-            <div class="tool-item" role="listitem">
-                <img src="assets/images/tools/github2.png" alt="Logo Git - Système de contrôle de version" loading="lazy">
-                <h3>Git</h3>
+
+            <div class="tools-grid" role="list" aria-label="Liste des outils utilisés">
+                <!-- Design Tools -->
+                <div class="tool-card" data-category="design" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/xd.png" alt="Logo Adobe XD - Outil de design UI/UX" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category design">Design</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Adobe XD</h3>
+                        <p>Design UI/UX & prototypage interactif</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="design" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/photoshop1.png" alt="Logo Adobe Photoshop - Outil de retouche photo" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category design">Design</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Photoshop</h3>
+                        <p>Retouche photo & création graphique</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="design" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/illustrator.png" alt="Logo Adobe Illustrator - Outil de design vectoriel" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category design">Design</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Illustrator</h3>
+                        <p>Illustration vectorielle & logos</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Tools -->
+                <div class="tool-card" data-category="development" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/vs.png" alt="Logo Visual Studio Code - Éditeur de code" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category development">Dev</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>VS Code</h3>
+                        <p>Éditeur de code moderne & extensible</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="development" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/Php2.png" alt="Logo PHPStorm - IDE pour PHP" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category development">Dev</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>PHPStorm</h3>
+                        <p>IDE professionnel pour PHP</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="development" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/JetBrains.svg" alt="Logo IntelliJ IDEA - IDE pour Java" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category development">Dev</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>IntelliJ IDEA</h3>
+                        <p>IDE puissant pour Java & Kotlin</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database & DevOps Tools -->
+                <div class="tool-card" data-category="database" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/dg.png" alt="Logo DataGrip - Outil de gestion de bases de données" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category database">Database</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>DataGrip</h3>
+                        <p>Gestion avancée de bases de données</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool-card" data-category="devops" role="listitem">
+                    <div class="tool-card-header">
+                        <div class="tool-icon-wrapper">
+                            <img src="assets/images/tools/github2.png" alt="Logo Git - Système de contrôle de version" loading="lazy">
+                            <div class="tool-icon-glow"></div>
+                        </div>
+                        <span class="tool-category devops">DevOps</span>
+                    </div>
+                    <div class="tool-card-body">
+                        <h3>Git & GitHub</h3>
+                        <p>Contrôle de version & collaboration</p>
+                    </div>
+                    <div class="tool-card-stats">
+                        <div class="tool-stat">
+                            <span class="stat-label">Expertise</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="--stat-width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="skills" aria-labelledby="skills-title">
-        <h2 id="skills-title">Mes Compétences</h2>
-        <div class="skills-grid" role="list" aria-label="Liste des compétences techniques">
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/php.png" alt="Logo PHP - Langage de programmation" loading="lazy">
-                <div class="skill-details">
-                    <h3>PHP (Laravel, CodeIgniter, Symfony)</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence PHP : 90%"><div class="skill-bar-fill" data-width="90%"></div></div>
-                </div>
+        <div class="skills-container">
+            <div class="skills-header">
+                <h2 id="skills-title">Compétences & Expertises</h2>
+                <br>
+                <p class="skills-subtitle">Un mélange équilibré de compétences techniques et créatives pour donner vie à vos projets</p>
             </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/java.png" alt="Logo Java - Langage de programmation" loading="lazy">
-                <div class="skill-details">
-                    <h3>Java (SpringBoot, JavaFX)</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence Java : 75%"><div class="skill-bar-fill" data-width="75%"></div></div>
+
+            <div class="skills-grid" role="list" aria-label="Liste des compétences techniques">
+                <!-- Backend Development -->
+                <div class="skill-card" data-skill-level="expert" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/php.png" alt="Logo PHP - Langage de programmation" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Développement Backend</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <p class="skill-description">Développement d'applications web robustes et scalables</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Laravel</span>
+                            <span class="skill-tag">CodeIgniter</span>
+                            <span class="skill-tag">Symfony</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">PHP</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="90"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/C.png" alt="Logo C# - Langage de programmation" loading="lazy">
-                <div class="skill-details">
-                    <h3>C# (.NET, ASP.NET)</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence C# : 60%"><div class="skill-bar-fill" data-width="60%"></div></div>
+
+                <!-- Java Development -->
+                <div class="skill-card" data-skill-level="advanced" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/java.png" alt="Logo Java - Langage de programmation" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Développement Java</h3>
+                            <span class="skill-level advanced">Avancé</span>
+                        </div>
+                        <p class="skill-description">Applications d'entreprise et interfaces desktop</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Spring Boot</span>
+                            <span class="skill-tag">JavaFX</span>
+                            <span class="skill-tag">Hibernate</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="75"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/database1.png" alt="Icône base de données" loading="lazy">
-                <div class="skill-details">
-                    <h3>Bases de Données (PostgreSQL, MySQL)</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence bases de données : 80%"><div class="skill-bar-fill" data-width="80%"></div></div>
+
+                <!-- C# Development -->
+                <div class="skill-card" data-skill-level="intermediate" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/C.png" alt="Logo C# - Langage de programmation" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Développement C#</h3>
+                            <span class="skill-level intermediate">Intermédiaire</span>
+                        </div>
+                        <p class="skill-description">Développement .NET et applications web ASP.NET</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">.NET</span>
+                            <span class="skill-tag">ASP.NET</span>
+                            <span class="skill-tag">Entity Framework</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">C#</span>
+                                <span class="skill-percentage">60%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="60"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/layers.png" alt="Icône design graphique" loading="lazy">
-                <div class="skill-details">
-                    <h3>Design Visuel & Branding</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence design : 90%"><div class="skill-bar-fill" data-width="90%"></div></div>
+
+                <!-- Database Management -->
+                <div class="skill-card" data-skill-level="advanced" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/database1.png" alt="Icône base de données" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Bases de Données</h3>
+                            <span class="skill-level advanced">Avancé</span>
+                        </div>
+                        <p class="skill-description">Conception, optimisation et gestion de bases de données</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">Database</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="skill-item" role="listitem">
-                <img src="assets/images/skills/brainstorm.png" alt="Icône créativité et collaboration" loading="lazy">
-                <div class="skill-details">
-                    <h3>Créativité & Travail d'Équipe</h3>
-                    <div class="skill-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" aria-label="Compétence soft skills : 95%"><div class="skill-bar-fill" data-width="95%"></div></div>
+
+                <!-- Design -->
+                <div class="skill-card" data-skill-level="expert" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/layers.png" alt="Icône design graphique" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Design Visuel & Branding</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <p class="skill-description">Création d'identités visuelles et d'interfaces modernes</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">UI/UX</span>
+                            <span class="skill-tag">Adobe Suite</span>
+                            <span class="skill-tag">Figma</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">Design</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skill-card" data-skill-level="expert" role="listitem">
+                    <div class="skill-card-icon">
+                        <img src="assets/images/skills/brainstorm.png" alt="Icône créativité et collaboration" loading="lazy">
+                        <div class="skill-icon-ring"></div>
+                    </div>
+                    <div class="skill-card-content">
+                        <div class="skill-card-header">
+                            <h3>Soft Skills</h3>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <p class="skill-description">Collaboration efficace et pensée créative</p>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Travail d'équipe</span>
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Créativité</span>
+                        </div>
+                        <div class="skill-progress">
+                            <div class="skill-progress-info">
+                                <span class="skill-name">Soft Skills</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">
+                                <div class="skill-progress-fill" data-progress="95"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -226,133 +705,572 @@
 
     <!-- Education & Experience Section -->
     <section id="timeline" class="timeline" aria-labelledby="timeline-title">
-        <h2 id="timeline-title">Formation & Expérience</h2>
-        <div class="timeline-container">
-            <div class="timeline-item">
-                <h3>Licence en Informatique & Design</h3>
-                <p>2022 - Présent, IT University Antananarivo<br>Étude du design graphique, UI/UX, développement front-end et back-end, optimisation web et gestion de bases de données.</p>
+        <div class="timeline-section-container">
+            <div class="timeline-header">
+                <h2 id="timeline-title">Mon Parcours</h2>
+                <br>
+                <p class="timeline-subtitle">Une combinaison d'études académiques et d'expériences professionnelles qui ont façonné mes compétences</p>
             </div>
-            <div class="timeline-item">
-                <h3>Designer Graphique & Créateur de Contenu</h3>
-                <p>Jan 2021 - Mar 2022, MAHAFALY Creation, Antananarivo<br>Conception de contenu visuel pour les réseaux sociaux et l'impression, développement de matériaux de branding et collaboration sur des campagnes digitales.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>DTS en Multimédia</h3>
-                <p>Jul 2020 - Jul 2022, E-MEDIA Madagascar<br>Acquisition de compétences en création visuelle, montage vidéo, animation et développement web.</p>
-            </div>
-            <div class="timeline-item">
-                <h3>Baccalauréat Scientifique</h3>
-                <p>2012 - 2020, École Capricorn Tulear<br>Diplômé avec un Baccalauréat axé sur les sciences, construisant une base en logique et pensée analytique.</p>
+
+            <div class="timeline-wrapper">
+                <div class="timeline-line"></div>
+
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item" data-type="education">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge education">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            Formation
+                        </div>
+                        <div class="timeline-date">2022 - Présent</div>
+                        <h3>Licence en Informatique & Design</h3>
+                        <div class="timeline-location">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            IT University Antananarivo
+                        </div>
+                        <p>Étude approfondie du design graphique, UI/UX, développement front-end et back-end, optimisation web et gestion de bases de données. Formation complète alliant théorie et pratique.</p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Design UI/UX</span>
+                            <span class="timeline-skill">Développement Web</span>
+                            <span class="timeline-skill">Bases de Données</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item" data-type="experience">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge experience">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+                            </svg>
+                            Expérience
+                        </div>
+                        <div class="timeline-date">Jan 2021 - Mar 2022</div>
+                        <h3>Designer Graphique & Créateur de Contenu</h3>
+                        <div class="timeline-location">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            MAHAFALY Creation, Antananarivo
+                        </div>
+                        <p>Conception de contenu visuel pour les réseaux sociaux et l'impression, développement de matériaux de branding et collaboration sur des campagnes digitales pour divers clients.</p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Branding</span>
+                            <span class="timeline-skill">Social Media</span>
+                            <span class="timeline-skill">Print Design</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item" data-type="education">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge education">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            Formation
+                        </div>
+                        <div class="timeline-date">Jul 2020 - Jul 2022</div>
+                        <h3>DTS en Multimédia</h3>
+                        <div class="timeline-location">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            E-MEDIA Madagascar
+                        </div>
+                        <p>Acquisition de compétences en création visuelle, montage vidéo, animation et développement web. Formation pratique axée sur les outils de création multimédia.</p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Création Visuelle</span>
+                            <span class="timeline-skill">Montage Vidéo</span>
+                            <span class="timeline-skill">Animation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item" data-type="education">
+                    <div class="timeline-dot">
+                        <div class="timeline-dot-inner"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-badge education">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                            Formation
+                        </div>
+                        <div class="timeline-date">2012 - 2020</div>
+                        <h3>Baccalauréat Scientifique</h3>
+                        <div class="timeline-location">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            École Capricorn Tulear
+                        </div>
+                        <p>Diplômé avec un Baccalauréat axé sur les sciences, construisant une base solide en logique, pensée analytique et méthodes scientifiques.</p>
+                        <div class="timeline-skills">
+                            <span class="timeline-skill">Sciences</span>
+                            <span class="timeline-skill">Mathématiques</span>
+                            <span class="timeline-skill">Logique</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Certifications Section -->
     <section id="certifications" class="certifications" aria-labelledby="certifications-title">
-        <h2 id="certifications-title">Certifications</h2>
-        <div class="certifications-grid">
-            <div class="certification-item">
-                <h3>Certificat d'Anglais C1</h3>
-                <p>2021, ITTI Madagascar<br>Maîtrise avancée de l'anglais parlé et écrit.</p>
+        <div class="certifications-container">
+            <div class="certifications-header">
+                <h2 id="certifications-title">Certifications & Diplômes</h2>
+                <p class="certifications-subtitle">Validations officielles de mes compétences linguistiques et techniques</p>
             </div>
-            <div class="certification-item">
-                <h3>Certificat d'Anglais C1</h3>
-                <p>2022, FLTC Madagascar<br>Validation supplémentaire des compétences avancées de communication en anglais.</p>
+
+            <div class="certifications-grid">
+                <!-- Certification 1 -->
+                <div class="certification-card" data-level="c1">
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 15l3.5-3.5M12 15l-3.5-3.5M12 15V3m0 12"/>
+                            <path d="M2.5 12.326A10 10 0 1121.5 12.326"/>
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                        </svg>
+                        <span class="badge-level">C1</span>
+                    </div>
+                    <div class="certification-content">
+                        <div class="certification-header">
+                            <h3>Certificat d'Anglais Avancé</h3>
+                            <span class="certification-year">2021</span>
+                        </div>
+                        <div class="certification-org">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                                <path d="M9 22V12h6v10"/>
+                            </svg>
+                            ITTI Madagascar
+                        </div>
+                        <p class="certification-description">Certification officielle attestant d'une maîtrise avancée de l'anglais parlé et écrit, niveau C1 du CECRL.</p>
+                        <div class="certification-skills">
+                            <span class="cert-skill">Communication</span>
+                            <span class="cert-skill">Business English</span>
+                            <span class="cert-skill">Technical Writing</span>
+                        </div>
+                    </div>
+                    <div class="certification-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                        <span>Vérifié</span>
+                    </div>
+                </div>
+
+                <!-- Certification 2 -->
+                <div class="certification-card" data-level="c1">
+                    <div class="certification-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 15l3.5-3.5M12 15l-3.5-3.5M12 15V3m0 12"/>
+                            <path d="M2.5 12.326A10 10 0 1121.5 12.326"/>
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/>
+                        </svg>
+                        <span class="badge-level">C1</span>
+                    </div>
+                    <div class="certification-content">
+                        <div class="certification-header">
+                            <h3>Certificat d'Anglais Avancé</h3>
+                            <span class="certification-year">2022</span>
+                        </div>
+                        <div class="certification-org">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                                <path d="M9 22V12h6v10"/>
+                            </svg>
+                            FLTC Madagascar
+                        </div>
+                        <p class="certification-description">Validation supplémentaire des compétences avancées en communication anglaise, confirmant le niveau C1 CECRL.</p>
+                        <div class="certification-skills">
+                            <span class="cert-skill">Advanced Speaking</span>
+                            <span class="cert-skill">Professional Writing</span>
+                            <span class="cert-skill">Comprehension</span>
+                        </div>
+                    </div>
+                    <div class="certification-verified">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M9 12l2 2 4-4"/>
+                            <circle cx="12" cy="12" r="10"/>
+                        </svg>
+                        <span>Vérifié</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Case Studies Section - MODIFIEE -->
     <section id="work" class="case-studies" aria-labelledby="work-title">
-        <h2 id="work-title">Réalisations Sélectionnées</h2>
-        <div class="case-grid" role="list" aria-label="Portfolio de projets réalisés">
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/branding-startup.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/branding-startup.html'" aria-label="Voir le projet d'identité de marque pour startup">
+        <div class="case-studies-container">
+            <div class="case-studies-header">
+                <h2 id="work-title">Réalisations Sélectionnées</h2>
+                <br>
+                <p class="case-studies-subtitle">Découvrez une sélection de projets qui illustrent mon expertise en développement et design</p>
+            </div>
+
+            <div class="case-grid" role="list" aria-label="Portfolio de projets réalisés">
+            <div class="case-card" role="listitem" data-category="design" tabindex="0" onclick="window.location.href='projects/branding-startup.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/branding-startup.html'" aria-label="Voir le projet d'identité de marque pour startup">
+                <span class="case-category design-cat">Design</span>
                 <img src="assets/images/projects/back.png" alt="Aperçu du projet d'identité de marque - logo et charte graphique moderne" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Identité de Marque pour Startup</h3>
-                    <p>Développement d'une identité de marque minimaliste et moderne pour une startup technologique locale, incluant logo, charte graphique et supports de communication.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Identité de Marque pour Startup</h3>
+                        <p>Identité visuelle complète pour une startup tech : logo, charte graphique et supports de communication.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Branding</span>
+                            <span class="case-tag">Logo Design</span>
+                            <span class="case-tag">Illustrator</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/ecommerce-fleurs.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/ecommerce-fleurs.html'" aria-label="Voir le projet de plateforme de comptabilité">
+            <div class="case-card" role="listitem" data-category="development" tabindex="0" onclick="window.location.href='projects/ecommerce-fleurs.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/ecommerce-fleurs.html'" aria-label="Voir le projet de plateforme de comptabilité">
+                <span class="case-category dev-cat">Dev</span>
                 <img src="assets/images/projects/compta.png" alt="Interface de l'application de gestion comptable avec tableaux de bord" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Plateforme de Comptabilité</h3>
-                    <p>Application de gestion comptable développée avec Vue.js 3, permettant la gestion des comptes, l'import de données, le suivi des transactions et l'analyse financière en temps réel.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Plateforme de Comptabilité</h3>
+                        <p>Application de gestion comptable complète avec Vue.js 3 : suivi des transactions et analyse financière en temps réel.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Vue.js 3</span>
+                            <span class="case-tag">TypeScript</span>
+                            <span class="case-tag">Vite</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/gestion-medicale.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/gestion-medicale.html'" aria-label="Voir le projet de système de gestion médicale">
+            <div class="case-card" role="listitem" data-category="development" tabindex="0" onclick="window.location.href='projects/gestion-medicale.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/gestion-medicale.html'" aria-label="Voir le projet de système de gestion médicale">
+                <span class="case-category dev-cat">Dev</span>
                 <img src="assets/images/projects/index.png" alt="Interface du système de gestion de rendez-vous médicaux" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Système de Gestion de Rendez-vous Médicaux</h3>
-                    <p>Construction d'un système complet de planification de rendez-vous avec Laravel 9 et Bootstrap 5 pour les professionnels de santé et les patients.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Système de Gestion de Rendez-vous Médicaux</h3>
+                        <p>Plateforme de planification médicale avec Laravel 9 pour professionnels de santé et patients.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Laravel 9</span>
+                            <span class="case-tag">Bootstrap 5</span>
+                            <span class="case-tag">MySQL</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/prototype-mobile.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/prototype-mobile.html'" aria-label="Voir le projet de prototype d'application mobile">
+            <div class="case-card" role="listitem" data-category="design" tabindex="0" onclick="window.location.href='projects/prototype-mobile.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/prototype-mobile.html'" aria-label="Voir le projet de prototype d'application mobile">
+                <span class="case-category design-cat">Design</span>
                 <img src="assets/images/projects/mobile.png" alt="Maquettes du prototype d'application mobile sur différents écrans" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Prototype d'Application Mobile</h3>
-                    <p>Conception d'un prototype d'application mobile convivial dans Figma pour un projet universitaire avec focus sur l'UX/UI moderne.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Prototype d'Application Mobile</h3>
+                        <p>Prototype mobile moderne dans Figma avec focus sur l'expérience utilisateur et l'interface intuitive.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Figma</span>
+                            <span class="case-tag">UI/UX</span>
+                            <span class="case-tag">Prototypage</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/affiches-evenement.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/affiches-evenement.html'" aria-label="Voir le projet d'affiches d'événement">
+            <div class="case-card" role="listitem" data-category="design" tabindex="0" onclick="window.location.href='projects/affiches-evenement.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/affiches-evenement.html'" aria-label="Voir le projet d'affiches d'événement">
+                <span class="case-category design-cat">Design</span>
                 <img src="assets/images/projects/affiche.png" alt="Collection d'affiches d'événement avec typographie créative" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Série d'Affiches d'Événement</h3>
-                    <p>Conception d'une série d'affiches d'événement pour un club universitaire, mélangeant typographie audacieuse et visuels impactants.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Série d'Affiches d'Événement</h3>
+                        <p>Collection d'affiches événementielles avec typographie audacieuse et visuels percutants.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Print Design</span>
+                            <span class="case-tag">Photoshop</span>
+                            <span class="case-tag">Typography</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="case-card" role="listitem" tabindex="0" onclick="window.location.href='projects/publicite-imprimee.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/publicite-imprimee.html'" aria-label="Voir le projet de publicité imprimée">
+            <div class="case-card" role="listitem" data-category="design" tabindex="0" onclick="window.location.href='projects/publicite-imprimee.html'" onkeypress="if(event.key==='Enter'||event.key===' ') window.location.href='projects/publicite-imprimee.html'" aria-label="Voir le projet de publicité imprimée">
+                <span class="case-category design-cat">Design</span>
                 <img src="assets/images/projects/Flyers1.png" alt="Matériaux publicitaires imprimés - affiches et dépliants sport" loading="lazy">
-                <div class="case-card-content">
-                    <h3>Projet de Publicité Imprimée</h3>
-                    <p>Création d'une campagne publicitaire complète avec affiches et dépliants pour une marque de sport, alliant créativité et efficacité commerciale.</p>
-                    <div class="project-link" aria-hidden="true">Voir le projet</div>
+                <div class="case-card-overlay">
+                    <div class="case-card-content">
+                        <h3>Projet de Publicité Imprimée</h3>
+                        <p>Campagne publicitaire print pour marque de sport : affiches et dépliants créatifs et impactants.</p>
+                        <div class="case-card-tags">
+                            <span class="case-tag">Marketing</span>
+                            <span class="case-tag">InDesign</span>
+                            <span class="case-tag">Branding</span>
+                        </div>
+                        <div class="project-link" aria-hidden="true">
+                            <span>Voir le projet</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Contactez-moi</h2>
-        <p>Email : <a href="mailto:mitiaandrimalala@gmail.com" aria-label="Envoyer un email à mitiaandrimalala@gmail.com">mitiaandrimalala@gmail.com</a> | Téléphone : <a href="tel:+261385599347" aria-label="Appeler le +261 38 55 993 47">+261 38 55 993 47</a></p>
-        <form id="contact-form" action="https://formspree.io/f/xrbqwqly" method="POST" role="form" aria-label="Formulaire de contact">
-            <label for="name" class="sr-only">Votre nom</label>
-            <input type="text" id="name" name="name" placeholder="Votre Nom" required aria-describedby="name-help">
-            <span id="name-help" class="sr-only">Entrez votre nom complet</span>
+        <div class="contact-container">
+            <div class="contact-header">
+                <h2 id="contact-title">Travaillons Ensemble</h2>
+                <p class="contact-subtitle">Vous avez un projet en tête ? Je serais ravi d'en discuter avec vous.</p>
+            </div>
 
-            <label for="email" class="sr-only">Votre email</label>
-            <input type="email" id="email" name="email" placeholder="Votre Email" required aria-describedby="email-help">
-            <span id="email-help" class="sr-only">Entrez votre adresse email valide</span>
+            <div class="contact-content">
+                <!-- Contact Info Cards -->
+                <div class="contact-info-grid">
+                    <div class="contact-card" data-aos="fade-up">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-content">
+                            <h3>Email</h3>
+                            <a href="mailto:mitiaandrimalala@gmail.com" aria-label="Envoyer un email à mitiaandrimalala@gmail.com">mitiaandrimalala@gmail.com</a>
+                        </div>
+                    </div>
 
-            <label for="message" class="sr-only">Votre message</label>
-            <textarea id="message" name="message" placeholder="Votre Message" required aria-describedby="message-help"></textarea>
-            <span id="message-help" class="sr-only">Décrivez votre projet ou votre demande</span>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-content">
+                            <h3>Téléphone</h3>
+                            <a href="tel:+261385599347" aria-label="Appeler le +261 38 55 993 47">+261 38 55 993 47</a>
+                        </div>
+                    </div>
 
-            <button type="submit" aria-describedby="submit-help">Engagez-moi</button>
-            <span id="submit-help" class="sr-only">Envoyer le formulaire de contact</span>
-            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
-        </form>
-        <a href="assets/docs/MitiaCV.pdf" class="resume-download" download aria-label="Télécharger le CV de Mitia Andrimalala au format PDF">Télécharger mon CV</a>
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="contact-card-content">
+                            <h3>Localisation</h3>
+                            <p>Antananarivo, Madagascar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" action="https://formspree.io/f/xrbqwqly" method="POST" role="form" aria-label="Formulaire de contact">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="sr-only">Votre nom</label>
+                                <input type="text" id="name" name="name" placeholder="Votre Nom" required aria-describedby="name-help">
+                                <span class="input-border"></span>
+                                <span id="name-help" class="sr-only">Entrez votre nom complet</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="sr-only">Votre email</label>
+                                <input type="email" id="email" name="email" placeholder="Votre Email" required aria-describedby="email-help">
+                                <span class="input-border"></span>
+                                <span id="email-help" class="sr-only">Entrez votre adresse email valide</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="sr-only">Votre message</label>
+                            <textarea id="message" name="message" placeholder="Parlez-moi de votre projet..." required aria-describedby="message-help"></textarea>
+                            <span class="input-border"></span>
+                            <span id="message-help" class="sr-only">Décrivez votre projet ou votre demande</span>
+                        </div>
+
+                        <button type="submit" class="submit-btn" aria-describedby="submit-help">
+                            <span class="btn-text">Envoyer le Message</span>
+                            <span class="btn-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <span id="submit-help" class="sr-only">Envoyer le formulaire de contact</span>
+                        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+                    </form>
+
+                    <div class="form-decoration">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+                <a href="assets/docs/MitiaCV.pdf" class="resume-download" download aria-label="Télécharger le CV de Mitia Andrimalala au format PDF">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                    </svg>
+                    <span>Télécharger mon CV</span>
+                </a>
+            </div>
+        </div>
     </section>
 
     </main>
 
     <!-- Footer -->
     <footer role="contentinfo" aria-label="Pied de page">
-        <p>Construisons quelque chose d'extraordinaire ensemble.</p>
-        <div class="social-links" role="list" aria-label="Liens vers les réseaux sociaux">
-            <a href="https://www.linkedin.com/in/mitia-andrimalala-9a0709309/" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Mitia Andrimalala (s'ouvre dans un nouvel onglet)">LinkedIn</a>
-            <a href="https://github.com/Mitia-Andriamalala" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub de Mitia Andrimalala (s'ouvre dans un nouvel onglet)">GitHub</a>
-            <a href="mailto:multiaandrimalala@gmail.com" aria-label="Envoyer un email à Mitia Andrimalala">Email</a>
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Footer Brand -->
+                <div class="footer-brand">
+                    <h3 class="footer-logo">Mitia Andrimalala</h3>
+                    <p class="footer-tagline">Développeur Fullstack & Designer Graphique</p>
+                    <p class="footer-description">Transformons vos idées en solutions numériques innovantes.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#about">À Propos</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#work">Réalisations</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services Links -->
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Développement Web</a></li>
+                        <li><a href="#services">Design Graphique</a></li>
+                        <li><a href="#services">UI/UX Design</a></li>
+                        <li><a href="#services">Bases de Données</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <a href="mailto:mitiaandrimalala@gmail.com">mitiaandrimalala@gmail.com</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+                            </svg>
+                            <a href="tel:+261385599347">+261 38 55 993 47</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Antananarivo, Madagascar</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">© 2025 Mitia Andrimalala RAZANADRAKOTO. Tous droits réservés.</p>
+
+                    <div class="footer-social" role="list" aria-label="Liens vers les réseaux sociaux">
+                        <a href="https://www.linkedin.com/in/mitia-andrimalala-9a0709309/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/Mitia-Andriamalala" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="mailto:mitiaandrimalala@gmail.com" aria-label="Email" class="social-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <a href="#home" class="back-to-top" aria-label="Retourner en haut de la page">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 15l-6-6-6 6"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-        <p>© 2025 Mitia Andrimalala RAZANADRAKOTO. Tous droits réservés.</p>
-        <a href="#home" class="back-to-top" aria-label="Retourner en haut de la page">Retour en Haut</a>
     </footer>
 
     <!-- Modal Popup -->
